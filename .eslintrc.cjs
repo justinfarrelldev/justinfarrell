@@ -24,6 +24,7 @@ module.exports = {
     // Base config
     extends: [
         'eslint:recommended',
+        'plugin:react/recommended',
         'plugin:tailwindcss/recommended',
         'prettier',
     ],
