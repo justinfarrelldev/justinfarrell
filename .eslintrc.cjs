@@ -58,7 +58,7 @@ module.exports = {
         // Typescript
         {
             files: ['**/*.{ts,tsx}'],
-            plugins: ['@typescript-eslint', 'import'],
+            plugins: ['@typescript-eslint', 'import', 'es'],
             parser: '@typescript-eslint/parser',
             settings: {
                 'import/internal-regex': '^~/',
@@ -76,6 +76,9 @@ module.exports = {
                 'plugin:import/recommended',
                 'plugin:import/typescript',
             ],
+            rules: {
+                'es/no-arrow-functions': 'error',
+            },
         },
 
         // Node
