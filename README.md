@@ -1,6 +1,6 @@
-# Welcome to Remix + Vite!
+# Justin Farrell's Personal Site
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/future/vite) for details on supported features.
+This is my personal site (soon to be hosted)!
 
 ## Development
 
