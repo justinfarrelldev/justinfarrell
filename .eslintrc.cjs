@@ -24,7 +24,6 @@ module.exports = {
     // Base config
     extends: [
         'eslint:recommended',
-        '@remix-run/eslint-config',
         'plugin:tailwindcss/recommended',
         'prettier',
     ],
