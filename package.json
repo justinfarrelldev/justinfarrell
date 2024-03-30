@@ -11,7 +11,7 @@
         "lint:fix": "npm run lint -- --fix",
         "start": "remix-serve ./build/server/index.js",
         "typecheck": "tsc",
-        "format-fix": "prettier --fix ."
+        "format:fix": "prettier --write ."
     },
     "dependencies": {
         "@remix-run/node": "^2.8.1",
