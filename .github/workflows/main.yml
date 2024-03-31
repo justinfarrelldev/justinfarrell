@@ -36,7 +36,6 @@ jobs:
                       ${{ runner.os }}-node-
             - uses: superfly/flyctl-actions/setup-flyctl@master
             - run: |
-                  npm i
-                  npm run redeploy
+                  vercel --token $VERCEL_TOKEN
               env:
                   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
