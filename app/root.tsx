@@ -26,12 +26,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </head>
             <body>
                 {children}
-                <h1 className="text-3xl font-bold text-red-500 underline">
-                    Hello world from Tailwind!
-                </h1>
-                <button className="btn btn-outline">
-                    Hello world from Daisy UI
-                </button>
                 <ScrollRestoration />
                 <Scripts />
             </body>
