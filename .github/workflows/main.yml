@@ -1,0 +1,42 @@
+name: Deploy to Preview
+on:
+    push:
+        branches:
+            - staging
+jobs:
+    test:
+        name: Test app
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Cache npm dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.npm # Cache location
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} # Cache key
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+            - name: Install dependencies
+              run: npm install
+            - name: Run tests
+              run: npm run test
+            #   env:
+    deploy:
+        name: Deploy app
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Cache npm dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.npm # Cache location
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} # Cache key
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+            - uses: superfly/flyctl-actions/setup-flyctl@master
+            - run: |
+                  npm i
+                  npm run redeploy
+              env:
+                  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
