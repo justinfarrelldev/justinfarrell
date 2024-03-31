@@ -5,5 +5,11 @@
     "editor.quickSuggestions": {
         "strings": "on"
     },
-    "cSpell.words": ["daisyui", "isbot", "tailwindcss", "typecheck"]
+    "cSpell.words": [
+        "daisyui",
+        "isbot",
+        "synthwave",
+        "tailwindcss",
+        "typecheck"
+    ]
 }

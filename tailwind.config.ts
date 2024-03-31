@@ -7,4 +7,7 @@ export default {
         extend: {},
     },
     plugins: [daisyUI],
+    daisyui: {
+        themes: ['light', 'dark', 'synthwave'],
+    },
 } satisfies Config
