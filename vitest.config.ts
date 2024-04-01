@@ -4,5 +4,6 @@ export default defineConfig({
     test: {
         exclude: [...configDefaults.exclude],
         environment: 'happy-dom',
+        setupFiles: 'setupTests.ts',
     },
 })
