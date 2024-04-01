@@ -5,7 +5,7 @@ on:
             - staging
 jobs:
     test:
-        name: Test app
+        name: Test App
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
               run: npm run test
             #   env:
     deploy:
-        name: Deploy app
+        name: Deploy App to Preview
         needs: test
         runs-on: ubuntu-latest
         steps:
