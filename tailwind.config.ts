@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss'
-import daisyUI from 'daisyui'
+import type { Config } from 'tailwindcss';
+import daisyUI from 'daisyui';
 
 export default {
     content: ['./app/**/*.{js,jsx,ts,tsx}'],
@@ -10,4 +10,4 @@ export default {
     daisyui: {
         themes: ['light', 'dark', 'synthwave'],
     },
-} satisfies Config
+} satisfies Config;
