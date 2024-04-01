@@ -4,17 +4,17 @@ import {
     Outlet,
     Scripts,
     ScrollRestoration,
-} from '@remix-run/react'
-import type { LinksFunction } from '@remix-run/node'
-import stylesheet from '~/tailwind.css?url'
+} from '@remix-run/react';
+import type { LinksFunction } from '@remix-run/node';
+import stylesheet from '~/tailwind.css?url';
 
 export const links: LinksFunction = function () {
-    return [{ rel: 'stylesheet', href: stylesheet }]
-}
+    return [{ rel: 'stylesheet', href: stylesheet }];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" data-theme="synthwave">
             <head>
                 <meta charSet="utf-8" />
                 <meta
@@ -25,20 +25,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Links />
             </head>
             <body>
-                {children}
-                <h1 className="text-3xl font-bold text-red-500 underline">
-                    Hello world from Tailwind!
-                </h1>
-                <button className="btn btn-outline">
-                    Hello world from Daisy UI
-                </button>
-                <ScrollRestoration />
-                <Scripts />
+                <div className="m-36">
+                    {children}
+                    <ScrollRestoration />
+                    <Scripts />
+                </div>
             </body>
         </html>
-    )
+    );
 }
 
 export default function App() {
-    return <Outlet />
+    return <Outlet />;
 }

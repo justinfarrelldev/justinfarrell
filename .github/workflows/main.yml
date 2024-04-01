@@ -5,7 +5,7 @@ on:
             - staging
 jobs:
     test:
-        name: Test app
+        name: Test App
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
               run: npm run test
             #   env:
     deploy:
-        name: Deploy app
+        name: Deploy App to Preview
         needs: test
         runs-on: ubuntu-latest
         steps:
@@ -34,9 +34,7 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} # Cache key
                   restore-keys: |
                       ${{ runner.os }}-node-
-            - uses: superfly/flyctl-actions/setup-flyctl@master
             - run: |
-                  npm i
-                  npm run redeploy
+                  vercel --yes --token $VERCEL_TOKEN
               env:
                   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
