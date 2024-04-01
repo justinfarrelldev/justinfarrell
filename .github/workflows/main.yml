@@ -34,8 +34,7 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} # Cache key
                   restore-keys: |
                       ${{ runner.os }}-node-
-            - uses: superfly/flyctl-actions/setup-flyctl@master
             - run: |
-                  vercel --token $VERCEL_TOKEN
+                  vercel --yes --token $VERCEL_TOKEN
               env:
                   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
