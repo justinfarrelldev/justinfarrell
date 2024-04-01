@@ -13,8 +13,9 @@ export const meta: MetaFunction = function () {
 
 export default function Index() {
     return (
-        <div
-            style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}
-        ></div>
+        <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
+            <h1 className="text-6xl font-bold">Justin Farrell</h1>
+            <h3 className="text-2xl">Software Engineering Hero</h3>
+        </div>
     )
 }
