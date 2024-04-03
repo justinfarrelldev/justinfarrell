@@ -16,7 +16,7 @@ export default function Index() {
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <h1 className="text-6xl font-bold">{MAIN_HEADING_TEXT}</h1>
-            <h3 className="text-2xl">{MAIN_SUBHEADING_TEXT}</h3>
+            <h3 className="pt-5 text-2xl">{MAIN_SUBHEADING_TEXT}</h3>
         </div>
     );
 }
