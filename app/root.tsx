@@ -25,7 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Links />
             </head>
             <body>
-                <div className="m-36">
+                <div className="m-[10%]">
                     {children}
                     <ScrollRestoration />
                     <Scripts />
