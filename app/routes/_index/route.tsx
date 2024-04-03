@@ -21,17 +21,19 @@ export default function Index() {
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <section>
-                <div className="fixed">
+                <div className="md:fixed">
                     <h1 className="text-6xl font-bold">{MAIN_HEADING_TEXT}</h1>
                     <h3 className="pt-5 text-2xl">{MAIN_SUBHEADING_TEXT}</h3>
                     <a href="/#about">
-                        <h3 className="pt-16 text-xl">{ABOUT_LINK_TEXT}</h3>
+                        <h3 className="pt-16 text-xl text-primary">
+                            {ABOUT_LINK_TEXT}
+                        </h3>
                     </a>
                     {/* <a href="/#resume">
                         <h3 className="text-xl">{RESUME_LINK_TEXT}</h3>
                     </a> */}
                 </div>
-                <div className="grid h-screen grid-cols-2">
+                <div className="grid h-screen lg:grid-cols-2">
                     <div>
                         {/* This div is empty to push the other column over */}
                     </div>
