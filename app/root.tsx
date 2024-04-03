@@ -14,7 +14,7 @@ export const links: LinksFunction = function () {
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" data-theme="synthwave">
+        <html lang="en" data-theme="synthwave" className="scroll-smooth">
             <head>
                 <meta charSet="utf-8" />
                 <meta
@@ -25,7 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Links />
             </head>
             <body>
-                <div className="m-36">
+                <div className="m-[10%]">
                     {children}
                     <ScrollRestoration />
                     <Scripts />

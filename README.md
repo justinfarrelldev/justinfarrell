@@ -1,6 +1,6 @@
 # Justin Farrell's Personal Site
 
-This is my personal site (soon to be hosted)!
+This is the source code for my personal site hosted at [justin-farrell.com](https://www.justin-farrell.com/)!
 
 ## Development
 
@@ -25,6 +25,10 @@ npm start
 ```
 
 Now you'll need to pick a host to deploy it to.
+
+### Hosting
+
+If you are going to fork this code, I highly recommend hosting it on Vercel. So far, Vercel has been hassle-free!
 
 ### DIY
 
