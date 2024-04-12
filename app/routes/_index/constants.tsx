@@ -68,7 +68,12 @@ export const EXPERIENCE_TEXT = (
     <>
         <h2>My Experience</h2>
         <table className="table">
-            <tr className="hover">
+            <tr
+                className="hover cursor-pointer"
+                onClick={function () {
+                    window.open('https://www.asklightcast.io', '_blank');
+                }}
+            >
                 <td className="pl-0 align-top">
                     <h3 className="text-lg text-secondary">
                         August 2023 - Present
@@ -83,7 +88,15 @@ export const EXPERIENCE_TEXT = (
                     </h3>
                 </td>
             </tr>
-            <tr className="hover">
+            <tr
+                className="hover cursor-pointer"
+                onClick={function () {
+                    window.open(
+                        'https://lightcast.io/solutions/economic-and-workforce-development/skillfit',
+                        '_blank'
+                    );
+                }}
+            >
                 <td className="pl-0 align-top">
                     <h3 className="text-lg text-secondary">
                         November 2022 - August 2023
@@ -98,7 +111,12 @@ export const EXPERIENCE_TEXT = (
                     </h3>
                 </td>
             </tr>
-            <tr className="hover">
+            <tr
+                className="hover cursor-pointer"
+                onClick={function () {
+                    window.open('https://www.kalosflorida.com/', '_blank');
+                }}
+            >
                 <td className="pl-0 align-top">
                     <h3 className="text-lg text-secondary">
                         November 2021 - July 2022
