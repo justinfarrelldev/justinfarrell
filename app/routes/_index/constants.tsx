@@ -67,6 +67,19 @@ export const ABOUT_TEXT = (
 export const EXPERIENCE_TEXT = (
     <>
         <h2>My Experience</h2>
+        <table className="table">
+            <tr className="hover">
+                <td className="pl-0 align-top">
+                    <h3 className="text-lg text-secondary">
+                        November 2021 - July 2022
+                    </h3>
+                </td>
+                <td className="align-top">
+                    <h3 className="text-xl font-bold">Software Engineer</h3>
+                    <h3 className="text-lg">Kalos Services, Inc.</h3>
+                </td>
+            </tr>
+        </table>
     </>
 );
 
