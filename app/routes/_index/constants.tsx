@@ -71,6 +71,36 @@ export const EXPERIENCE_TEXT = (
             <tr className="hover">
                 <td className="pl-0 align-top">
                     <h3 className="text-lg text-secondary">
+                        August 2023 - Present
+                    </h3>
+                </td>
+                <td className="align-top">
+                    <h3 className="text-xl font-bold">
+                        Full-Stack Software Engineer
+                    </h3>
+                    <h3 className="text-lg">
+                        Lightcast <em>(Ask Lightcast Team)</em>
+                    </h3>
+                </td>
+            </tr>
+            <tr className="hover">
+                <td className="pl-0 align-top">
+                    <h3 className="text-lg text-secondary">
+                        November 2022 - August 2023
+                    </h3>
+                </td>
+                <td className="align-top">
+                    <h3 className="text-xl font-bold">
+                        Full-Stack Software Engineer
+                    </h3>
+                    <h3 className="text-lg">
+                        Lightcast <em>(SkillFit Team)</em>
+                    </h3>
+                </td>
+            </tr>
+            <tr className="hover">
+                <td className="pl-0 align-top">
+                    <h3 className="text-lg text-secondary">
                         November 2021 - July 2022
                     </h3>
                 </td>
