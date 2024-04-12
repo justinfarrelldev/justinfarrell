@@ -2,6 +2,7 @@ export const MAIN_HEADING_TEXT = 'Justin Farrell';
 export const MAIN_SUBHEADING_TEXT = 'Full-Stack Engineer';
 // About
 export const ABOUT_LINK_TEXT = 'About Me';
+export const EXPERIENCE_LINK_TEXT = 'My Experience';
 export const ABOUT_TEXT = (
     <>
         <h3 className="pt-6 text-xl">
@@ -62,5 +63,12 @@ export const ABOUT_TEXT = (
         </h3>
     </>
 );
+
+export const EXPERIENCE_TEXT = (
+    <>
+        <h2>My Experience</h2>
+    </>
+);
+
 // Resume
 export const RESUME_LINK_TEXT = 'Résumé';

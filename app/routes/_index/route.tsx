@@ -2,6 +2,8 @@ import type { MetaFunction } from '@remix-run/node';
 import {
     ABOUT_LINK_TEXT,
     ABOUT_TEXT,
+    EXPERIENCE_LINK_TEXT,
+    EXPERIENCE_TEXT,
     MAIN_HEADING_TEXT,
     MAIN_SUBHEADING_TEXT,
 } from './constants';
@@ -29,6 +31,11 @@ export default function Index() {
                             {ABOUT_LINK_TEXT}
                         </h3>
                     </a>
+                    <a href="/#experience">
+                        <h3 className="text-xl text-primary">
+                            {EXPERIENCE_LINK_TEXT}
+                        </h3>
+                    </a>
                     {/* <a href="/#resume">
                         <h3 className="text-xl">{RESUME_LINK_TEXT}</h3>
                     </a> */}
@@ -40,6 +47,11 @@ export default function Index() {
                     <div>
                         <div id="about">
                             <h3 className="text-2xl">{ABOUT_TEXT}</h3>
+                        </div>
+                        <div id="experience">
+                            <h3 className="pt-16 text-2xl">
+                                {EXPERIENCE_TEXT}
+                            </h3>
                         </div>
                         {/* <p id="resume">Testing</p> */}
                     </div>
