@@ -2,6 +2,7 @@ export const MAIN_HEADING_TEXT = 'Justin Farrell';
 export const MAIN_SUBHEADING_TEXT = 'Full-Stack Engineer';
 // About
 export const ABOUT_LINK_TEXT = 'About Me';
+export const EXPERIENCE_LINK_TEXT = 'My Experience';
 export const ABOUT_TEXT = (
     <>
         <h3 className="pt-6 text-xl">
@@ -62,5 +63,73 @@ export const ABOUT_TEXT = (
         </h3>
     </>
 );
+
+export const EXPERIENCE_TEXT = (
+    <>
+        <h2>My Experience</h2>
+        <table className="table">
+            <tr
+                className="hover cursor-pointer"
+                onClick={function () {
+                    window.open('https://www.asklightcast.io', '_blank');
+                }}
+            >
+                <td className="pl-0 align-top">
+                    <h3 className="text-lg text-secondary">
+                        August 2023 - Present
+                    </h3>
+                </td>
+                <td className="align-top">
+                    <h3 className="text-xl font-bold">
+                        Full-Stack Software Engineer
+                    </h3>
+                    <h3 className="text-lg">
+                        Lightcast <em>(Ask Lightcast Team)</em>
+                    </h3>
+                </td>
+            </tr>
+            <tr
+                className="hover cursor-pointer"
+                onClick={function () {
+                    window.open(
+                        'https://lightcast.io/solutions/economic-and-workforce-development/skillfit',
+                        '_blank'
+                    );
+                }}
+            >
+                <td className="pl-0 align-top">
+                    <h3 className="text-lg text-secondary">
+                        November 2022 - August 2023
+                    </h3>
+                </td>
+                <td className="align-top">
+                    <h3 className="text-xl font-bold">
+                        Full-Stack Software Engineer
+                    </h3>
+                    <h3 className="text-lg">
+                        Lightcast <em>(SkillFit Team)</em>
+                    </h3>
+                </td>
+            </tr>
+            <tr
+                className="hover cursor-pointer"
+                onClick={function () {
+                    window.open('https://www.kalosflorida.com/', '_blank');
+                }}
+            >
+                <td className="pl-0 align-top">
+                    <h3 className="text-lg text-secondary">
+                        November 2021 - July 2022
+                    </h3>
+                </td>
+                <td className="align-top">
+                    <h3 className="text-xl font-bold">Software Engineer</h3>
+                    <h3 className="text-lg">Kalos Services, Inc.</h3>
+                </td>
+            </tr>
+        </table>
+    </>
+);
+
 // Resume
 export const RESUME_LINK_TEXT = 'Résumé';
