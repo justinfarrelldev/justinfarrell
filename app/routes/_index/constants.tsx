@@ -17,8 +17,17 @@ export const ABOUT_TEXT = (
             engineering.
         </h3>
         <h3 className="pt-6 text-xl">
-            Currently, I work as a Software Engineer at Lightcast on the Phantom
-            Team, where I explore and create new AI technologies. I am
+            Currently, I am a Software Engineer at Lightcast on the Phantom Team
+            (working on the{' '}
+            <a
+                href="https://www.asklightcast.io"
+                className="text-primary"
+                target="_blank"
+                rel="noreferrer"
+            >
+                new AI project, Ask Lightcast
+            </a>
+            ), where I explore and create new possibilities with AI. I am
             laser-focused on creating reliable software and am a massive
             proponent of almost all kinds of software testing.
         </h3>
@@ -84,7 +93,7 @@ export const EXPERIENCE_TEXT = (
                         Full-Stack Software Engineer
                     </h3>
                     <h3 className="text-lg">
-                        Lightcast <em>(Ask Lightcast Team)</em>
+                        Lightcast <em>(Phantom Team - Ask Lightcast)</em>
                     </h3>
                 </td>
             </tr>
@@ -107,7 +116,7 @@ export const EXPERIENCE_TEXT = (
                         Full-Stack Software Engineer
                     </h3>
                     <h3 className="text-lg">
-                        Lightcast <em>(SkillFit Team)</em>
+                        Lightcast <em>(SkillFit Team - SkillFit)</em>
                     </h3>
                 </td>
             </tr>
