@@ -6,6 +6,8 @@ import {
     EXPERIENCE_TEXT,
     MAIN_HEADING_TEXT,
     MAIN_SUBHEADING_TEXT,
+    SKILLS_LINK_TEXT,
+    SKILLS_TEXT,
 } from './constants';
 
 export const meta: MetaFunction = function () {
@@ -25,19 +27,24 @@ export default function Index() {
             <section>
                 <div className="md:fixed">
                     <h1 className="text-6xl font-bold">{MAIN_HEADING_TEXT}</h1>
-                    <h3 className="pt-5 text-2xl">{MAIN_SUBHEADING_TEXT}</h3>
+                    <p className="pt-5 text-2xl">{MAIN_SUBHEADING_TEXT}</p>
                     <a href="/#about">
-                        <h3 className="pt-16 text-xl text-primary">
+                        <p className="pt-16 text-xl text-primary">
                             {ABOUT_LINK_TEXT}
-                        </h3>
+                        </p>
                     </a>
                     <a href="/#experience">
-                        <h3 className="text-xl text-primary">
+                        <p className="text-xl text-primary">
                             {EXPERIENCE_LINK_TEXT}
-                        </h3>
+                        </p>
+                    </a>
+                    <a href="/#skills">
+                        <p className="text-xl text-primary">
+                            {SKILLS_LINK_TEXT}
+                        </p>
                     </a>
                     {/* <a href="/#resume">
-                        <h3 className="text-xl">{RESUME_LINK_TEXT}</h3>
+                        <p className="text-xl">{RESUME_LINK_TEXT}</p>
                     </a> */}
                 </div>
                 <div className="grid h-screen lg:grid-cols-2">
@@ -46,12 +53,13 @@ export default function Index() {
                     </div>
                     <div>
                         <div id="about">
-                            <h3 className="text-2xl">{ABOUT_TEXT}</h3>
+                            <p className="text-2xl">{ABOUT_TEXT}</p>
                         </div>
                         <div id="experience">
-                            <h3 className="pt-16 text-2xl">
-                                {EXPERIENCE_TEXT}
-                            </h3>
+                            <p className="pt-16 text-2xl">{EXPERIENCE_TEXT}</p>
+                        </div>
+                        <div id="skills">
+                            <p className="pt-16 text-2xl">{SKILLS_TEXT}</p>
                         </div>
                         {/* <p id="resume">Testing</p> */}
                     </div>

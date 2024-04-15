@@ -3,6 +3,7 @@ export const MAIN_SUBHEADING_TEXT = 'Full-Stack Engineer';
 // About
 export const ABOUT_LINK_TEXT = 'About Me';
 export const EXPERIENCE_LINK_TEXT = 'My Experience';
+export const SKILLS_LINK_TEXT = 'My Skills';
 export const ABOUT_TEXT = (
     <>
         <p className="pt-6 text-xl">
@@ -137,6 +138,12 @@ export const EXPERIENCE_TEXT = (
                 </td>
             </tr>
         </table>
+    </>
+);
+
+export const SKILLS_TEXT = (
+    <>
+        <h2>My Skills</h2>
     </>
 );
 
