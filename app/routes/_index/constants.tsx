@@ -1,3 +1,5 @@
+import { SKILLS_BADGES } from './skillsBadges';
+
 export const MAIN_HEADING_TEXT = 'Justin Farrell';
 export const MAIN_SUBHEADING_TEXT = 'Full-Stack Engineer';
 // About
@@ -144,6 +146,7 @@ export const EXPERIENCE_TEXT = (
 export const SKILLS_TEXT = (
     <>
         <h2>My Skills</h2>
+        {SKILLS_BADGES}
     </>
 );
 
