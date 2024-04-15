@@ -5,7 +5,7 @@ export const ABOUT_LINK_TEXT = 'About Me';
 export const EXPERIENCE_LINK_TEXT = 'My Experience';
 export const ABOUT_TEXT = (
     <>
-        <h3 className="pt-6 text-xl">
+        <p className="pt-6 text-xl">
             My journey in programming began at 13, sparked by a love for game
             development. I started with C++{' '}
             <em>(a bold choice, even for the time)</em>, then moved on to C# for
@@ -15,8 +15,8 @@ export const ABOUT_TEXT = (
             and in response to changes in the game development industry, I
             learned Javascript and TypeScript, which led me into software
             engineering.
-        </h3>
-        <h3 className="pt-6 text-xl">
+        </p>
+        <p className="pt-6 text-xl">
             Currently, I am a Software Engineer at Lightcast on the Phantom Team
             (working on the{' '}
             <a
@@ -30,14 +30,14 @@ export const ABOUT_TEXT = (
             ), where I explore and create new possibilities with AI. I am
             laser-focused on creating reliable software and am a massive
             proponent of almost all kinds of software testing.
-        </h3>
-        <h3 className="pt-6 text-xl">
+        </p>
+        <p className="pt-6 text-xl">
             Outside of work, I enjoy traveling and have visited over 15 states.
             Some of my favorite places include the Parthenon in Nashville, TN,
             the Savannah River Rapids Park in Augusta, GA and, as an amusement
             park enthusiast, Carowinds in Charlotte, NC!
-        </h3>
-        <h3 className="pt-6 text-xl">
+        </p>
+        <p className="pt-6 text-xl">
             Stay tuned - this site is still under construction! Still, feel free
             to reach out to me at{' '}
             <a
@@ -57,8 +57,8 @@ export const ABOUT_TEXT = (
             >
                 LinkedIn here!
             </a>
-        </h3>
-        <h3 className="pt-6 text-xl">
+        </p>
+        <p className="pt-6 text-xl">
             This site is also{' '}
             <a
                 href="https://github.com/justinfarrelldev/justinfarrell"
@@ -69,7 +69,7 @@ export const ABOUT_TEXT = (
                 open-source
             </a>
             , so you can peek behind the curtains!
-        </h3>
+        </p>
     </>
 );
 
@@ -84,17 +84,17 @@ export const EXPERIENCE_TEXT = (
                 }}
             >
                 <td className="pl-0 align-top">
-                    <h3 className="text-lg text-secondary">
+                    <p className="text-lg text-secondary">
                         August 2023 - Present
-                    </h3>
+                    </p>
                 </td>
                 <td className="align-top">
-                    <h3 className="text-xl font-bold">
+                    <p className="text-xl font-bold">
                         Full-Stack Software Engineer
-                    </h3>
-                    <h3 className="text-lg">
+                    </p>
+                    <p className="text-lg">
                         Lightcast <em>(Phantom Team - Ask Lightcast)</em>
-                    </h3>
+                    </p>
                 </td>
             </tr>
             <tr
@@ -107,17 +107,17 @@ export const EXPERIENCE_TEXT = (
                 }}
             >
                 <td className="pl-0 align-top">
-                    <h3 className="text-lg text-secondary">
+                    <p className="text-lg text-secondary">
                         November 2022 - August 2023
-                    </h3>
+                    </p>
                 </td>
                 <td className="align-top">
-                    <h3 className="text-xl font-bold">
+                    <p className="text-xl font-bold">
                         Full-Stack Software Engineer
-                    </h3>
-                    <h3 className="text-lg">
+                    </p>
+                    <p className="text-lg">
                         Lightcast <em>(SkillFit Team - SkillFit)</em>
-                    </h3>
+                    </p>
                 </td>
             </tr>
             <tr
@@ -127,13 +127,13 @@ export const EXPERIENCE_TEXT = (
                 }}
             >
                 <td className="pl-0 align-top">
-                    <h3 className="text-lg text-secondary">
+                    <p className="text-lg text-secondary">
                         November 2021 - July 2022
-                    </h3>
+                    </p>
                 </td>
                 <td className="align-top">
-                    <h3 className="text-xl font-bold">Software Engineer</h3>
-                    <h3 className="text-lg">Kalos Services, Inc.</h3>
+                    <p className="text-xl font-bold">Software Engineer</p>
+                    <p className="text-lg">Kalos Services, Inc.</p>
                 </td>
             </tr>
         </table>
