@@ -208,13 +208,22 @@ export const SkillBadges: FC = function () {
             {badgeArray.filter(function (badge) {
                 if (searchText === '' || searchText === undefined) return true;
 
-                if ((badge.props.skill as Skill).name.includes(searchText))
+                if (
+                    (badge.props.skill as Skill).name
+                        .toLowerCase()
+                        .includes(searchText.toLowerCase())
+                )
                     return true;
 
                 const achievements = (badge.props.skill as Skill).achievements;
 
                 for (const achievement of achievements) {
-                    if (achievement.includes(searchText)) return true;
+                    if (
+                        achievement
+                            .toLowerCase()
+                            .includes(searchText.toLowerCase())
+                    )
+                        return true;
                 }
 
                 return false;
