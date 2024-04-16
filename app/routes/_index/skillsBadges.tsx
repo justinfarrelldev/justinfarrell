@@ -1,5 +1,5 @@
-import React from 'react';
-import { SkillBadge } from './skillBadge';
+import React, { FC, useState } from 'react';
+import { Skill, SkillBadge } from './skillBadge';
 
 const badgeArray: React.JSX.Element[] = [
     <SkillBadge
@@ -193,4 +193,32 @@ const badgeArray: React.JSX.Element[] = [
     }
 });
 
-export const SKILLS_BADGES = <>{badgeArray}</>;
+export const SkillBadges: FC = function () {
+    const [searchText, setSearchText] = useState<string>();
+    return (
+        <>
+            <input
+                type="text"
+                placeholder="Search for a skill"
+                className="input input-bordered my-4 w-full"
+                onChange={function (event) {
+                    setSearchText(event.target.value);
+                }}
+            />
+            {badgeArray.filter(function (badge) {
+                if (searchText === '' || searchText === undefined) return true;
+
+                if ((badge.props.skill as Skill).name.includes(searchText))
+                    return true;
+
+                const achievements = (badge.props.skill as Skill).achievements;
+
+                for (const achievement of achievements) {
+                    if (achievement.includes(searchText)) return true;
+                }
+
+                return false;
+            })}
+        </>
+    );
+};
