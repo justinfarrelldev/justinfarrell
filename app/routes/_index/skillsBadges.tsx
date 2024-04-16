@@ -12,6 +12,17 @@ export const SKILLS_BADGES = (
                     'Passed the LinkedIn Skills Assessment',
                 ],
             }}
+            confidence="expert"
+        />
+        <SkillBadge
+            skill={{
+                name: 'Next.js',
+                achievements: [
+                    'Extensive experience with Next.js in a variety of contexts',
+                    'Used to create Ask Lightcast (Phantom Team)',
+                ],
+            }}
+            confidence="confident"
         />
     </>
 );
