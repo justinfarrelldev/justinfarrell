@@ -10,9 +10,12 @@
         "isbot",
         "Kalos",
         "Lightcast",
+        "protobuffers",
+        "protoc",
         "Résumé",
         "synthwave",
         "tailwindcss",
-        "typecheck"
+        "typecheck",
+        "wayoftheweb"
     ]
 }
