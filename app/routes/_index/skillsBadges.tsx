@@ -129,6 +129,54 @@ const badgeArray: React.JSX.Element[] = [
         }}
         confidence="expert"
     />,
+    <SkillBadge
+        key="AWS"
+        skill={{
+            name: 'AWS',
+            achievements: [
+                'Amazon Web Services was used as the cloud provider for Kalos Services, Inc.',
+                'Created an automatic prod -> dev DMS task for Kalos Services, Inc. which scrubbed out PII and provided us a close-to-production development environment every week',
+                'Created a new RDS cluster to help spin up the BeyondHQ project at Lightcast',
+                'Spun up an ECS Fargate cluster to help re-construct the BeyondHQ project at Lightcast',
+                'Created and managed multiple bastion-host EC2 instances for Kalos Services, Inc.',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Fly.io"
+        skill={{
+            name: 'Fly.io',
+            achievements: [
+                'Deployed a Node.js-based algorithmic trading bot to Fly.io',
+                'Set up Sentry on Fly.io for the algorithmic trading bot so that I could monitor uptime',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Electron"
+        skill={{
+            name: 'Electron',
+            achievements: [
+                'In the process of creating a modification manager for the Call to Power series of games using Electron (specifically, Electron Forge',
+                'Familiar with the concepts behind Inter-Process Communication (IPC) as well as preloads and context bridges',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Tailwind"
+        skill={{
+            name: 'Tailwind',
+            achievements: [
+                'Tailwind is utilized extensively in this site (especially in this popup!)',
+                'DaisyUI is used for this site',
+                'Have used ShadCN UI at Lightcast for the initial prototypes of Ask Lightcast',
+            ],
+        }}
+        confidence="expert"
+    />,
 ].sort(function (a, b) {
     const confidenceOrder = { expert: 0, confident: 1, 'not-confident': 2 };
     const confidenceA: 'expert' | 'confident' | 'not-confident' =
