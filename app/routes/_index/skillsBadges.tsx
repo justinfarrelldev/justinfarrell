@@ -8,7 +8,7 @@ export const SKILLS_BADGES = (
                 achievements: [
                     'Utilized React at Kalos Services, Inc. for the internal company front-end',
                     'Used React on the SkillFit Team at Lightcast to create the SkillFit product',
-                    'Make use of React on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
+                    'Currently use React on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
                     'Passed the LinkedIn Skills Assessment',
                 ],
             }}
@@ -18,11 +18,10 @@ export const SKILLS_BADGES = (
             skill={{
                 name: 'Next.js',
                 achievements: [
-                    'Extensive experience with Next.js in a variety of contexts',
-                    'Used to create Ask Lightcast (Phantom Team)',
+                    'Currently use Next.js on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
                 ],
             }}
-            confidence="confident"
+            confidence="expert"
         />
     </>
 );

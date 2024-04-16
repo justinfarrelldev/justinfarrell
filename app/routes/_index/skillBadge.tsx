@@ -19,15 +19,15 @@ export const SkillBadge: FC<Props> = function ({
     let badgeClass: string;
     let tooltipClass: string;
     if (confidence === 'expert') {
-        badgeClass = 'has-tooltip badge badge-success mr-2';
+        badgeClass = 'has-tooltip badge badge-success mr-2 cursor-default';
         tooltipClass =
             'tooltip bottom-full w-52 rounded bg-success p-1 text-left';
     } else if (confidence === 'confident') {
-        badgeClass = 'has-tooltip badge badge-warning mr-2';
+        badgeClass = 'has-tooltip badge badge-warning mr-2 cursor-default';
         tooltipClass =
             'tooltip bottom-full w-52 rounded bg-warning p-1 text-left';
     } else {
-        badgeClass = 'has-tooltip badge badge-error mr-2';
+        badgeClass = 'has-tooltip badge badge-error mr-2 cursor-default';
         tooltipClass =
             'tooltip bottom-full w-52 rounded bg-error p-1 text-left';
     }
