@@ -25,7 +25,7 @@ export default function Index() {
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <section>
-                <div className="md:fixed">
+                <div className="lg:fixed">
                     <h1 className="text-6xl font-bold">{MAIN_HEADING_TEXT}</h1>
                     <p className="pt-5 text-2xl">{MAIN_SUBHEADING_TEXT}</p>
                     <a href="/#about">
