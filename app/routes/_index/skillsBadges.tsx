@@ -37,6 +37,16 @@ const badgeArray: React.JSX.Element[] = [
         confidence="not-confident"
     />,
     <SkillBadge
+        key="C"
+        skill={{
+            name: 'C',
+            achievements: [
+                'Used C for university projects and got the basics down pat (and learned how to use Nano while I was at it)',
+            ],
+        }}
+        confidence="not-confident"
+    />,
+    <SkillBadge
         key="Next.js"
         skill={{
             name: 'Next.js',
@@ -173,6 +183,78 @@ const badgeArray: React.JSX.Element[] = [
                 'Tailwind is utilized extensively in this site (especially in this popup!)',
                 'DaisyUI is used for this site',
                 'Have used ShadCN UI at Lightcast for the initial prototypes of Ask Lightcast',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Python"
+        skill={{
+            name: 'Python',
+            achievements: [
+                'Made heavy use of Python and Django within the BeyondHQ Project at Lightcast',
+                'Created a speech-recognition-capable personal assistant for my Raspberry PI',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Django"
+        skill={{
+            name: 'Django',
+            achievements: [
+                'Made heavy use of Python and Django within the BeyondHQ Project at Lightcast',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Terraform"
+        skill={{
+            name: 'Terraform',
+            achievements: ['Wrote Terraform code for BeyondHQ at Lightcast'],
+        }}
+        confidence="not-confident"
+    />,
+    <SkillBadge
+        key="gRPC"
+        skill={{
+            name: 'gRPC',
+            achievements: [
+                'Created and maintained endpoints for a gRPC backend at Kalos Services, Inc.',
+                'Currently working to create a Call to Power game server using gRPC, gRPC Gateway, protobuffers and Go',
+                'Make heavy use of gRPCurl for debugging',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="GitHub Actions"
+        skill={{
+            name: 'GitHub Actions',
+            achievements: [
+                'Created an algorithmic trading bot deployed to a Fly.io server via GitHub Actions for CI / CD',
+                'This site uses GitHub Actions for continuous integration and deployment!',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="GitLab CI"
+        skill={{
+            name: 'GitLab CI',
+            achievements: [
+                'GitLab is used in all Lightcast apps for CI / CD and I have been hands-on with GitLab CI on both the SkillFit and Ask Lightcast projects',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="CircleCI"
+        skill={{
+            name: 'CircleCI',
+            achievements: [
+                'CircleCI was utilized for CI / CD at Kalos Services, Inc., where I was involved extensively in crafting new deployments',
             ],
         }}
         confidence="expert"
