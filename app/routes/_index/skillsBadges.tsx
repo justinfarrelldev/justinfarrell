@@ -259,6 +259,38 @@ const badgeArray: React.JSX.Element[] = [
         }}
         confidence="expert"
     />,
+    <SkillBadge
+        key="Vite"
+        skill={{
+            name: 'Vite',
+            achievements: [
+                'Vite is the bundler used in the development of this website',
+                'I have used Vite extensively in the past (it is my bundler of choice)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Webpack"
+        skill={{
+            name: 'Webpack',
+            achievements: [
+                'Webpack is used for the Ask Lightcast site',
+                'Webpack was used for the SkillFit site',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="ChatGPT API"
+        skill={{
+            name: 'ChatGPT API',
+            achievements: [
+                'The ChatGPT API is utilized often for auxiliary calls within the Ask Lightcast site (many of which I have constructed the prompt for)',
+            ],
+        }}
+        confidence="expert"
+    />,
 ].sort(function (a, b) {
     const confidenceOrder = { expert: 0, confident: 1, 'not-confident': 2 };
     const confidenceA: 'expert' | 'confident' | 'not-confident' =
