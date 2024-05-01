@@ -13,6 +13,11 @@ import {
 } from './constants';
 import { useState } from 'react';
 import { useActionData } from '@remix-run/react';
+import OpenAI from 'openai';
+
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
 
 export const meta: MetaFunction = function () {
     return [
@@ -27,10 +32,20 @@ export const meta: MetaFunction = function () {
 
 export async function action({ request }: ActionFunctionArgs) {
     const body = await request.formData();
+    const userInput = body.get('userInput');
+    if (!userInput) {
+        throw new Error(`No user input found!`);
+    }
 
-    console.log('Action body data: ', body);
+    const completion = await openai.chat.completions.create({
+        messages: [{ role: 'system', content: userInput.toString() }],
+        model: 'gpt-4',
+        temperature: 0.2,
+    });
 
-    return null;
+    console.log('Action body data: ', body.getAll('userInput'));
+
+    return completion.choices[0];
 }
 
 export default function Index() {

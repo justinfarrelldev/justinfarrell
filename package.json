@@ -21,6 +21,7 @@
         "@remix-run/react": "^2.8.1",
         "@remix-run/serve": "^2.8.1",
         "isbot": "^4.1.0",
+        "openai": "^4.40.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
