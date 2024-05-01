@@ -94,7 +94,6 @@ export default function Index() {
                             <input
                                 type="radio"
                                 name="content-accordion"
-                                defaultChecked
                                 onChange={function (event) {
                                     if (event.target.checked)
                                         setOpenAccordionSection(
@@ -107,7 +106,7 @@ export default function Index() {
                             </div>
                             <div className="collapse-content">
                                 {openAccordionSection === INQUIRE_LINK_TEXT && (
-                                    <p className="text-2xl">{INQUIRE_TEXT}</p>
+                                    <>{INQUIRE_TEXT}</>
                                 )}
                             </div>
                         </div>
@@ -164,7 +163,6 @@ export default function Index() {
                                 )}
                             </div>
                         </div>
-                        {/* <p id="resume">Testing</p> */}
                     </div>
                 </div>
             </section>
