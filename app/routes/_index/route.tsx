@@ -1,4 +1,4 @@
-import type { MetaFunction } from '@remix-run/node';
+import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import {
     ABOUT_LINK_TEXT,
     ABOUT_TEXT,
@@ -12,6 +12,7 @@ import {
     SKILLS_TEXT,
 } from './constants';
 import { useState } from 'react';
+import { useActionData } from '@remix-run/react';
 
 export const meta: MetaFunction = function () {
     return [
@@ -24,10 +25,20 @@ export const meta: MetaFunction = function () {
     ];
 };
 
+export async function action({ request }: ActionFunctionArgs) {
+    const body = await request.formData();
+
+    console.log('Action body data: ', body);
+
+    return null;
+}
+
 export default function Index() {
     // have to use state because DaisyUI only sets the display property for some reason
     const [openAccordionSection, setOpenAccordionSection] =
         useState<string>(ABOUT_LINK_TEXT);
+    const data = useActionData<typeof action>();
+    console.log('Data in rendering: ', data);
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <section>
