@@ -4,6 +4,7 @@ export const MAIN_HEADING_TEXT = 'Justin Farrell';
 export const MAIN_SUBHEADING_TEXT = 'Full-Stack Engineer';
 // About
 export const ABOUT_LINK_TEXT = 'About Me';
+export const INQUIRE_LINK_TEXT = 'Inquire More About Me';
 export const EXPERIENCE_LINK_TEXT = 'My Experience';
 export const SKILLS_LINK_TEXT = 'My Skills';
 export const ABOUT_TEXT = (
@@ -87,6 +88,12 @@ export const ABOUT_TEXT = (
             </a>
             , so you can peek behind the curtains!
         </p>
+    </>
+);
+
+export const INQUIRE_TEXT = (
+    <>
+        <>Temp</>
     </>
 );
 

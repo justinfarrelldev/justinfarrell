@@ -4,6 +4,8 @@ import {
     ABOUT_TEXT,
     EXPERIENCE_LINK_TEXT,
     EXPERIENCE_TEXT,
+    INQUIRE_LINK_TEXT,
+    INQUIRE_TEXT,
     MAIN_HEADING_TEXT,
     MAIN_SUBHEADING_TEXT,
     SKILLS_LINK_TEXT,
@@ -35,6 +37,11 @@ export default function Index() {
                     <a href="/#about">
                         <p className="pt-16 text-xl text-primary">
                             {ABOUT_LINK_TEXT}
+                        </p>
+                    </a>
+                    <a href="/#inquire">
+                        <p className="text-xl text-primary">
+                            {INQUIRE_LINK_TEXT}
                         </p>
                     </a>
                     <a href="/#experience">
@@ -77,6 +84,30 @@ export default function Index() {
                             <div className="collapse-content">
                                 {openAccordionSection === ABOUT_LINK_TEXT && (
                                     <p className="text-2xl">{ABOUT_TEXT}</p>
+                                )}
+                            </div>
+                        </div>
+                        <div
+                            id="inquire"
+                            className="collapse collapse-arrow overflow-visible border border-base-300 "
+                        >
+                            <input
+                                type="radio"
+                                name="content-accordion"
+                                defaultChecked
+                                onChange={function (event) {
+                                    if (event.target.checked)
+                                        setOpenAccordionSection(
+                                            INQUIRE_LINK_TEXT
+                                        );
+                                }}
+                            />
+                            <div className="collapse-title text-xl font-medium">
+                                <p className="text-2xl">{INQUIRE_LINK_TEXT}</p>
+                            </div>
+                            <div className="collapse-content">
+                                {openAccordionSection === INQUIRE_LINK_TEXT && (
+                                    <p className="text-2xl">{INQUIRE_TEXT}</p>
                                 )}
                             </div>
                         </div>
