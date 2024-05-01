@@ -9,6 +9,7 @@ import {
     SKILLS_LINK_TEXT,
     SKILLS_TEXT,
 } from './constants';
+import { useState } from 'react';
 
 export const meta: MetaFunction = function () {
     return [
@@ -22,6 +23,9 @@ export const meta: MetaFunction = function () {
 };
 
 export default function Index() {
+    // have to use state because DaisyUI only sets the display property for some reason
+    const [openAccordionSection, setOpenAccordionSection] =
+        useState<string>(ABOUT_LINK_TEXT);
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <section>
@@ -47,19 +51,87 @@ export default function Index() {
                         <p className="text-xl">{RESUME_LINK_TEXT}</p>
                     </a> */}
                 </div>
-                <div className="join join-vertical grid h-screen lg:grid-cols-2">
+                <div className="grid h-screen lg:grid-cols-2">
                     <div>
                         {/* This div is empty to push the other column over */}
                     </div>
                     <div>
-                        <div id="about">
-                            <p className="text-2xl">{ABOUT_TEXT}</p>
+                        <div
+                            id="about"
+                            className="collapse collapse-arrow border border-base-300"
+                        >
+                            <input
+                                type="radio"
+                                name="content-accordion"
+                                defaultChecked
+                                onChange={function (event) {
+                                    if (event.target.checked)
+                                        setOpenAccordionSection(
+                                            ABOUT_LINK_TEXT
+                                        );
+                                }}
+                            />
+                            <div className="collapse-title text-xl font-medium">
+                                <p className="text-2xl">{ABOUT_LINK_TEXT}</p>
+                            </div>
+                            <div className="collapse-content">
+                                {openAccordionSection === ABOUT_LINK_TEXT && (
+                                    <p className="text-2xl">{ABOUT_TEXT}</p>
+                                )}
+                            </div>
                         </div>
-                        <div id="experience">
-                            <p className="pt-16 text-2xl">{EXPERIENCE_TEXT}</p>
+                        <div
+                            id="experience"
+                            className="collapse collapse-arrow border border-base-300"
+                        >
+                            <input
+                                type="radio"
+                                name="content-accordion"
+                                onChange={function (event) {
+                                    if (event.target.checked)
+                                        setOpenAccordionSection(
+                                            EXPERIENCE_LINK_TEXT
+                                        );
+                                }}
+                            />
+                            <div className="collapse-title text-xl font-medium">
+                                <p className="text-2xl">
+                                    {EXPERIENCE_LINK_TEXT}
+                                </p>
+                            </div>
+                            <div className="collapse-content">
+                                {openAccordionSection ===
+                                    EXPERIENCE_LINK_TEXT && (
+                                    <p className="pt-16 text-2xl">
+                                        {EXPERIENCE_TEXT}
+                                    </p>
+                                )}
+                            </div>
                         </div>
-                        <div id="skills">
-                            <p className="pt-16 text-2xl">{SKILLS_TEXT}</p>
+                        <div
+                            id="skills"
+                            className="collapse collapse-arrow border border-base-300"
+                        >
+                            <input
+                                type="radio"
+                                name="content-accordion"
+                                onChange={function (event) {
+                                    if (event.target.checked)
+                                        setOpenAccordionSection(
+                                            SKILLS_LINK_TEXT
+                                        );
+                                }}
+                            />
+                            <div className="collapse-title text-xl font-medium">
+                                <p className="text-2xl">{SKILLS_LINK_TEXT}</p>
+                            </div>
+                            <div className="collapse-content">
+                                {openAccordionSection === SKILLS_LINK_TEXT && (
+                                    <p className="pt-16 text-2xl">
+                                        {SKILLS_TEXT}
+                                    </p>
+                                )}
+                            </div>
                         </div>
                         {/* <p id="resume">Testing</p> */}
                     </div>

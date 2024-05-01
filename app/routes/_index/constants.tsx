@@ -78,7 +78,6 @@ export const ABOUT_TEXT = (
 
 export const EXPERIENCE_TEXT = (
     <>
-        <h2>My Experience</h2>
         <table className="table">
             <tr
                 className="hover cursor-pointer"
@@ -145,7 +144,6 @@ export const EXPERIENCE_TEXT = (
 
 export const SKILLS_TEXT = (
     <>
-        <h2>My Skills</h2>
         <SkillBadges />
     </>
 );
