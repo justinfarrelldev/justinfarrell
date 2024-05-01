@@ -25,7 +25,7 @@ export default function Index() {
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <section>
-                <div className="lg:fixed">
+                <div className="join join-vertical lg:fixed">
                     <h1 className="text-6xl font-bold">{MAIN_HEADING_TEXT}</h1>
                     <p className="pt-5 text-2xl">{MAIN_SUBHEADING_TEXT}</p>
                     <a href="/#about">
@@ -47,7 +47,7 @@ export default function Index() {
                         <p className="text-xl">{RESUME_LINK_TEXT}</p>
                     </a> */}
                 </div>
-                <div className="grid h-screen lg:grid-cols-2">
+                <div className="join join-vertical grid h-screen lg:grid-cols-2">
                     <div>
                         {/* This div is empty to push the other column over */}
                     </div>
