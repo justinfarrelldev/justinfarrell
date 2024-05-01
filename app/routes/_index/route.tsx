@@ -58,7 +58,7 @@ export default function Index() {
                     <div>
                         <div
                             id="about"
-                            className="collapse collapse-arrow border border-base-300"
+                            className="collapse collapse-arrow overflow-visible border border-base-300 "
                         >
                             <input
                                 type="radio"
@@ -82,7 +82,7 @@ export default function Index() {
                         </div>
                         <div
                             id="experience"
-                            className="collapse collapse-arrow border border-base-300"
+                            className="collapse collapse-arrow overflow-visible border border-base-300"
                         >
                             <input
                                 type="radio"
@@ -110,7 +110,7 @@ export default function Index() {
                         </div>
                         <div
                             id="skills"
-                            className="collapse collapse-arrow border border-base-300"
+                            className="collapse collapse-arrow overflow-visible border border-base-300"
                         >
                             <input
                                 type="radio"
