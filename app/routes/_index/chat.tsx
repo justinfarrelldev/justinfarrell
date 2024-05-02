@@ -29,7 +29,6 @@ export function Chat({ onUserMessage, messages }: Props) {
                 method="POST"
                 onSubmit={function (event) {
                     const formData = new FormData(event.currentTarget); // Access the form data
-                    console.log('submitting form:', formData.get('userInput')); // Log specific input data
 
                     if (formData.get('userInput'))
                         onUserMessage(formData.get('userInput')!.toString());

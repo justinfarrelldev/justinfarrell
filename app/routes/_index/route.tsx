@@ -50,8 +50,6 @@ export async function action({
         temperature: 0.2,
     });
 
-    console.log('Action body data: ', body.getAll('userInput'));
-
     return { role: 'llm', message: completion.choices[0].message.content! };
 }
 
@@ -61,7 +59,6 @@ export default function Index() {
         useState<string>(ABOUT_LINK_TEXT);
     const [messages, setMessages] = useState<Message[]>([]);
     const data = useActionData<typeof action>();
-    console.log('Data in rendering: ', data);
 
     useEffect(
         function () {
