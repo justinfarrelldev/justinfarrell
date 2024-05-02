@@ -5,19 +5,24 @@ import {
     EXPERIENCE_LINK_TEXT,
     EXPERIENCE_TEXT,
     INQUIRE_LINK_TEXT,
-    INQUIRE_TEXT,
     MAIN_HEADING_TEXT,
     MAIN_SUBHEADING_TEXT,
     SKILLS_LINK_TEXT,
     SKILLS_TEXT,
 } from './constants';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useActionData } from '@remix-run/react';
 import OpenAI from 'openai';
+import { Chat } from './chat';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
+
+export type Message = {
+    role: 'user' | 'llm';
+    message: string;
+};
 
 export const meta: MetaFunction = function () {
     return [
@@ -30,7 +35,9 @@ export const meta: MetaFunction = function () {
     ];
 };
 
-export async function action({ request }: ActionFunctionArgs) {
+export async function action({
+    request,
+}: ActionFunctionArgs): Promise<Message> {
     const body = await request.formData();
     const userInput = body.get('userInput');
     if (!userInput) {
@@ -45,15 +52,29 @@ export async function action({ request }: ActionFunctionArgs) {
 
     console.log('Action body data: ', body.getAll('userInput'));
 
-    return completion.choices[0];
+    return { role: 'llm', message: completion.choices[0].message.content! };
 }
 
 export default function Index() {
     // have to use state because DaisyUI only sets the display property for some reason
     const [openAccordionSection, setOpenAccordionSection] =
         useState<string>(ABOUT_LINK_TEXT);
+    const [messages, setMessages] = useState<Message[]>([]);
     const data = useActionData<typeof action>();
     console.log('Data in rendering: ', data);
+
+    useEffect(
+        function () {
+            if (data)
+                setMessages([
+                    ...messages,
+                    { role: 'llm', message: data!.message },
+                ]);
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [data]
+    );
+
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <section>
@@ -132,7 +153,18 @@ export default function Index() {
                             </div>
                             <div className="collapse-content">
                                 {openAccordionSection === INQUIRE_LINK_TEXT && (
-                                    <>{INQUIRE_TEXT}</>
+                                    <Chat
+                                        onUserMessage={function (userMessage) {
+                                            setMessages([
+                                                ...messages,
+                                                {
+                                                    role: 'user',
+                                                    message: userMessage,
+                                                },
+                                            ]);
+                                        }}
+                                        messages={messages}
+                                    />
                                 )}
                             </div>
                         </div>

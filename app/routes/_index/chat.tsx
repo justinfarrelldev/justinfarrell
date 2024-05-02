@@ -1,21 +1,38 @@
 import { Form } from '@remix-run/react';
+import { Message } from './route';
 
-export function Chat() {
+type Props = {
+    onUserMessage: (messageContent: string) => any;
+    messages: Message[];
+};
+
+export function Chat({ onUserMessage, messages }: Props) {
     return (
         <>
-            <div className="chat chat-start">
-                <div className="chat-bubble">
-                    It&apos;s over Anakin, <br />I have the high ground.
-                </div>
-            </div>
-            <div className="chat chat-end">
-                <div className="chat-bubble">You underestimate my power!</div>
-            </div>
+            {messages.map(function (message, index) {
+                if (message.role === 'llm') {
+                    return (
+                        <div className="chat chat-start" key={index}>
+                            <div className="chat-bubble">{message.message}</div>
+                        </div>
+                    );
+                } else if (message.role === 'user') {
+                    return (
+                        <div className="chat chat-end" key={index}>
+                            <div className="chat-bubble">{message.message}</div>
+                        </div>
+                    );
+                }
+            })}
+
             <Form
                 method="POST"
                 onSubmit={function (event) {
                     const formData = new FormData(event.currentTarget); // Access the form data
                     console.log('submitting form:', formData.get('userInput')); // Log specific input data
+
+                    if (formData.get('userInput'))
+                        onUserMessage(formData.get('userInput')!.toString());
                 }}
             >
                 <input

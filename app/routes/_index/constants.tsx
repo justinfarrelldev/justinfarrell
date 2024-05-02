@@ -1,4 +1,3 @@
-import { Chat } from './chat';
 import { SkillBadges } from './skillsBadges';
 
 export const MAIN_HEADING_TEXT = 'Justin Farrell';
@@ -89,12 +88,6 @@ export const ABOUT_TEXT = (
             </a>
             , so you can peek behind the curtains!
         </p>
-    </>
-);
-
-export const INQUIRE_TEXT = (
-    <>
-        <Chat />
     </>
 );
 
