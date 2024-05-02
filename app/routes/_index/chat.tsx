@@ -31,6 +31,11 @@ export function Chat({ onUserMessage, messages }: Props) {
                 }
             })}
 
+            {messages.length > 0 &&
+                messages[messages.length - 1].role === 'user' && (
+                    <span className="loading loading-bars loading-md"></span>
+                )}
+
             <Form
                 method="POST"
                 onSubmit={function (event) {
