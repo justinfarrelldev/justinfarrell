@@ -2,6 +2,9 @@ import { Form } from '@remix-run/react';
 import { Message } from './route';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { marked } from 'marked';
+import parse from 'html-react-parser';
+import DOMPurify from 'dompurify';
 
 type Props = {
     onUserMessage: (messageContent: string) => any;
@@ -23,7 +26,11 @@ export function Chat({ onUserMessage, messages }: Props) {
                             key={index}
                         >
                             <div className="chat-bubble chat-bubble-primary">
-                                {message.message}
+                                {parse(
+                                    DOMPurify.sanitize(
+                                        marked.parse(message.message) as string
+                                    )
+                                )}
                             </div>
                         </motion.div>
                     );
