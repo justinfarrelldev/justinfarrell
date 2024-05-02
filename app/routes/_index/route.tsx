@@ -16,6 +16,11 @@ import OpenAI from 'openai';
 import { Chat } from './chat';
 import { wrapWithPrompt } from '~/utils/prompts';
 
+// Use the Node runtime in Vercel to prevent timeout issues from long-running responses
+export const config = {
+    runtime: 'nodejs',
+};
+
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
