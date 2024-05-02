@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import { useActionData } from '@remix-run/react';
 import OpenAI from 'openai';
 import { Chat } from './chat';
+import { wrapWithPrompt } from '~/utils/prompts';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -45,7 +46,9 @@ export async function action({
     }
 
     const completion = await openai.chat.completions.create({
-        messages: [{ role: 'system', content: userInput.toString() }],
+        messages: [
+            { role: 'system', content: wrapWithPrompt(userInput.toString()) },
+        ],
         model: 'gpt-4',
         temperature: 0.2,
     });

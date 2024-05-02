@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Skill, SkillBadge } from './skillBadge';
 
-const badgeArray: React.JSX.Element[] = [
+export const badgeArray: React.JSX.Element[] = [
     <SkillBadge
         key="React.js"
         skill={{
