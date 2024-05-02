@@ -15,13 +15,17 @@ export function Chat({ onUserMessage, messages }: Props) {
                 if (message.role === 'llm') {
                     return (
                         <div className="chat chat-start" key={index}>
-                            <div className="chat-bubble">{message.message}</div>
+                            <div className="chat-bubble chat-bubble-primary">
+                                {message.message}
+                            </div>
                         </div>
                     );
                 } else if (message.role === 'user') {
                     return (
                         <div className="chat chat-end" key={index}>
-                            <div className="chat-bubble">{message.message}</div>
+                            <div className="chat-bubble chat-bubble-secondary">
+                                {message.message}
+                            </div>
                         </div>
                     );
                 }
