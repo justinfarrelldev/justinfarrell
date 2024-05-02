@@ -1,6 +1,7 @@
 import { Form } from '@remix-run/react';
 import { Message } from './route';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 type Props = {
     onUserMessage: (messageContent: string) => any;
@@ -14,19 +15,31 @@ export function Chat({ onUserMessage, messages }: Props) {
             {messages.map(function (message, index) {
                 if (message.role === 'llm') {
                     return (
-                        <div className="chat chat-start" key={index}>
+                        <motion.div
+                            initial={{ y: 25, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.25 }}
+                            className="chat chat-start"
+                            key={index}
+                        >
                             <div className="chat-bubble chat-bubble-primary">
                                 {message.message}
                             </div>
-                        </div>
+                        </motion.div>
                     );
                 } else if (message.role === 'user') {
                     return (
-                        <div className="chat chat-end" key={index}>
+                        <motion.div
+                            initial={{ y: 25, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.25 }}
+                            className="chat chat-end"
+                            key={index}
+                        >
                             <div className="chat-bubble chat-bubble-secondary">
                                 {message.message}
                             </div>
-                        </div>
+                        </motion.div>
                     );
                 }
             })}
