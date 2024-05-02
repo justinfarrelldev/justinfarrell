@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { marked } from 'marked';
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
+import { Alert } from './alert';
 
 type Props = {
     onUserMessage: (messageContent: string) => any;
@@ -15,6 +16,7 @@ export function Chat({ onUserMessage, messages }: Props) {
     const [inputValue, setInputValue] = useState<string>('');
     return (
         <>
+            <Alert text="This feature lets you interact with an AI to learn more about my professional background. Please note that AIs may occasionally generate inaccurate information. If you need more details, feel free to email me." />
             {messages.map(function (message, index) {
                 if (message.role === 'llm') {
                     return (
