@@ -16,6 +16,13 @@ import OpenAI from 'openai';
 import { Chat } from './chat';
 import { wrapWithPrompt } from '~/utils/prompts';
 
+if (typeof globalThis.EdgeRuntime !== 'string') {
+    console.log('NOT on the edge runtime!');
+    // dead-code elimination is enabled for the code inside this block
+} else {
+    console.log('On the edge runtime!');
+}
+
 // Use the edge runtime in Vercel to prevent timeout issues from long-running responses
 export const config = {
     runtime: 'edge',
