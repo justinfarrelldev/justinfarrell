@@ -4,6 +4,7 @@ export const MAIN_HEADING_TEXT = 'Justin Farrell';
 export const MAIN_SUBHEADING_TEXT = 'Full-Stack Engineer';
 // About
 export const ABOUT_LINK_TEXT = 'About Me';
+export const INQUIRE_LINK_TEXT = 'Inquire More About Me';
 export const EXPERIENCE_LINK_TEXT = 'My Experience';
 export const SKILLS_LINK_TEXT = 'My Skills';
 export const ABOUT_TEXT = (
@@ -20,8 +21,8 @@ export const ABOUT_TEXT = (
             engineering.
         </p>
         <p className="pt-6 text-xl">
-            Currently, I am a Software Engineer at Lightcast on the Phantom Team
-            (working on the{' '}
+            In my most recent role, I was a Software Engineer at Lightcast on
+            the Phantom Team (engineering the{' '}
             <a
                 href="https://www.asklightcast.io"
                 className="text-primary"
@@ -30,9 +31,23 @@ export const ABOUT_TEXT = (
             >
                 new AI project, Ask Lightcast
             </a>
-            ), where I explore and create new possibilities with AI. I am
-            laser-focused on creating reliable software and am a massive
-            proponent of almost all kinds of software testing.
+            ), where I explored and created new possibilities with AI.
+        </p>
+        <p className="pt-6 text-xl">
+            However, I am now searching for <strong>new opportunities!</strong>{' '}
+            I am laser-focused on creating reliable software and am a massive
+            proponent of almost all kinds of software testing. I am searching
+            for an organization with a similar passion for quality - if you
+            believe your company has similar values, feel free to reach out to
+            me at{' '}
+            <a
+                href="mailto:justinfarrellwebdev@gmail.com"
+                className="text-primary"
+                target="_blank"
+                rel="noreferrer"
+            >
+                my email here.
+            </a>
         </p>
         <p className="pt-6 text-xl">
             Outside of work, I enjoy traveling and have visited over 15 states.
@@ -78,7 +93,6 @@ export const ABOUT_TEXT = (
 
 export const EXPERIENCE_TEXT = (
     <>
-        <h2>My Experience</h2>
         <table className="table">
             <tr
                 className="hover cursor-pointer"
@@ -88,7 +102,7 @@ export const EXPERIENCE_TEXT = (
             >
                 <td className="pl-0 align-top">
                     <p className="text-lg text-secondary">
-                        August 2023 - Present
+                        August 2023 - April 2024
                     </p>
                 </td>
                 <td className="align-top">
@@ -145,7 +159,6 @@ export const EXPERIENCE_TEXT = (
 
 export const SKILLS_TEXT = (
     <>
-        <h2>My Skills</h2>
         <SkillBadges />
     </>
 );

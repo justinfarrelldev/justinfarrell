@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
 import { Skill, SkillBadge } from './skillBadge';
+import { Alert } from './alert';
 
-const badgeArray: React.JSX.Element[] = [
+export const badgeArray: React.JSX.Element[] = [
     <SkillBadge
         key="React.js"
         skill={{
@@ -259,6 +260,38 @@ const badgeArray: React.JSX.Element[] = [
         }}
         confidence="expert"
     />,
+    <SkillBadge
+        key="Vite"
+        skill={{
+            name: 'Vite',
+            achievements: [
+                'Vite is the bundler used in the development of this website',
+                'I have used Vite extensively in the past (it is my bundler of choice)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Webpack"
+        skill={{
+            name: 'Webpack',
+            achievements: [
+                'Webpack is used for the Ask Lightcast site',
+                'Webpack was used for the SkillFit site',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="ChatGPT API"
+        skill={{
+            name: 'ChatGPT API',
+            achievements: [
+                'The ChatGPT API is utilized often for auxiliary calls within the Ask Lightcast site (many of which I have constructed the prompt for)',
+            ],
+        }}
+        confidence="expert"
+    />,
 ].sort(function (a, b) {
     const confidenceOrder = { expert: 0, confident: 1, 'not-confident': 2 };
     const confidenceA: 'expert' | 'confident' | 'not-confident' =
@@ -279,28 +312,11 @@ export const SkillBadges: FC = function () {
     const [searchText, setSearchText] = useState<string>();
     return (
         <>
-            <div role="alert" className="alert alert-info my-4 p-1">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="white"
-                    className="ml-2 size-8"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
-                    />
-                </svg>
-
-                <span className="cursor-default text-lg">
-                    Pardon the dust - this section is still under active
-                    construction! This is also not an exhaustive list of my
-                    skill set as of right now, but hopefully it will be soon!
-                </span>
-            </div>
+            <Alert
+                text="Pardon the dust - this section is still under active
+                construction! This is also not an exhaustive list of my skill
+                set as of right now, but hopefully it will be soon!"
+            />
             <input
                 type="text"
                 placeholder="Search for a skill"

@@ -3,6 +3,7 @@ on:
     push:
         branches:
             - staging
+            - main
 jobs:
     test:
         name: Test App
@@ -20,21 +21,15 @@ jobs:
               run: npm install
             - name: Run tests
               run: npm run test
-            #   env:
     deploy:
         name: Deploy App to Preview
         needs: test
         runs-on: ubuntu-latest
+        concurrency: deploy-group # optional: ensure only one action runs at a time
+        if: github.ref == 'refs/heads/main'
         steps:
             - uses: actions/checkout@v3
-            - name: Cache npm dependencies
-              uses: actions/cache@v3
-              with:
-                  path: ~/.npm # Cache location
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} # Cache key
-                  restore-keys: |
-                      ${{ runner.os }}-node-
-            - run: |
-                  vercel --yes --token $VERCEL_TOKEN
+            - uses: superfly/flyctl-actions/setup-flyctl@master
+            - run: npm run deploy
               env:
-                  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+                  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

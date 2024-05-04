@@ -78,6 +78,7 @@ module.exports = {
             ],
             rules: {
                 'es/no-arrow-functions': 'error',
+                '@typescript-eslint/no-explicit-any': 'off',
             },
         },
 
