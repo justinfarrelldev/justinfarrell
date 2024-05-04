@@ -8,8 +8,6 @@ import {
 import type { LinksFunction } from '@remix-run/node';
 import stylesheet from '~/tailwind.css?url';
 
-export const config = { runtime: 'edge' };
-
 export const links: LinksFunction = function () {
     return [{ rel: 'stylesheet', href: stylesheet }];
 };

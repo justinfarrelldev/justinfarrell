@@ -9,10 +9,10 @@
         "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
         "lint:debug": "npm run lint -- --debug",
         "lint:fix": "npm run lint -- --fix",
-        "start": "remix-serve ./build/server/index.js",
+        "start": "PORT=8080 remix-serve ./build/server/index.js",
         "typecheck": "tsc",
         "format:fix": "prettier --write .",
-        "deploy": "vercel",
+        "deploy": "flyctl deploy --remote-only",
         "test": "vitest"
     },
     "dependencies": {
@@ -30,6 +30,7 @@
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
+        "@flydotio/dockerfile": "^0.5.7",
         "@remix-run/dev": "^2.8.1",
         "@testing-library/jest-dom": "^6.4.2",
         "@testing-library/react": "^14.2.2",
