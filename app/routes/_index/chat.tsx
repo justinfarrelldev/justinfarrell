@@ -27,7 +27,7 @@ export function Chat({ onUserMessage, messages }: Props) {
                             className="chat chat-start"
                             key={index}
                         >
-                            <div className="chat-bubble chat-bubble-primary">
+                            <div className="chat-bubble chat-bubble-primary text-lg">
                                 {parse(
                                     DOMPurify.sanitize(
                                         marked.parse(message.message) as string
@@ -45,7 +45,7 @@ export function Chat({ onUserMessage, messages }: Props) {
                             className="chat chat-end"
                             key={index}
                         >
-                            <div className="chat-bubble chat-bubble-secondary">
+                            <div className="chat-bubble chat-bubble-secondary text-lg">
                                 {message.message}
                             </div>
                         </motion.div>
