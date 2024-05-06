@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { FC } from 'react';
 
 type Section = {
@@ -21,7 +22,7 @@ export const Accordion: FC<Props> = function ({
         <div>
             {sections.map(function (section) {
                 return (
-                    <div
+                    <motion.div
                         key={section.uniqueId}
                         id={section.uniqueId}
                         className="collapse collapse-arrow overflow-visible border border-base-300 "
@@ -41,10 +42,19 @@ export const Accordion: FC<Props> = function ({
                         </div>
                         <div className="collapse-content">
                             {section.isOpen && (
-                                <p className="text-2xl">{section.content}</p>
+                                <motion.p
+                                    initial={{
+                                        opacity: 0,
+                                    }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.25 }}
+                                    className="text-2xl"
+                                >
+                                    {section.content}
+                                </motion.p>
                             )}
                         </div>
-                    </div>
+                    </motion.div>
                 );
             })}
         </div>
