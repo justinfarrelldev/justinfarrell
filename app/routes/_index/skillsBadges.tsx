@@ -10,7 +10,7 @@ export const badgeArray: React.JSX.Element[] = [
             achievements: [
                 'Utilized React at Kalos Services, Inc. for the internal company front-end',
                 'Used React on the SkillFit Team at Lightcast to create the SkillFit product',
-                'Currently use React on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
+                'Used React on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
                 'This site uses React.js with the Remix framework',
                 'Passed the LinkedIn Skills Assessment',
             ],
@@ -52,7 +52,7 @@ export const badgeArray: React.JSX.Element[] = [
         skill={{
             name: 'Next.js',
             achievements: [
-                'Currently use Next.js on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
+                'Used Next.js with the app router on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
             ],
         }}
         confidence="expert"
@@ -135,7 +135,7 @@ export const badgeArray: React.JSX.Element[] = [
         skill={{
             name: 'Remix',
             achievements: [
-                'Remix is the main framework used to create this website!',
+                'Remix is the framework used to create this website!',
             ],
         }}
         confidence="expert"
@@ -288,6 +288,7 @@ export const badgeArray: React.JSX.Element[] = [
             name: 'ChatGPT API',
             achievements: [
                 'The ChatGPT API is utilized often for auxiliary calls within the Ask Lightcast site (many of which I have constructed the prompt for)',
+                'The ChatGPT API is used heavily on this site',
             ],
         }}
         confidence="expert"
