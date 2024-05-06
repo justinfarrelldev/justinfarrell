@@ -293,6 +293,59 @@ export const badgeArray: React.JSX.Element[] = [
         }}
         confidence="expert"
     />,
+    <SkillBadge
+        key="Vitest"
+        skill={{
+            name: 'Vitest',
+            achievements: [
+                'I created the unit and integration testing processes for Ask Lightcast (both unit and integration tests utilized Vitest)',
+                'I presented a tech-talk comparing the pros-and-cons of Vitest, Jest and Mocha within Lightcast (including extensive performance comparisons)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Jest"
+        skill={{
+            name: 'Jest',
+            achievements: [
+                'I created the unit and integration testing processes for SkillFit (both unit and integration tests utilized Jest in the form of TS-Jest)',
+                'I presented a tech-talk comparing the pros-and-cons of Vitest, Jest and Mocha within Lightcast (including extensive performance comparisons)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Mocha"
+        skill={{
+            name: 'Mocha',
+            achievements: [
+                'I presented a tech-talk comparing the pros-and-cons of Vitest, Jest and Mocha within Lightcast (including extensive performance comparisons)',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Playwright"
+        skill={{
+            name: 'Playwright',
+            achievements: [
+                "I chose Playwright when creating the end-to-end (E2E) testing suite for Ask Lightcast due to Playwright's extensibility, ease-of-use and multiple-browser testing features",
+                'Utilized Playwright for web scraping during prototyping of an algorithmic trading bot',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Puppeteer"
+        skill={{
+            name: 'Puppeteer',
+            achievements: [
+                'I chose Puppeteer when creating the end-to-end (E2E) testing suite for SkillFit due to its wide usage throughout the industry',
+            ],
+        }}
+        confidence="expert"
+    />,
 ].sort(function (a, b) {
     const confidenceOrder = { expert: 0, confident: 1, 'not-confident': 2 };
     const confidenceA: 'expert' | 'confident' | 'not-confident' =
