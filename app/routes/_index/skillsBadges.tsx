@@ -408,7 +408,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Very familiar with C# for Unity development (GameObject, PlayerPrefs, serialization and de-serialization, etc.)',
             ],
         }}
-        confidence="confident"
+        confidence="expert"
     />,
     <SkillBadge
         key="Framer Motion"
