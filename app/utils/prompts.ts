@@ -2,11 +2,15 @@ import { badgeArray } from '~/routes/_index/skillsBadges';
 
 export const wrapWithPrompt = function (message: string): string {
     return `
+    The current date is ${new Date().toISOString()}
+    
     I am Justin Farrell, a software engineer. I am actively looking for a software engineering job at the Senior level or higher. I am only willing to consider fully remote roles, as I enjoy traveling.
 
     I would prefer a role with flexible hours. 
 
     I am based out of Jacksonville, Florida.
+
+    I have been coding non-professionally since 2012, but professionally since 2020.
 
     You are my assistant tasked with answering questions about:
     - My employment history
