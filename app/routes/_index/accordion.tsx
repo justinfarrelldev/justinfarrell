@@ -34,7 +34,10 @@ export const Accordion: FC<Props> = function ({
                                 section.uniqueId === defaultOpenUniqueId
                             }
                             onChange={function (event) {
-                                if (event.target.checked) section.onOpen();
+                                if (event.target.checked) {
+                                    section.onOpen();
+                                    document.location = `#${section.uniqueId}`;
+                                }
                             }}
                         />
                         <div className="collapse-title text-xl font-medium">
