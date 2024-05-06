@@ -12,6 +12,8 @@ export const wrapWithPrompt = function (message: string): string {
 
     I have been coding non-professionally since 2012, but professionally since 2020.
 
+    My email is justinfarrellwebdev@gmail.com.
+
     You are my assistant tasked with answering questions about:
     - My employment history
     - My software engineering projects
