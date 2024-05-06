@@ -161,6 +161,7 @@ export const badgeArray: React.JSX.Element[] = [
             achievements: [
                 'Deployed a Node.js-based algorithmic trading bot to Fly.io',
                 'Set up Sentry on Fly.io for the algorithmic trading bot so that I could monitor uptime',
+                'This site is deployed using Fly.io!',
             ],
         }}
         confidence="expert"
@@ -373,6 +374,49 @@ export const badgeArray: React.JSX.Element[] = [
             name: 'Git',
             achievements: [
                 'I have utilized Git extensively through the years - both on the command-line and through various GUI tools',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Vercel"
+        skill={{
+            name: 'Vercel',
+            achievements: [
+                'I have used Vercel extensively, both during my work on the Ask Lightcast project as well as during development of this site (which was eventually pivoted to Fly.io)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Docker"
+        skill={{
+            name: 'Docker',
+            achievements: [
+                'I have used Docker for various containerization flows, including deploying the BeyondHQ project to AWS ECS Fargate and deploying this site',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Unity Engine"
+        skill={{
+            name: 'Unity Engine',
+            achievements: [
+                'I utilized Unity to create an in-depth space-shooter game for Windows as well as a block-stacking WebGL game',
+                'I am familiar with both the Unity High-Definition Render Pipeline (HDRP) as well as the Universal Render Pipeline (URP)',
+                'Very familiar with C# for Unity development (GameObject, PlayerPrefs, serialization and de-serialization, etc.)',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Framer Motion"
+        skill={{
+            name: 'Framer Motion',
+            achievements: [
+                'Introduced Phantom Team at Lightcast to Framer Motion and added it to both SkillFit and Ask Lightcast',
+                'Framer Motion is used for animations on this site',
             ],
         }}
         confidence="expert"
