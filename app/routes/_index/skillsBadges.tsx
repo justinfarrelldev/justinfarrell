@@ -346,6 +346,37 @@ export const badgeArray: React.JSX.Element[] = [
         }}
         confidence="expert"
     />,
+    <SkillBadge
+        key="Jira"
+        skill={{
+            name: 'Jira',
+            achievements: [
+                'Jira was utilized heavily during my time at Lightcast, including in the SkillFit, BeyondHQ and Ask Lightcast projects',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Confluence"
+        skill={{
+            name: 'Confluence',
+            achievements: [
+                'Confluence was utilized heavily during my time at Lightcast, including in the SkillFit, BeyondHQ and Ask Lightcast projects',
+                'I created countless pages of documentation within Confluence for all of the projects I worked on',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Git"
+        skill={{
+            name: 'Git',
+            achievements: [
+                'I have utilized Git extensively through the years - both on the command-line and through various GUI tools',
+            ],
+        }}
+        confidence="expert"
+    />,
 ].sort(function (a, b) {
     const confidenceOrder = { expert: 0, confident: 1, 'not-confident': 2 };
     const confidenceA: 'expert' | 'confident' | 'not-confident' =
