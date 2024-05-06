@@ -9,3 +9,7 @@
 .has-tooltip:hover .tooltip {
     @apply visible z-50;
 }
+
+a {
+    @apply underline;
+}

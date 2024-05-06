@@ -10,7 +10,7 @@ export const badgeArray: React.JSX.Element[] = [
             achievements: [
                 'Utilized React at Kalos Services, Inc. for the internal company front-end',
                 'Used React on the SkillFit Team at Lightcast to create the SkillFit product',
-                'Currently use React on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
+                'Used React on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
                 'This site uses React.js with the Remix framework',
                 'Passed the LinkedIn Skills Assessment',
             ],
@@ -52,7 +52,7 @@ export const badgeArray: React.JSX.Element[] = [
         skill={{
             name: 'Next.js',
             achievements: [
-                'Currently use Next.js on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
+                'Used Next.js with the app router on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
             ],
         }}
         confidence="expert"
@@ -135,7 +135,7 @@ export const badgeArray: React.JSX.Element[] = [
         skill={{
             name: 'Remix',
             achievements: [
-                'Remix is the main framework used to create this website!',
+                'Remix is the framework used to create this website!',
             ],
         }}
         confidence="expert"
@@ -288,6 +288,91 @@ export const badgeArray: React.JSX.Element[] = [
             name: 'ChatGPT API',
             achievements: [
                 'The ChatGPT API is utilized often for auxiliary calls within the Ask Lightcast site (many of which I have constructed the prompt for)',
+                'The ChatGPT API is used heavily on this site',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Vitest"
+        skill={{
+            name: 'Vitest',
+            achievements: [
+                'I created the unit and integration testing processes for Ask Lightcast (both unit and integration tests utilized Vitest)',
+                'I presented a tech-talk comparing the pros-and-cons of Vitest, Jest and Mocha within Lightcast (including extensive performance comparisons)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Jest"
+        skill={{
+            name: 'Jest',
+            achievements: [
+                'I created the unit and integration testing processes for SkillFit (both unit and integration tests utilized Jest in the form of TS-Jest)',
+                'I presented a tech-talk comparing the pros-and-cons of Vitest, Jest and Mocha within Lightcast (including extensive performance comparisons)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Mocha"
+        skill={{
+            name: 'Mocha',
+            achievements: [
+                'I presented a tech-talk comparing the pros-and-cons of Vitest, Jest and Mocha within Lightcast (including extensive performance comparisons)',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Playwright"
+        skill={{
+            name: 'Playwright',
+            achievements: [
+                "I chose Playwright when creating the end-to-end (E2E) testing suite for Ask Lightcast due to Playwright's extensibility, ease-of-use and multiple-browser testing features",
+                'Utilized Playwright for web scraping during prototyping of an algorithmic trading bot',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Puppeteer"
+        skill={{
+            name: 'Puppeteer',
+            achievements: [
+                'I chose Puppeteer when creating the end-to-end (E2E) testing suite for SkillFit due to its wide usage throughout the industry',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="Jira"
+        skill={{
+            name: 'Jira',
+            achievements: [
+                'Jira was utilized heavily during my time at Lightcast, including in the SkillFit, BeyondHQ and Ask Lightcast projects',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Confluence"
+        skill={{
+            name: 'Confluence',
+            achievements: [
+                'Confluence was utilized heavily during my time at Lightcast, including in the SkillFit, BeyondHQ and Ask Lightcast projects',
+                'I created countless pages of documentation within Confluence for all of the projects I worked on',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Git"
+        skill={{
+            name: 'Git',
+            achievements: [
+                'I have utilized Git extensively through the years - both on the command-line and through various GUI tools',
             ],
         }}
         confidence="expert"

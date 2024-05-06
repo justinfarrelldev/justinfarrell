@@ -15,6 +15,7 @@ import { useActionData } from '@remix-run/react';
 import OpenAI from 'openai';
 import { Chat } from './chat';
 import { wrapWithPrompt } from '~/utils/prompts';
+import { Accordion } from './accordion';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -109,50 +110,23 @@ export default function Index() {
                     <div>
                         {/* This div is empty to push the other column over */}
                     </div>
-                    <div>
-                        <div
-                            id="about"
-                            className="collapse collapse-arrow overflow-visible border border-base-300 "
-                        >
-                            <input
-                                type="radio"
-                                name="content-accordion"
-                                defaultChecked
-                                onChange={function (event) {
-                                    if (event.target.checked)
-                                        setOpenAccordionSection(
-                                            ABOUT_LINK_TEXT
-                                        );
-                                }}
-                            />
-                            <div className="collapse-title text-xl font-medium">
-                                <p className="text-2xl">{ABOUT_LINK_TEXT}</p>
-                            </div>
-                            <div className="collapse-content">
-                                {openAccordionSection === ABOUT_LINK_TEXT && (
-                                    <p className="text-2xl">{ABOUT_TEXT}</p>
-                                )}
-                            </div>
-                        </div>
-                        <div
-                            id="inquire"
-                            className="collapse collapse-arrow overflow-visible border border-base-300 "
-                        >
-                            <input
-                                type="radio"
-                                name="content-accordion"
-                                onChange={function (event) {
-                                    if (event.target.checked)
-                                        setOpenAccordionSection(
-                                            INQUIRE_LINK_TEXT
-                                        );
-                                }}
-                            />
-                            <div className="collapse-title text-xl font-medium">
-                                <p className="text-2xl">{INQUIRE_LINK_TEXT}</p>
-                            </div>
-                            <div className="collapse-content">
-                                {openAccordionSection === INQUIRE_LINK_TEXT && (
+                    <Accordion
+                        defaultOpenUniqueId="about"
+                        sections={[
+                            {
+                                uniqueId: 'about',
+                                header: ABOUT_LINK_TEXT,
+                                content: ABOUT_TEXT,
+                                onOpen: function () {
+                                    setOpenAccordionSection(ABOUT_LINK_TEXT);
+                                },
+                                isOpen:
+                                    openAccordionSection === ABOUT_LINK_TEXT,
+                            },
+                            {
+                                uniqueId: 'inquire',
+                                header: INQUIRE_LINK_TEXT,
+                                content: (
                                     <Chat
                                         onUserMessage={function (userMessage) {
                                             setMessages([
@@ -165,63 +139,38 @@ export default function Index() {
                                         }}
                                         messages={messages}
                                     />
-                                )}
-                            </div>
-                        </div>
-                        <div
-                            id="experience"
-                            className="collapse collapse-arrow overflow-visible border border-base-300"
-                        >
-                            <input
-                                type="radio"
-                                name="content-accordion"
-                                onChange={function (event) {
-                                    if (event.target.checked)
-                                        setOpenAccordionSection(
-                                            EXPERIENCE_LINK_TEXT
-                                        );
-                                }}
-                            />
-                            <div className="collapse-title text-xl font-medium">
-                                <p className="text-2xl">
-                                    {EXPERIENCE_LINK_TEXT}
-                                </p>
-                            </div>
-                            <div className="collapse-content">
-                                {openAccordionSection ===
-                                    EXPERIENCE_LINK_TEXT && (
-                                    <p className="pt-16 text-2xl">
-                                        {EXPERIENCE_TEXT}
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-                        <div
-                            id="skills"
-                            className="collapse collapse-arrow overflow-visible border border-base-300"
-                        >
-                            <input
-                                type="radio"
-                                name="content-accordion"
-                                onChange={function (event) {
-                                    if (event.target.checked)
-                                        setOpenAccordionSection(
-                                            SKILLS_LINK_TEXT
-                                        );
-                                }}
-                            />
-                            <div className="collapse-title text-xl font-medium">
-                                <p className="text-2xl">{SKILLS_LINK_TEXT}</p>
-                            </div>
-                            <div className="collapse-content">
-                                {openAccordionSection === SKILLS_LINK_TEXT && (
-                                    <p className="pt-16 text-2xl">
-                                        {SKILLS_TEXT}
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
+                                ),
+                                onOpen: function () {
+                                    setOpenAccordionSection(INQUIRE_LINK_TEXT);
+                                },
+                                isOpen:
+                                    openAccordionSection === INQUIRE_LINK_TEXT,
+                            },
+                            {
+                                uniqueId: 'experience',
+                                header: EXPERIENCE_LINK_TEXT,
+                                content: EXPERIENCE_TEXT,
+                                onOpen: function () {
+                                    setOpenAccordionSection(
+                                        EXPERIENCE_LINK_TEXT
+                                    );
+                                },
+                                isOpen:
+                                    openAccordionSection ===
+                                    EXPERIENCE_LINK_TEXT,
+                            },
+                            {
+                                uniqueId: 'skills',
+                                header: SKILLS_LINK_TEXT,
+                                content: SKILLS_TEXT,
+                                onOpen: function () {
+                                    setOpenAccordionSection(SKILLS_LINK_TEXT);
+                                },
+                                isOpen:
+                                    openAccordionSection === SKILLS_LINK_TEXT,
+                            },
+                        ]}
+                    />
                 </div>
             </section>
         </div>
