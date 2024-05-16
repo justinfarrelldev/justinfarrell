@@ -14,7 +14,7 @@ export const links: LinksFunction = function () {
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" data-theme="synthwave" className="scroll-smooth">
+        <html lang="en" data-theme="forest" className="scroll-smooth">
             <head>
                 <meta charSet="utf-8" />
                 <meta

@@ -8,6 +8,6 @@ export default {
     },
     plugins: [daisyUI],
     daisyui: {
-        themes: ['light', 'dark', 'synthwave'],
+        themes: ['light', 'dark', 'synthwave', 'black', 'forest'],
     },
 } satisfies Config;
