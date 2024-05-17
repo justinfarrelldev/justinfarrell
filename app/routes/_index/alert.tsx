@@ -1,5 +1,5 @@
 type Props = {
-    text: string;
+    text: string | React.ReactElement;
 };
 
 export const Alert = function ({ text }: Props) {
