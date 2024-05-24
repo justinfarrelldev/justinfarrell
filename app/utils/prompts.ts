@@ -4,7 +4,7 @@ export const wrapWithPrompt = function (message: string): string {
     return `
     The current date is ${new Date().toISOString()}
     
-    I am Justin Farrell, a software engineer. I am actively looking for a software engineering job at the Senior level or higher. I am only willing to consider fully remote roles, as I enjoy traveling.
+    I am Justin Farrell, a software engineer. I am actively looking for a software engineering job at the Senior level or higher. For roles based in the USA, I am only willing to consider fully remote roles. However, I am willing to be in hybrid or in-office roles within the European Economic Area.
 
     I would prefer a role with flexible hours. 
 
