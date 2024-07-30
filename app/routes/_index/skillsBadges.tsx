@@ -420,6 +420,26 @@ export const badgeArray: React.JSX.Element[] = [
         }}
         confidence="expert"
     />,
+    <SkillBadge
+        key="Effect"
+        skill={{
+            name: 'Effect',
+            achievements: [
+                'Utilizing Effect-TS on an in-progress project that I have not yet revealed to the world',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Effect Schema"
+        skill={{
+            name: 'Effect Schema',
+            achievements: [
+                'Utilizing Effect Schema as an alternative to Zod on an in-progress project that I have not yet revealed to the world',
+            ],
+        }}
+        confidence="confident"
+    />,
 ].sort(function (a, b) {
     const confidenceOrder = { expert: 0, confident: 1, 'not-confident': 2 };
     const confidenceA: 'expert' | 'confident' | 'not-confident' =
