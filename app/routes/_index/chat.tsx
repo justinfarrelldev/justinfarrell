@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { marked } from 'marked';
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
-import { Alert } from './alert';
 
 type Props = {
     onUserMessage: (messageContent: string) => any;
@@ -16,30 +15,24 @@ export function Chat({ onUserMessage, messages }: Props) {
     const [inputValue, setInputValue] = useState<string>('');
     return (
         <>
-            <Alert
-                text={
-                    <>
-                        {
-                            <p>
-                                This feature lets you chat with an AI to learn
-                                more about my professional background. Please
-                                note that AIs may occasionally generate
-                                inaccurate information. If you need more
-                                details, feel free to email me at{' '}
-                                <a
-                                    href="mailto:justinfarrellwebdev@gmail.com"
-                                    className="text-white"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    justinfarrellwebdev@gmail.com
-                                </a>
-                                .
-                            </p>
-                        }
-                    </>
-                }
-            />
+            <p className="text-sm">
+                This feature lets you chat with an AI to learn more about my
+                professional background. Please note that AIs{' '}
+                <strong>
+                    may occasionally generate inaccurate information
+                </strong>
+                . If you need more details, feel free to email me at{' '}
+                <a
+                    href="mailto:justinfarrellwebdev@gmail.com"
+                    className="text-white"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    justinfarrellwebdev@gmail.com
+                </a>
+                .
+            </p>
+
             {messages.map(function (message, index) {
                 if (message.role === 'llm') {
                     return (
