@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
 import { Skill, SkillBadge } from './skillBadge';
-import { Alert } from './alert';
+import { motion } from 'framer-motion';
 
+// I'm aware that this is cluttered, but I am prioritizing development time over complete clarity in this moment
 export const badgeArray: React.JSX.Element[] = [
     <SkillBadge
         key="React.js"
@@ -421,6 +422,26 @@ export const badgeArray: React.JSX.Element[] = [
         }}
         confidence="expert"
     />,
+    <SkillBadge
+        key="Effect"
+        skill={{
+            name: 'Effect',
+            achievements: [
+                'Utilizing Effect-TS on an in-progress project that I have not yet revealed to the world',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Effect Schema"
+        skill={{
+            name: 'Effect Schema',
+            achievements: [
+                'Utilizing Effect Schema as an alternative to Zod on an in-progress project that I have not yet revealed to the world',
+            ],
+        }}
+        confidence="confident"
+    />,
 ].sort(function (a, b) {
     const confidenceOrder = { expert: 0, confident: 1, 'not-confident': 2 };
     const confidenceA: 'expert' | 'confident' | 'not-confident' =
@@ -441,11 +462,6 @@ export const SkillBadges: FC = function () {
     const [searchText, setSearchText] = useState<string>();
     return (
         <>
-            <Alert
-                text="Pardon the dust - this section is still under active
-                construction! This is also not an exhaustive list of my skill
-                set as of right now, but hopefully it will be soon!"
-            />
             <input
                 type="text"
                 placeholder="Search for a skill"
@@ -454,29 +470,58 @@ export const SkillBadges: FC = function () {
                     setSearchText(event.target.value);
                 }}
             />
-            {badgeArray.filter(function (badge) {
-                if (searchText === '' || searchText === undefined) return true;
+            {badgeArray
+                .filter(function (badge) {
+                    if (searchText === '' || searchText === undefined)
+                        return true;
 
-                if (
-                    (badge.props.skill as Skill).name
-                        .toLowerCase()
-                        .includes(searchText.toLowerCase())
-                )
-                    return true;
-
-                const achievements = (badge.props.skill as Skill).achievements;
-
-                for (const achievement of achievements) {
                     if (
-                        achievement
+                        (badge.props.skill as Skill).name
                             .toLowerCase()
                             .includes(searchText.toLowerCase())
                     )
                         return true;
-                }
 
-                return false;
-            })}
+                    const achievements = (badge.props.skill as Skill)
+                        .achievements;
+
+                    for (const achievement of achievements) {
+                        if (
+                            achievement
+                                .toLowerCase()
+                                .includes(searchText.toLowerCase())
+                        )
+                            return true;
+                    }
+
+                    return false;
+                })
+                .map(function (badge, index) {
+                    return (
+                        <motion.span
+                            key={`${badge.key}-span`}
+                            initial={{ opacity: 0, x: -25 }}
+                            animate={{ opacity: 100, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.025 }}
+                        >
+                            {badge}
+                        </motion.span>
+                    );
+                })}
+            <p className="mt-12 text-base font-bold">Legend</p>
+            <ul className="list-inside list-disc">
+                <li className="list-item text-base text-success">
+                    I am <strong>extremely proficient</strong> with this skill
+                </li>
+                <li className="list-item text-base text-warning">
+                    I am <strong>confident</strong> in my ability with this
+                    skill
+                </li>
+                <li className="list-item text-base text-error">
+                    I <strong>have used</strong> this skill, but I am not
+                    confident in my ability with it yet
+                </li>
+            </ul>
         </>
     );
 };
