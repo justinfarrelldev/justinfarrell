@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Skill, SkillBadge } from './skillBadge';
 
+// I'm aware that this is cluttered, but I am prioritizing development time over complete clarity in this moment
 export const badgeArray: React.JSX.Element[] = [
     <SkillBadge
         key="React.js"
