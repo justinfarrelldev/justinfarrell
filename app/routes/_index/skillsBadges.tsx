@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Skill, SkillBadge } from './skillBadge';
+import { motion } from 'framer-motion';
 
 // I'm aware that this is cluttered, but I am prioritizing development time over complete clarity in this moment
 export const badgeArray: React.JSX.Element[] = [
@@ -469,29 +470,44 @@ export const SkillBadges: FC = function () {
                     setSearchText(event.target.value);
                 }}
             />
-            {badgeArray.filter(function (badge) {
-                if (searchText === '' || searchText === undefined) return true;
+            {badgeArray
+                .filter(function (badge) {
+                    if (searchText === '' || searchText === undefined)
+                        return true;
 
-                if (
-                    (badge.props.skill as Skill).name
-                        .toLowerCase()
-                        .includes(searchText.toLowerCase())
-                )
-                    return true;
-
-                const achievements = (badge.props.skill as Skill).achievements;
-
-                for (const achievement of achievements) {
                     if (
-                        achievement
+                        (badge.props.skill as Skill).name
                             .toLowerCase()
                             .includes(searchText.toLowerCase())
                     )
                         return true;
-                }
 
-                return false;
-            })}
+                    const achievements = (badge.props.skill as Skill)
+                        .achievements;
+
+                    for (const achievement of achievements) {
+                        if (
+                            achievement
+                                .toLowerCase()
+                                .includes(searchText.toLowerCase())
+                        )
+                            return true;
+                    }
+
+                    return false;
+                })
+                .map(function (badge, index) {
+                    return (
+                        <motion.span
+                            key={`${badge.key}-span`}
+                            initial={{ opacity: 0, x: -25 }}
+                            animate={{ opacity: 100, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.025 }}
+                        >
+                            {badge}
+                        </motion.span>
+                    );
+                })}
         </>
     );
 };
