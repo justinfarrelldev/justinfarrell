@@ -508,6 +508,20 @@ export const SkillBadges: FC = function () {
                         </motion.span>
                     );
                 })}
+            <p className="mt-12 text-base font-bold">Legend</p>
+            <ul className="list-inside list-disc">
+                <li className="list-item text-base text-success">
+                    I am <strong>extremely proficient</strong> with this skill
+                </li>
+                <li className="list-item text-base text-warning">
+                    I am <strong>confident</strong> in my ability with this
+                    skill
+                </li>
+                <li className="list-item text-base text-error">
+                    I <strong>have used</strong> this skill, but I am not
+                    confident in my ability with it yet
+                </li>
+            </ul>
         </>
     );
 };
