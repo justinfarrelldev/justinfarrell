@@ -81,8 +81,22 @@ export default function Index() {
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <section>
                 <div className="join join-vertical lg:fixed">
-                    <h1 className="text-6xl font-bold">{MAIN_HEADING_TEXT}</h1>
-                    <p className="pt-5 text-2xl">{MAIN_SUBHEADING_TEXT}</p>
+                    <motion.h1
+                        className="text-6xl font-bold"
+                        initial={{ opacity: 0, x: -25 }}
+                        animate={{ opacity: 100, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0 }}
+                    >
+                        {MAIN_HEADING_TEXT}
+                    </motion.h1>
+                    <motion.p
+                        className="pt-5 text-2xl"
+                        initial={{ opacity: 0, x: -25 }}
+                        animate={{ opacity: 100, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0 }}
+                    >
+                        {MAIN_SUBHEADING_TEXT}
+                    </motion.p>
                     <motion.a
                         href="/#about"
                         initial={{ opacity: 0, y: 25 }}
