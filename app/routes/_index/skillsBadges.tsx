@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import { Skill, SkillBadge } from './skillBadge';
-import { Alert } from './alert';
 
 export const badgeArray: React.JSX.Element[] = [
     <SkillBadge
@@ -441,11 +440,6 @@ export const SkillBadges: FC = function () {
     const [searchText, setSearchText] = useState<string>();
     return (
         <>
-            <Alert
-                text="Pardon the dust - this section is still under active
-                construction! This is also not an exhaustive list of my skill
-                set as of right now, but hopefully it will be soon!"
-            />
             <input
                 type="text"
                 placeholder="Search for a skill"
