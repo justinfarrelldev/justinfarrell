@@ -16,6 +16,7 @@ import OpenAI from 'openai';
 import { Chat } from './chat';
 import { wrapWithPrompt } from '~/utils/prompts';
 import { Accordion } from './accordion';
+import { motion } from 'framer-motion';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -80,28 +81,62 @@ export default function Index() {
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <section>
                 <div className="join join-vertical lg:fixed">
-                    <h1 className="text-6xl font-bold">{MAIN_HEADING_TEXT}</h1>
-                    <p className="pt-5 text-2xl">{MAIN_SUBHEADING_TEXT}</p>
-                    <a href="/#about">
+                    <motion.h1
+                        className="text-6xl font-bold"
+                        initial={{ opacity: 0, x: -25 }}
+                        animate={{ opacity: 100, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0 }}
+                    >
+                        {MAIN_HEADING_TEXT}
+                    </motion.h1>
+                    <motion.p
+                        className="pt-5 text-2xl"
+                        initial={{ opacity: 0, x: -25 }}
+                        animate={{ opacity: 100, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0 }}
+                    >
+                        {MAIN_SUBHEADING_TEXT}
+                    </motion.p>
+                    <motion.a
+                        href="/#about"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 100, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0 }}
+                    >
                         <p className="pt-16 text-xl text-primary">
                             {ABOUT_LINK_TEXT}
                         </p>
-                    </a>
-                    <a href="/#inquire">
+                    </motion.a>
+                    <motion.a
+                        href="/#inquire"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 100, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.25 }}
+                    >
                         <p className="text-xl text-primary">
                             {INQUIRE_LINK_TEXT}
                         </p>
-                    </a>
-                    <a href="/#experience">
+                    </motion.a>
+                    <motion.a
+                        href="/#experience"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 100, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                    >
                         <p className="text-xl text-primary">
                             {EXPERIENCE_LINK_TEXT}
                         </p>
-                    </a>
-                    <a href="/#skills">
+                    </motion.a>
+                    <motion.a
+                        href="/#skills"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 100, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.75 }}
+                    >
                         <p className="text-xl text-primary">
                             {SKILLS_LINK_TEXT}
                         </p>
-                    </a>
+                    </motion.a>
                     {/* <a href="/#resume">
                         <p className="text-xl">{RESUME_LINK_TEXT}</p>
                     </a> */}
