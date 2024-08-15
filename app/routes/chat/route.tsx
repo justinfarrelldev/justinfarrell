@@ -35,6 +35,8 @@ export async function action({
         throw new Error(`No user input found!`);
     }
 
+    console.log('User input: ', userInput.toString());
+
     const completion = await openai.chat.completions.create({
         messages: [
             { role: 'system', content: wrapWithPrompt(userInput.toString()) },

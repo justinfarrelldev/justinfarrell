@@ -146,11 +146,80 @@ export const badgeArray: React.JSX.Element[] = [
         skill={{
             name: 'AWS',
             achievements: [
-                'Amazon Web Services was used as the cloud provider for Kalos Services, Inc.',
+                'Amazon Web Services was used as the cloud provider of choice for both Kalos Services Inc. as well as Lightcast (both teams)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="AWS DMS"
+        skill={{
+            name: 'AWS DMS',
+            achievements: [
                 'Created an automatic prod -> dev DMS task for Kalos Services, Inc. which scrubbed out PII and provided us a close-to-production development environment every week',
-                'Created a new RDS cluster to help spin up the BeyondHQ project at Lightcast',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="AWS ECS"
+        skill={{
+            name: 'AWS ECS',
+            achievements: [
                 'Spun up an ECS Fargate cluster to help re-construct the BeyondHQ project at Lightcast',
+                'Spun up multiple ECS EC2 clusters for my previous personal website, wayoftheweb.net',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="AWS RDS"
+        skill={{
+            name: 'AWS RDS',
+            achievements: [
+                'Created an automatic prod -> dev DMS task for our RDS databases at Kalos Services, Inc. which scrubbed out PII and provided us a close-to-production development environment every week',
+                'Created a new RDS cluster to help spin up the BeyondHQ project at Lightcast',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="AWS S3"
+        skill={{
+            name: 'AWS S3',
+            achievements: [
+                'Used AWS S3 extensively at Kalos Services Inc. for storage of various documents',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="AWS EC2"
+        skill={{
+            name: 'AWS EC2',
+            achievements: [
                 'Created and managed multiple bastion-host EC2 instances for Kalos Services, Inc.',
+                'Orchestrated multiple AWS ECS clusters with the EC2 preset (as well as the Fargate preset)',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="AWS API Gateway"
+        skill={{
+            name: 'AWS API Gateway',
+            achievements: [
+                'Used AWS Lambda functions extensively at SkillFit (orchestrated with AWS API Gateway) as our backend was fully serverless',
+            ],
+        }}
+        confidence="expert"
+    />,
+    <SkillBadge
+        key="AWS DynamoDB"
+        skill={{
+            name: 'AWS DynamoDB',
+            achievements: [
+                'Made extensive use of the NoSQL database AWS DynamoDB while on the SkillFit team at Lightcast',
             ],
         }}
         confidence="expert"
