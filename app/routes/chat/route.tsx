@@ -5,6 +5,7 @@ import OpenAI from 'openai';
 import { Chat } from '../_index/chat';
 import { wrapWithPrompt } from '~/utils/prompts';
 import { HomeIcon } from './homeIcon';
+import { log } from '~/utils/logging';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -35,7 +36,13 @@ export async function action({
         throw new Error(`No user input found!`);
     }
 
-    console.log('User input: ', userInput.toString());
+    const initialTimestamp = new Date().getTime();
+
+    log(
+        'info',
+        `[${initialTimestamp}] A user asked the LLM this question: `,
+        userInput.toString()
+    );
 
     const completion = await openai.chat.completions.create({
         messages: [
@@ -44,6 +51,12 @@ export async function action({
         model: 'gpt-4',
         temperature: 0.2,
     });
+
+    log(
+        'info',
+        `[${initialTimestamp}] The LLM responded with the following response: `,
+        completion.choices[0].message.content!
+    );
 
     return { role: 'llm', message: completion.choices[0].message.content! };
 }

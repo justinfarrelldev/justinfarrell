@@ -11,6 +11,7 @@ import { createReadableStreamFromReadable } from '@remix-run/node';
 import { RemixServer } from '@remix-run/react';
 import { isbot } from 'isbot';
 import { renderToPipeableStream } from 'react-dom/server';
+import { log } from './utils/logging';
 
 const ABORT_DELAY = 5_000;
 
@@ -79,7 +80,11 @@ function handleBotRequest(
                     // errors encountered during initial shell rendering since they'll
                     // reject and get logged in handleDocumentRequest.
                     if (shellRendered) {
-                        console.error(error);
+                        log(
+                            'error',
+                            'An error occurred on the Remix server while handling a bot request: ',
+                            error
+                        );
                     }
                 },
             }
@@ -129,7 +134,11 @@ function handleBrowserRequest(
                     // errors encountered during initial shell rendering since they'll
                     // reject and get logged in handleDocumentRequest.
                     if (shellRendered) {
-                        console.error(error);
+                        log(
+                            'error',
+                            'An error occurred on the Remix server while handling a browser request: ',
+                            error
+                        );
                     }
                 },
             }
