@@ -11,6 +11,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 import Index from './route';
 import {
     ABOUT_LINK_TEXT,
+    ABOUT_TEST_ID,
     EXPERIENCE_LINK_TEXT,
     INQUIRE_LINK_TEXT,
     MAIN_HEADING_TEXT,
@@ -77,5 +78,10 @@ describe('_index route', function () {
         expect(
             screen.queryAllByText(SKILLS_LINK_TEXT, { exact: true })
         ).toHaveLength(2);
+    });
+    it(`should be able to locate the test ID for the "About" section paragraphs since it should be open initially`, function () {
+        render(<RemixStub />);
+
+        expect(screen.queryByTestId(ABOUT_TEST_ID)).toBeInTheDocument();
     });
 });
