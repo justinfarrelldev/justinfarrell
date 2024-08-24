@@ -139,9 +139,6 @@ export default function Index() {
                             {SKILLS_LINK_TEXT}
                         </p>
                     </motion.a>
-                    {/* <a href="/#resume">
-                        <p className="text-xl">{RESUME_LINK_TEXT}</p>
-                    </a> */}
                 </div>
                 <div className="grid h-screen lg:grid-cols-2">
                     <div>
