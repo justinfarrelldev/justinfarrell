@@ -15,16 +15,16 @@ winston.add(
 export const log = function (level: LogType, message: string, ...meta: any[]) {
     switch (level) {
         case 'error':
-            console.error(chalk.red(message));
+            console.error(chalk.red(message), ...meta);
             break;
         case 'warn':
-            console.warn(chalk.yellow(message));
+            console.warn(chalk.yellow(message), ...meta);
             break;
         case 'info':
-            console.info(chalk.gray(message));
+            console.info(chalk.gray(message), ...meta);
             break;
         case 'log':
-            console.log(chalk.gray(message));
+            console.log(chalk.gray(message), ...meta);
             break;
         default:
             break;
