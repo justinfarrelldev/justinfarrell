@@ -104,6 +104,7 @@ export default function Index() {
                         initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 100, y: 0 }}
                         transition={{ duration: 0.5, delay: 0 }}
+                        className="no-underline"
                     >
                         <p className="pt-16 text-xl text-primary">
                             {ABOUT_LINK_TEXT}
@@ -114,6 +115,7 @@ export default function Index() {
                         initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 100, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.25 }}
+                        className="no-underline"
                     >
                         <p className="text-xl text-primary">
                             {INQUIRE_LINK_TEXT}
@@ -124,6 +126,7 @@ export default function Index() {
                         initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 100, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.5 }}
+                        className="no-underline"
                     >
                         <p className="text-xl text-primary">
                             {EXPERIENCE_LINK_TEXT}
@@ -134,14 +137,12 @@ export default function Index() {
                         initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 100, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.75 }}
+                        className="no-underline"
                     >
                         <p className="text-xl text-primary">
                             {SKILLS_LINK_TEXT}
                         </p>
                     </motion.a>
-                    {/* <a href="/#resume">
-                        <p className="text-xl">{RESUME_LINK_TEXT}</p>
-                    </a> */}
                 </div>
                 <div className="grid h-screen lg:grid-cols-2">
                     <div>

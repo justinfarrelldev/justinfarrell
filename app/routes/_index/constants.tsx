@@ -7,8 +7,12 @@ export const ABOUT_LINK_TEXT = 'About Me';
 export const INQUIRE_LINK_TEXT = 'Ask An AI About Me';
 export const EXPERIENCE_LINK_TEXT = 'My Experience';
 export const SKILLS_LINK_TEXT = 'My Skills';
+
+export const ABOUT_TEST_ID = 'about-paragraph';
+export const EXPERIENCE_TEST_ID = 'experience-section';
+
 export const ABOUT_TEXT = (
-    <>
+    <div data-testid={ABOUT_TEST_ID}>
         <p className="pt-6 text-xl">
             My journey in programming began at 13, sparked by a love for game
             development. I started with C++{' '}
@@ -88,11 +92,11 @@ export const ABOUT_TEXT = (
             </a>
             , so you can peek behind the curtains!
         </p>
-    </>
+    </div>
 );
 
 export const EXPERIENCE_TEXT = (
-    <>
+    <div data-testid={EXPERIENCE_TEST_ID}>
         <table className="table">
             <tr
                 className="hover cursor-pointer"
@@ -154,7 +158,7 @@ export const EXPERIENCE_TEXT = (
                 </td>
             </tr>
         </table>
-    </>
+    </div>
 );
 
 export const SKILLS_TEXT = (
