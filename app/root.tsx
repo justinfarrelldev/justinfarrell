@@ -13,12 +13,13 @@ export const links: LinksFunction = function () {
 };
 
 export function loader() {
-    console.log('This is a test!');
     return json(
         {},
         {
             headers: {
-                'Content-Security-Policy': "default-src 'self';",
+                'Content-Security-Policy':
+                    "default-src 'self'; report-to main-endpoint;",
+                'Reporting-Endpoints': `main-endpoint="https://www.justin-farrell.com/reports", default="https://www.justin-farrell.com/reports"`,
             },
         }
     );
