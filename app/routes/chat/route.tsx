@@ -20,9 +20,9 @@ export const meta: MetaFunction = function () {
     return [
         { title: 'Justin Farrell' },
         {
-            name: 'Justin Farrell - Software Engineer - Home',
+            name: 'description',
             content:
-                'Crafting Code Excellence: Full-Stack Mastery in JavaScript',
+                'Senior Software Engineer specializing in React, TypeScript, and AI integration.',
         },
     ];
 };
