@@ -22,7 +22,7 @@ jobs:
             - name: Run tests
               run: npm run test
     deploy:
-        name: Deploy App to Preview
+        name: Deploy App to Production
         needs: test
         runs-on: ubuntu-latest
         concurrency: deploy-group # optional: ensure only one action runs at a time
