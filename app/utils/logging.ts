@@ -4,13 +4,14 @@ import chalk from 'chalk';
 
 type LogType = 'log' | 'info' | 'warn' | 'error';
 
-winston.add(
-    new Loggly({
-        token: process.env.LOGGLY_TOKEN!,
-        subdomain: process.env.LOGGLY_SUBDOMAIN!,
-        tags: ['justinfarrell'],
-    })
-);
+if (!process.env.VITEST && !process.env.CI)
+    winston.add(
+        new Loggly({
+            token: process.env.LOGGLY_TOKEN!,
+            subdomain: process.env.LOGGLY_SUBDOMAIN!,
+            tags: ['justinfarrell'],
+        })
+    );
 
 export const log = function (level: LogType, message: string, ...meta: any[]) {
     switch (level) {
