@@ -9,6 +9,7 @@ export const EXPERIENCE_LINK_TEXT = 'My Experience';
 export const SKILLS_LINK_TEXT = 'My Skills';
 
 export const ABOUT_TEST_ID = 'about-paragraph';
+export const EXPERIENCE_TEST_ID = 'experience-section';
 
 export const ABOUT_TEXT = (
     <div data-testid={ABOUT_TEST_ID}>
@@ -95,7 +96,7 @@ export const ABOUT_TEXT = (
 );
 
 export const EXPERIENCE_TEXT = (
-    <>
+    <div data-testid={EXPERIENCE_TEST_ID}>
         <table className="table">
             <tr
                 className="hover cursor-pointer"
@@ -157,7 +158,7 @@ export const EXPERIENCE_TEXT = (
                 </td>
             </tr>
         </table>
-    </>
+    </div>
 );
 
 export const SKILLS_TEXT = (

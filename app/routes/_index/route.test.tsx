@@ -13,6 +13,7 @@ import {
     ABOUT_LINK_TEXT,
     ABOUT_TEST_ID,
     EXPERIENCE_LINK_TEXT,
+    EXPERIENCE_TEST_ID,
     INQUIRE_LINK_TEXT,
     MAIN_HEADING_TEXT,
     MAIN_SUBHEADING_TEXT,
@@ -83,5 +84,12 @@ describe('_index route', function () {
         render(<RemixStub />);
 
         expect(screen.queryByTestId(ABOUT_TEST_ID)).toBeInTheDocument();
+    });
+    it(`should NOT be able to locate the test ID for the "Experience" section since it should NOT be open initially`, function () {
+        render(<RemixStub />);
+
+        expect(
+            screen.queryByTestId(EXPERIENCE_TEST_ID)
+        ).not.toBeInTheDocument();
     });
 });
