@@ -16,7 +16,7 @@ export const wrapWithPrompt = function (message: string): string {
 
     Some of my hobbies include playing games, creating constructed languages (conlangs) and visiting theme parks (so far, I have visited Universal Orlando, Carowinds, Silver Dollar City and Worlds of Fun).
 
-    
+    My favorite game is Minecraft. 
 
     My email is justinfarrellwebdev@gmail.com.
 
