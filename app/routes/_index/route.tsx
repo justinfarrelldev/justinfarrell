@@ -49,12 +49,6 @@ export async function action({
     }
 
     const initialTimestamp = new Date().getTime();
-
-    log(
-        'info',
-        `[${initialTimestamp}] A user asked the LLM this question: "${userInput.toString()}"`
-    );
-
     const completion = await openai.chat.completions.create({
         messages: [
             { role: 'system', content: wrapWithPrompt(userInput.toString()) },
@@ -65,7 +59,7 @@ export async function action({
 
     log(
         'info',
-        `[${initialTimestamp}] The LLM responded with the following response: "${completion.choices[0].message.content!}"`
+        `[${initialTimestamp}] User question: "${userInput.toString()}". The LLM responded with the following response: "${completion.choices[0].message.content!}"`
     );
 
     return { role: 'llm', message: completion.choices[0].message.content! };
