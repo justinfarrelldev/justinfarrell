@@ -18,6 +18,9 @@ import { wrapWithPrompt } from '~/utils/prompts';
 import { Accordion } from './accordion';
 import { motion } from 'framer-motion';
 import { log } from '~/utils/logging';
+import { loadFull } from 'tsparticles'; // if you are going to use `loadFull`, install the "tsparticles" package too.
+import { initParticlesEngine, Particles } from '@tsparticles/react';
+import { Container } from 'node_modules/@tsparticles/engine/types/export-types';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -108,13 +111,106 @@ export default function Index() {
         [data]
     );
 
+    const [init, setInit] = useState(false);
+
+    // this should be run only once per application lifetime
+    useEffect(function () {
+        initParticlesEngine(async function (engine) {
+            await loadFull(engine);
+        }).then(function () {
+            setInit(true);
+        });
+    }, []);
+
+    const particlesLoaded = async function (container: Container | undefined) {
+        console.log(container);
+    };
+
     console.log('open accordion section: ', openAccordionSection);
 
     console.log('Hash: ', location.hash);
 
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
-            <section>
+            {init && (
+                <Particles
+                    id="tsparticles"
+                    particlesLoaded={particlesLoaded}
+                    style={{ zIndex: 10 }}
+                    options={{
+                        background: {
+                            color: {
+                                value: '#000',
+                            },
+                        },
+                        fpsLimit: 120,
+                        interactivity: {
+                            events: {
+                                onClick: {
+                                    enable: true,
+                                    mode: 'push',
+                                },
+                                onHover: {
+                                    enable: true,
+                                    mode: 'repulse',
+                                },
+                                resize: true as any,
+                            },
+                            modes: {
+                                push: {
+                                    quantity: 4,
+                                },
+                                repulse: {
+                                    distance: 200,
+                                    duration: 0.4,
+                                },
+                            },
+                        },
+                        particles: {
+                            color: {
+                                value: '#ffffff',
+                            },
+                            links: {
+                                color: '#ffffff',
+                                distance: 150,
+                                enable: true,
+                                opacity: 0.5,
+                                width: 1,
+                            },
+                            move: {
+                                direction: 'none',
+                                enable: true,
+                                outModes: {
+                                    default: 'bounce',
+                                },
+                                random: false,
+                                speed: 0.5,
+                                straight: false,
+                            },
+                            number: {
+                                density: {
+                                    enable: true,
+                                    // @ts-expect-error This error is actually valid
+                                    area: 800,
+                                },
+                                value: 80,
+                            },
+                            opacity: {
+                                value: 0.5,
+                            },
+                            shape: {
+                                type: 'circle',
+                            },
+                            size: {
+                                value: { min: 1, max: 3 },
+                            },
+                        },
+                        detectRetina: true,
+                    }}
+                />
+            )}
+
+            <section className="relative z-50">
                 <div className="join join-vertical lg:fixed">
                     <motion.h1
                         className="text-6xl font-bold"
