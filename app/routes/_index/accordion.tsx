@@ -7,6 +7,7 @@ type Section = {
     content: JSX.Element;
     onOpen: () => any;
     isOpen: boolean;
+    onClose: () => any;
 };
 
 type Props = {
@@ -33,33 +34,44 @@ export const Accordion: FC<Props> = function ({
                         <input
                             type="radio"
                             name="content-accordion"
+                            className="cursor-pointer"
                             defaultChecked={
                                 section.uniqueId === defaultOpenUniqueId
                             }
                             onChange={function (event) {
+                                console.log('Input fired');
                                 if (event.target.checked) {
                                     section.onOpen();
                                     document.location = `#${section.uniqueId}`;
+                                }
+                            }}
+                            onClick={function () {
+                                if (section.isOpen) {
+                                    section.onClose();
+                                } else {
+                                    section.onOpen();
                                 }
                             }}
                         />
                         <div className="collapse-title text-xl font-medium">
                             <p className="text-2xl">{section.header}</p>
                         </div>
-                        <div className="collapse-content">
-                            {section.isOpen && (
-                                <motion.p
-                                    initial={{
-                                        opacity: 0,
-                                    }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ duration: 0.25 }}
-                                    className="text-2xl"
-                                >
-                                    {section.content}
-                                </motion.p>
-                            )}
-                        </div>
+                        {section.isOpen && (
+                            <div className="collapse-content">
+                                {section.isOpen && (
+                                    <motion.p
+                                        initial={{
+                                            opacity: 0,
+                                        }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.25 }}
+                                        className="text-2xl"
+                                    >
+                                        {section.content}
+                                    </motion.p>
+                                )}
+                            </div>
+                        )}
                     </motion.div>
                 );
             })}

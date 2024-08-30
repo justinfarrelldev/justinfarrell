@@ -11,7 +11,7 @@ import {
     SKILLS_TEXT,
 } from './constants';
 import { useEffect, useState } from 'react';
-import { useActionData } from '@remix-run/react';
+import { useActionData, useLocation } from '@remix-run/react';
 import OpenAI from 'openai';
 import { Chat } from './chat';
 import { wrapWithPrompt } from '~/utils/prompts';
@@ -65,10 +65,34 @@ export async function action({
     return { role: 'llm', message: completion.choices[0].message.content! };
 }
 
+function determineInitialSection(hash: string): string {
+    const noHash = hash.replaceAll('#', '');
+
+    switch (noHash) {
+        case 'about': {
+            return ABOUT_LINK_TEXT;
+        }
+        case 'inquire': {
+            return INQUIRE_LINK_TEXT;
+        }
+        case 'experience': {
+            return EXPERIENCE_LINK_TEXT;
+        }
+        case 'skills': {
+            return SKILLS_LINK_TEXT;
+        }
+        default: {
+            return ABOUT_LINK_TEXT;
+        }
+    }
+}
+
 export default function Index() {
+    const location = useLocation();
     // have to use state because DaisyUI only sets the display property for some reason
-    const [openAccordionSection, setOpenAccordionSection] =
-        useState<string>(ABOUT_LINK_TEXT);
+    const [openAccordionSection, setOpenAccordionSection] = useState<
+        string | null
+    >(determineInitialSection(location.hash));
     const [messages, setMessages] = useState<Message[]>([]);
     const data = useActionData<typeof action>();
 
@@ -83,6 +107,10 @@ export default function Index() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [data]
     );
+
+    console.log('open accordion section: ', openAccordionSection);
+
+    console.log('Hash: ', location.hash);
 
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
@@ -154,7 +182,7 @@ export default function Index() {
                         {/* This div is empty to push the other column over */}
                     </div>
                     <Accordion
-                        defaultOpenUniqueId="about"
+                        defaultOpenUniqueId={location.hash.replaceAll('#', '')}
                         sections={[
                             {
                                 uniqueId: 'about',
@@ -162,6 +190,9 @@ export default function Index() {
                                 content: ABOUT_TEXT,
                                 onOpen: function () {
                                     setOpenAccordionSection(ABOUT_LINK_TEXT);
+                                },
+                                onClose: function () {
+                                    setOpenAccordionSection(null);
                                 },
                                 isOpen:
                                     openAccordionSection === ABOUT_LINK_TEXT,
@@ -186,6 +217,9 @@ export default function Index() {
                                 onOpen: function () {
                                     setOpenAccordionSection(INQUIRE_LINK_TEXT);
                                 },
+                                onClose: function () {
+                                    setOpenAccordionSection(null);
+                                },
                                 isOpen:
                                     openAccordionSection === INQUIRE_LINK_TEXT,
                             },
@@ -198,6 +232,9 @@ export default function Index() {
                                         EXPERIENCE_LINK_TEXT
                                     );
                                 },
+                                onClose: function () {
+                                    setOpenAccordionSection(null);
+                                },
                                 isOpen:
                                     openAccordionSection ===
                                     EXPERIENCE_LINK_TEXT,
@@ -208,6 +245,9 @@ export default function Index() {
                                 content: SKILLS_TEXT,
                                 onOpen: function () {
                                     setOpenAccordionSection(SKILLS_LINK_TEXT);
+                                },
+                                onClose: function () {
+                                    setOpenAccordionSection(null);
                                 },
                                 isOpen:
                                     openAccordionSection === SKILLS_LINK_TEXT,
