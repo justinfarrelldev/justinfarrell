@@ -67,8 +67,9 @@ export async function action({
 
 export default function Index() {
     // have to use state because DaisyUI only sets the display property for some reason
-    const [openAccordionSection, setOpenAccordionSection] =
-        useState<string>(ABOUT_LINK_TEXT);
+    const [openAccordionSection, setOpenAccordionSection] = useState<
+        string | null
+    >(ABOUT_LINK_TEXT);
     const [messages, setMessages] = useState<Message[]>([]);
     const data = useActionData<typeof action>();
 
@@ -163,6 +164,9 @@ export default function Index() {
                                 onOpen: function () {
                                     setOpenAccordionSection(ABOUT_LINK_TEXT);
                                 },
+                                onClose: function () {
+                                    setOpenAccordionSection(null);
+                                },
                                 isOpen:
                                     openAccordionSection === ABOUT_LINK_TEXT,
                             },
@@ -186,6 +190,9 @@ export default function Index() {
                                 onOpen: function () {
                                     setOpenAccordionSection(INQUIRE_LINK_TEXT);
                                 },
+                                onClose: function () {
+                                    setOpenAccordionSection(null);
+                                },
                                 isOpen:
                                     openAccordionSection === INQUIRE_LINK_TEXT,
                             },
@@ -198,6 +205,9 @@ export default function Index() {
                                         EXPERIENCE_LINK_TEXT
                                     );
                                 },
+                                onClose: function () {
+                                    setOpenAccordionSection(null);
+                                },
                                 isOpen:
                                     openAccordionSection ===
                                     EXPERIENCE_LINK_TEXT,
@@ -208,6 +218,9 @@ export default function Index() {
                                 content: SKILLS_TEXT,
                                 onOpen: function () {
                                     setOpenAccordionSection(SKILLS_LINK_TEXT);
+                                },
+                                onClose: function () {
+                                    setOpenAccordionSection(null);
                                 },
                                 isOpen:
                                     openAccordionSection === SKILLS_LINK_TEXT,
