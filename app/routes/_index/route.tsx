@@ -10,7 +10,7 @@ import {
     SKILLS_LINK_TEXT,
     SKILLS_TEXT,
 } from './constants';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useActionData, useLocation } from '@remix-run/react';
 import OpenAI from 'openai';
 import { Chat } from './chat';
@@ -90,6 +90,96 @@ function determineInitialSection(hash: string): string {
     }
 }
 
+const ParticleComponent = function ({
+    particlesLoaded,
+}: {
+    particlesLoaded: (container: Container | undefined) => any;
+}) {
+    return (
+        <Particles
+            id="tsparticles"
+            particlesLoaded={particlesLoaded}
+            style={{ zIndex: 10 }}
+            options={{
+                background: {
+                    color: {
+                        value: '#000',
+                    },
+                },
+                fpsLimit: 120,
+                interactivity: {
+                    events: {
+                        onClick: {
+                            enable: true,
+                            mode: 'push',
+                        },
+                        onHover: {
+                            enable: true,
+                            mode: 'repulse',
+                        },
+                        resize: true as any,
+                    },
+                    modes: {
+                        push: {
+                            quantity: 4,
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4,
+                        },
+                    },
+                },
+                particles: {
+                    color: {
+                        value: '#ffffff',
+                    },
+                    links: {
+                        color: '#ffffff',
+                        distance: 150,
+                        enable: true,
+                        opacity: 0.5,
+                        width: 1,
+                    },
+                    move: {
+                        direction: 'none',
+                        enable: true,
+                        outModes: {
+                            default: 'bounce',
+                        },
+                        random: false,
+                        speed: 0.5,
+                        straight: false,
+                    },
+                    number: {
+                        density: {
+                            enable: true,
+                            // @ts-expect-error This error is actually valid
+                            area: 800,
+                        },
+                        value: 80,
+                    },
+                    opacity: {
+                        value: 0.5,
+                    },
+                    shape: {
+                        type: 'circle',
+                    },
+                    size: {
+                        value: { min: 1, max: 3 },
+                    },
+                },
+                detectRetina: true,
+            }}
+        />
+    );
+};
+
+const particlesLoaded = async function (container: Container | undefined) {
+    console.log(container);
+};
+
+const MemoizedParticleComponent = memo(ParticleComponent);
+
 export default function Index() {
     const location = useLocation();
     // have to use state because DaisyUI only sets the display property for some reason
@@ -122,10 +212,6 @@ export default function Index() {
         });
     }, []);
 
-    const particlesLoaded = async function (container: Container | undefined) {
-        console.log(container);
-    };
-
     console.log('open accordion section: ', openAccordionSection);
 
     console.log('Hash: ', location.hash);
@@ -133,81 +219,7 @@ export default function Index() {
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             {init && (
-                <Particles
-                    id="tsparticles"
-                    particlesLoaded={particlesLoaded}
-                    style={{ zIndex: 10 }}
-                    options={{
-                        background: {
-                            color: {
-                                value: '#000',
-                            },
-                        },
-                        fpsLimit: 120,
-                        interactivity: {
-                            events: {
-                                onClick: {
-                                    enable: true,
-                                    mode: 'push',
-                                },
-                                onHover: {
-                                    enable: true,
-                                    mode: 'repulse',
-                                },
-                                resize: true as any,
-                            },
-                            modes: {
-                                push: {
-                                    quantity: 4,
-                                },
-                                repulse: {
-                                    distance: 200,
-                                    duration: 0.4,
-                                },
-                            },
-                        },
-                        particles: {
-                            color: {
-                                value: '#ffffff',
-                            },
-                            links: {
-                                color: '#ffffff',
-                                distance: 150,
-                                enable: true,
-                                opacity: 0.5,
-                                width: 1,
-                            },
-                            move: {
-                                direction: 'none',
-                                enable: true,
-                                outModes: {
-                                    default: 'bounce',
-                                },
-                                random: false,
-                                speed: 0.5,
-                                straight: false,
-                            },
-                            number: {
-                                density: {
-                                    enable: true,
-                                    // @ts-expect-error This error is actually valid
-                                    area: 800,
-                                },
-                                value: 80,
-                            },
-                            opacity: {
-                                value: 0.5,
-                            },
-                            shape: {
-                                type: 'circle',
-                            },
-                            size: {
-                                value: { min: 1, max: 3 },
-                            },
-                        },
-                        detectRetina: true,
-                    }}
-                />
+                <MemoizedParticleComponent particlesLoaded={particlesLoaded} />
             )}
 
             <section className="relative z-50">
