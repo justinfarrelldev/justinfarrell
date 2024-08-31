@@ -21,6 +21,7 @@ import { log } from '~/utils/logging';
 import { loadFull } from 'tsparticles'; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { initParticlesEngine, Particles } from '@tsparticles/react';
 import { Container } from 'node_modules/@tsparticles/engine/types/export-types';
+import { DESKTOP_OPTIONS, MOBILE_OPTIONS } from './tsparticlesPresets';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -92,84 +93,17 @@ function determineInitialSection(hash: string): string {
 
 const ParticleComponent = function ({
     particlesLoaded,
+    aspectRatio,
 }: {
     particlesLoaded: (container: Container | undefined) => any;
+    aspectRatio: number;
 }) {
     return (
         <Particles
             id="tsparticles"
             particlesLoaded={particlesLoaded}
             style={{ zIndex: 10 }}
-            options={{
-                background: {
-                    color: {
-                        value: '#000',
-                    },
-                },
-                fpsLimit: 120,
-                interactivity: {
-                    events: {
-                        onClick: {
-                            enable: true,
-                            mode: 'push',
-                        },
-                        onHover: {
-                            enable: true,
-                            mode: 'repulse',
-                        },
-                        resize: true as any,
-                    },
-                    modes: {
-                        push: {
-                            quantity: 4,
-                        },
-                        repulse: {
-                            distance: 200,
-                            duration: 0.4,
-                        },
-                    },
-                },
-                particles: {
-                    color: {
-                        value: '#ffffff',
-                    },
-                    links: {
-                        color: '#ffffff',
-                        distance: 150,
-                        enable: true,
-                        opacity: 0.5,
-                        width: 1,
-                    },
-                    move: {
-                        direction: 'none',
-                        enable: true,
-                        outModes: {
-                            default: 'bounce',
-                        },
-                        random: false,
-                        speed: 0.5,
-                        straight: false,
-                    },
-                    number: {
-                        density: {
-                            enable: true,
-                            // @ts-expect-error This error is actually valid
-                            area: 800,
-                        },
-                        value: 80,
-                    },
-                    opacity: {
-                        value: 0.5,
-                    },
-                    shape: {
-                        type: 'circle',
-                    },
-                    size: {
-                        value: { min: 1, max: 3 },
-                    },
-                },
-                detectRetina: true,
-            }}
+            options={aspectRatio < 1 ? MOBILE_OPTIONS : DESKTOP_OPTIONS}
         />
     );
 };
@@ -188,6 +122,7 @@ export default function Index() {
     >(determineInitialSection(location.hash));
     const [messages, setMessages] = useState<Message[]>([]);
     const data = useActionData<typeof action>();
+    const [aspectRatio, setAspectRatio] = useState<number>(0);
 
     useEffect(
         function () {
@@ -196,6 +131,8 @@ export default function Index() {
                     ...messages,
                     { role: 'llm', message: data!.message },
                 ]);
+
+            setAspectRatio(screen.width / screen.height);
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [data]
@@ -219,7 +156,10 @@ export default function Index() {
     return (
         <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             {init && (
-                <MemoizedParticleComponent particlesLoaded={particlesLoaded} />
+                <MemoizedParticleComponent
+                    particlesLoaded={particlesLoaded}
+                    aspectRatio={aspectRatio}
+                />
             )}
 
             <section className="relative z-50">
