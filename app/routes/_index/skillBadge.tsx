@@ -7,7 +7,7 @@ export type Skill = {
 
 type Props = {
     skill: Skill;
-    confidence: 'expert' | 'confident' | 'not-confident';
+    confidence: 'expert' | 'very-confident' | 'confident' | 'not-confident';
 };
 
 export const SkillBadge: FC<Props> = function ({
@@ -18,7 +18,7 @@ export const SkillBadge: FC<Props> = function ({
     // I am aware there are better ways and that DRY is being criminally violated here...
     let badgeClass: string;
     let tooltipClass: string;
-    if (confidence === 'expert') {
+    if (confidence === 'expert' || confidence === 'very-confident') {
         badgeClass = 'has-tooltip badge badge-success mr-2 cursor-default';
         tooltipClass =
             'tooltip bottom-full w-52 rounded bg-success p-1 text-left';

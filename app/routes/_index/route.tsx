@@ -180,6 +180,60 @@ export default function Index() {
                     >
                         {MAIN_SUBHEADING_TEXT}
                     </motion.p>
+                    <motion.span
+                        className="flex space-x-4 pt-4"
+                        initial={{ opacity: 0, x: -25 }}
+                        animate={{ opacity: 100, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0 }}
+                    >
+                        <a
+                            href="https://github.com/justinfarrelldev"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                width={32}
+                                src="public/github-mark-white.svg"
+                                alt="My GitHub Profile"
+                                title="View My GitHub Profile"
+                            />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/justin-farrell-web-dev/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                width={32}
+                                src="public/In-White-128@2x.png"
+                                alt="My LinkedIn Profile"
+                                title="View My LinkedIn Profile"
+                            />
+                        </a>
+                        <a
+                            href="mailto:justinfarrellwebdev@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg
+                                role="img"
+                                aria-label="Email Me - Use this link to email me at
+                                    justinfarrellwebdev@gmail.com."
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="white"
+                                width={32}
+                            >
+                                <title>Email Me</title>
+                                <desc>
+                                    Use this link to email me at
+                                    justinfarrellwebdev@gmail.com.
+                                </desc>
+                                <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                                <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                            </svg>
+                        </a>
+                    </motion.span>
                     <motion.a
                         href="/#about"
                         initial={{ opacity: 0, y: 25 }}
