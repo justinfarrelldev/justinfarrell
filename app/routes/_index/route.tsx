@@ -180,6 +180,15 @@ export default function Index() {
                     >
                         {MAIN_SUBHEADING_TEXT}
                     </motion.p>
+                    <span className="pt-4">
+                        <a href="https://github.com/justinfarrelldev">
+                            <img
+                                width={32}
+                                src="public/github-mark-white.svg"
+                                alt="My GitHub Profile"
+                            />
+                        </a>
+                    </span>
                     <motion.a
                         href="/#about"
                         initial={{ opacity: 0, y: 25 }}
