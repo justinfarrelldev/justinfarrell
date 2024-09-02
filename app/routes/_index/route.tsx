@@ -180,12 +180,19 @@ export default function Index() {
                     >
                         {MAIN_SUBHEADING_TEXT}
                     </motion.p>
-                    <span className="pt-4">
+                    <span className="flex space-x-4 pt-4">
                         <a href="https://github.com/justinfarrelldev">
                             <img
                                 width={32}
                                 src="public/github-mark-white.svg"
                                 alt="My GitHub Profile"
+                            />
+                        </a>
+                        <a href="https://www.linkedin.com/in/justin-farrell-web-dev/">
+                            <img
+                                width={32}
+                                src="public/In-White-128@2x.png"
+                                alt="My LinkedIn Profile"
                             />
                         </a>
                     </span>
