@@ -180,7 +180,12 @@ export default function Index() {
                     >
                         {MAIN_SUBHEADING_TEXT}
                     </motion.p>
-                    <span className="flex space-x-4 pt-4">
+                    <motion.span
+                        className="flex space-x-4 pt-4"
+                        initial={{ opacity: 0, x: -25 }}
+                        animate={{ opacity: 100, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0 }}
+                    >
                         <a
                             href="https://github.com/justinfarrelldev"
                             target="_blank"
@@ -228,7 +233,7 @@ export default function Index() {
                                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                             </svg>
                         </a>
-                    </span>
+                    </motion.span>
                     <motion.a
                         href="/#about"
                         initial={{ opacity: 0, y: 25 }}
