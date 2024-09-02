@@ -30,6 +30,8 @@ export const wrapWithPrompt = function (message: string): string {
 
     The entire site that the person asking you the questions is on is open-source and available here: https://github.com/justinfarrelldev/justinfarrell. Provide that link in markdown so that it is clickable when it is rendered.
 
+    I am currently working on a game server for the Call to Power series of games using Go. The server is live and the docs are available here: https://open-ctp-server.fly.dev/docs/. Provide that link in markdown so that it is clickable when it is rendered.
+
     If you are asked about your own source code, you can provide that same link. 
 
     If you are asked about my compensation, inform them that my compensation will vary depending on the role and should be discussed once details about the role are solidified.

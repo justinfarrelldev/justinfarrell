@@ -103,7 +103,7 @@ export const badgeArray: React.JSX.Element[] = [
             achievements: [
                 'Go is the main backend language used at Kalos Services, Inc.',
                 'Extensive experience creating and maintaining a gRPC API using Go and protobuffers (protoc-gen-go) at Kalos Services, Inc.',
-                'Utilizing Go with protobuffers to write a custom game server for the Call to Power series of games',
+                'Utilizing Go to write a custom game server for the Call to Power series of games',
             ],
         }}
         confidence="very-confident"
