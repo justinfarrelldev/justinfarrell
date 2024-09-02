@@ -56,7 +56,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Used Next.js with the app router on the Phantom Team at Lightcast to create Ask Lightcast, our business-facing AI product',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Node.js"
@@ -106,7 +106,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Utilizing Go with protobuffers to write a custom game server for the Call to Power series of games',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="MySQL"
@@ -129,7 +129,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Used Postgres on AWS RDS for blog posts on my old blog site, wayoftheweb.net',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Remix"
@@ -149,7 +149,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Amazon Web Services was used as the cloud provider of choice for both Kalos Services Inc. as well as Lightcast (both teams)',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="AWS DMS"
@@ -159,7 +159,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Created an automatic prod -> dev DMS task for Kalos Services, Inc. which scrubbed out PII and provided us a close-to-production development environment every week',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="AWS ECS"
@@ -170,7 +170,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Spun up multiple ECS EC2 clusters for my previous personal website, wayoftheweb.net',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="AWS RDS"
@@ -181,7 +181,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Created a new RDS cluster to help spin up the BeyondHQ project at Lightcast',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="AWS S3"
@@ -191,7 +191,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Used AWS S3 extensively at Kalos Services Inc. for storage of various documents',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="AWS EC2"
@@ -202,7 +202,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Orchestrated multiple AWS ECS clusters with the EC2 preset (as well as the Fargate preset)',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="AWS API Gateway"
@@ -212,7 +212,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Used AWS Lambda functions extensively at SkillFit (orchestrated with AWS API Gateway) as our backend was fully serverless',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="AWS DynamoDB"
@@ -222,7 +222,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Made extensive use of the NoSQL database AWS DynamoDB while on the SkillFit team at Lightcast',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Fly.io"
@@ -268,7 +268,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Created a speech-recognition-capable personal assistant for my Raspberry PI',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Django"
@@ -319,7 +319,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'GitLab is used in all Lightcast apps for CI / CD and I have been hands-on with GitLab CI on both the SkillFit and Ask Lightcast projects',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="CircleCI"
@@ -329,7 +329,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'CircleCI was utilized for CI / CD at Kalos Services, Inc., where I was involved extensively in crafting new deployments',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Vite"
@@ -340,7 +340,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'I have used Vite extensively in the past (it is my bundler of choice)',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Webpack"
@@ -351,7 +351,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Webpack was used for the SkillFit site',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="ChatGPT API"
@@ -394,7 +394,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'I presented a tech-talk comparing the pros-and-cons of Vitest, Jest and Mocha within Lightcast (including extensive performance comparisons)',
             ],
         }}
-        confidence="confident"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Playwright"
@@ -405,7 +405,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Utilized Playwright for web scraping during prototyping of an algorithmic trading bot',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Puppeteer"
@@ -415,7 +415,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'I chose Puppeteer when creating the end-to-end (E2E) testing suite for SkillFit due to its wide usage throughout the industry',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Jira"
@@ -478,7 +478,7 @@ export const badgeArray: React.JSX.Element[] = [
                 'Very familiar with C# for Unity development (GameObject, PlayerPrefs, serialization and de-serialization, etc.)',
             ],
         }}
-        confidence="expert"
+        confidence="very-confident"
     />,
     <SkillBadge
         key="Framer Motion"
@@ -512,11 +512,22 @@ export const badgeArray: React.JSX.Element[] = [
         confidence="confident"
     />,
 ].sort(function (a, b) {
-    const confidenceOrder = { expert: 0, confident: 1, 'not-confident': 2 };
-    const confidenceA: 'expert' | 'confident' | 'not-confident' =
-        a.props.confidence;
-    const confidenceB: 'expert' | 'confident' | 'not-confident' =
-        b.props.confidence;
+    const confidenceOrder = {
+        expert: 0,
+        'very-confident': 1,
+        confident: 2,
+        'not-confident': 3,
+    };
+    const confidenceA:
+        | 'expert'
+        | 'very-confident'
+        | 'confident'
+        | 'not-confident' = a.props.confidence;
+    const confidenceB:
+        | 'expert'
+        | 'very-confident'
+        | 'confident'
+        | 'not-confident' = b.props.confidence;
 
     if (confidenceOrder[confidenceA] < confidenceOrder[confidenceB]) {
         return -1;
