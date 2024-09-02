@@ -193,7 +193,7 @@ export default function Index() {
                         >
                             <img
                                 width={32}
-                                src="public/github-mark-white.svg"
+                                src="/github-mark-white.svg"
                                 alt="My GitHub Profile"
                                 title="View My GitHub Profile"
                             />
@@ -205,7 +205,7 @@ export default function Index() {
                         >
                             <img
                                 width={32}
-                                src="public/In-White-128@2x.png"
+                                src="/In-White-128@2x.png"
                                 alt="My LinkedIn Profile"
                                 title="View My LinkedIn Profile"
                             />
