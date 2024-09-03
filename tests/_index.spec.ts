@@ -37,3 +37,18 @@ test(`has subheading text of "${MAIN_SUBHEADING_TEXT}"`, async ({ page }) => {
         page.getByRole('heading', { name: MAIN_SUBHEADING_TEXT })
     ).toBeVisible();
 });
+
+test('GitHub link', async ({ page, context }) => {
+    await page.goto('/');
+
+    // Click the GitHub link.
+    const [newPage] = await Promise.all([
+        context.waitForEvent('page'), // Wait for the new tab to open
+        page.getByRole('link', { name: 'My GitHub Profile' }).click(),
+    ]);
+
+    await newPage.waitForURL('https://github.com/justinfarrelldev');
+
+    // Expects page to be on your GitHub profile now
+    expect(newPage.url()).toBe('https://github.com/justinfarrelldev');
+});
