@@ -32,7 +32,8 @@ describe('_index route', () => {
     beforeAll(() => {
         vi.mock('openai', () => {
             return {
-                default: () => {},
+                // eslint-disable-next-line prefer-arrow-functions/prefer-arrow-functions
+                default: function () {},
             };
         });
     });
