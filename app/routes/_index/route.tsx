@@ -168,14 +168,14 @@ const Index = () => {
                     >
                         {MAIN_HEADING_TEXT}
                     </motion.h1>
-                    <motion.p
+                    <motion.h2
                         className="pt-5 text-2xl"
                         initial={{ opacity: 0, x: -25 }}
                         animate={{ opacity: 100, x: 0 }}
                         transition={{ duration: 0.5, delay: 0 }}
                     >
                         {MAIN_SUBHEADING_TEXT}
-                    </motion.p>
+                    </motion.h2>
                     <motion.span
                         className="flex space-x-4 pt-4"
                         initial={{ opacity: 0, x: -25 }}
