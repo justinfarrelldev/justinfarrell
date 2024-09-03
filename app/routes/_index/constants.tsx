@@ -100,7 +100,7 @@ export const EXPERIENCE_TEXT = (
         <table className="table">
             <tr
                 className="hover cursor-pointer"
-                onClick={function () {
+                onClick={() => {
                     window.open('https://www.asklightcast.io', '_blank');
                 }}
             >
@@ -120,7 +120,7 @@ export const EXPERIENCE_TEXT = (
             </tr>
             <tr
                 className="hover cursor-pointer"
-                onClick={function () {
+                onClick={() => {
                     window.open(
                         'https://lightcast.io/solutions/economic-and-workforce-development/skillfit',
                         '_blank'
@@ -143,7 +143,7 @@ export const EXPERIENCE_TEXT = (
             </tr>
             <tr
                 className="hover cursor-pointer"
-                onClick={function () {
+                onClick={() => {
                     window.open('https://www.kalosflorida.com/', '_blank');
                 }}
             >

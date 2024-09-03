@@ -11,7 +11,7 @@ type Props = {
     messages: Message[];
 };
 
-export function Chat({ onUserMessage, messages }: Props) {
+export const Chat = ({ onUserMessage, messages }: Props) => {
     const [inputValue, setInputValue] = useState<string>('');
     return (
         <>
@@ -76,7 +76,7 @@ export function Chat({ onUserMessage, messages }: Props) {
 
             <Form
                 method="POST"
-                onSubmit={function (event) {
+                onSubmit={(event) => {
                     const formData = new FormData(event.currentTarget); // Access the form data
 
                     if (formData.get('userInput')) {
@@ -90,7 +90,7 @@ export function Chat({ onUserMessage, messages }: Props) {
                     type="text"
                     placeholder="Ask About Me"
                     className="input input-bordered input-secondary my-4 w-full"
-                    onChange={function (event) {
+                    onChange={(event) => {
                         setInputValue(event.target.value);
                     }}
                     value={inputValue}
@@ -98,4 +98,4 @@ export function Chat({ onUserMessage, messages }: Props) {
             </Form>
         </>
     );
-}
+};

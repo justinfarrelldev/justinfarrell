@@ -16,20 +16,18 @@ export type Message = {
     message: string;
 };
 
-export const meta: MetaFunction = function () {
-    return [
-        { title: 'Justin Farrell' },
-        {
-            name: 'description',
-            content:
-                'Senior Software Engineer specializing in React, TypeScript, and AI integration.',
-        },
-    ];
-};
+export const meta: MetaFunction = () => [
+    { title: 'Justin Farrell' },
+    {
+        name: 'description',
+        content:
+            'Senior Software Engineer specializing in React, TypeScript, and AI integration.',
+    },
+];
 
-export async function action({
+export const action = async ({
     request,
-}: ActionFunctionArgs): Promise<Message> {
+}: ActionFunctionArgs): Promise<Message> => {
     const body = await request.formData();
     const userInput = body.get('userInput');
     if (!userInput) {
@@ -59,9 +57,9 @@ export async function action({
     );
 
     return { role: 'llm', message: completion.choices[0].message.content! };
-}
+};
 
-export default function Index() {
+const Index = () => {
     const [messages, setMessages] = useState<Message[]>([]);
     const data = useActionData<typeof action>();
 
@@ -83,7 +81,7 @@ export default function Index() {
                 <HomeIcon />
             </a>
             <Chat
-                onUserMessage={function (userMessage) {
+                onUserMessage={(userMessage) => {
                     setMessages([
                         ...messages,
                         {
@@ -96,4 +94,6 @@ export default function Index() {
             />
         </div>
     );
-}
+};
+
+export default Index;

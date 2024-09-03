@@ -32,7 +32,7 @@ describe('_index route', () => {
     beforeAll(() => {
         vi.mock('openai', () => {
             return {
-                default: function () {},
+                default: () => {},
             };
         });
     });

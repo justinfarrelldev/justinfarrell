@@ -538,7 +538,7 @@ export const badgeArray: React.JSX.Element[] = [
     }
 });
 
-export const SkillBadges: FC = function () {
+export const SkillBadges: FC = () => {
     const [searchText, setSearchText] = useState<string>();
     return (
         <>
@@ -546,7 +546,7 @@ export const SkillBadges: FC = function () {
                 type="text"
                 placeholder="Search for a skill"
                 className="input input-bordered input-secondary my-4 w-full"
-                onChange={function (event) {
+                onChange={(event) => {
                     setSearchText(event.target.value);
                 }}
             />

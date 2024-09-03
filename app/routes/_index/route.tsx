@@ -32,20 +32,18 @@ export type Message = {
     message: string;
 };
 
-export const meta: MetaFunction = function () {
-    return [
-        { title: 'Justin Farrell' },
-        {
-            name: 'description',
-            content:
-                'Senior Software Engineer specializing in React, TypeScript, and AI integration.',
-        },
-    ];
-};
+export const meta: MetaFunction = () => [
+    { title: 'Justin Farrell' },
+    {
+        name: 'description',
+        content:
+            'Senior Software Engineer specializing in React, TypeScript, and AI integration.',
+    },
+];
 
-export async function action({
+export const action = async ({
     request,
-}: ActionFunctionArgs): Promise<Message> {
+}: ActionFunctionArgs): Promise<Message> => {
     const body = await request.formData();
     const userInput = body.get('userInput');
     if (!userInput) {
@@ -67,9 +65,9 @@ export async function action({
     );
 
     return { role: 'llm', message: completion.choices[0].message.content! };
-}
+};
 
-function determineInitialSection(hash: string): string {
+const determineInitialSection = (hash: string): string => {
     const noHash = hash.replaceAll('#', '');
 
     switch (noHash) {
@@ -89,32 +87,30 @@ function determineInitialSection(hash: string): string {
             return ABOUT_LINK_TEXT;
         }
     }
-}
+};
 
-const ParticleComponent = function ({
+const ParticleComponent = ({
     particlesLoaded,
     aspectRatio,
 }: {
     particlesLoaded: (container: Container | undefined) => any;
     aspectRatio: number;
-}) {
-    return (
-        <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            style={{ zIndex: 10 }}
-            options={aspectRatio < 1 ? MOBILE_OPTIONS : DESKTOP_OPTIONS}
-        />
-    );
-};
+}) => (
+    <Particles
+        id="tsparticles"
+        particlesLoaded={particlesLoaded}
+        style={{ zIndex: 10 }}
+        options={aspectRatio < 1 ? MOBILE_OPTIONS : DESKTOP_OPTIONS}
+    />
+);
 
-const particlesLoaded = async function (container: Container | undefined) {
+const particlesLoaded = async (container: Container | undefined) => {
     console.log(container);
 };
 
 const MemoizedParticleComponent = memo(ParticleComponent);
 
-export default function Index() {
+export default () => {
     const location = useLocation();
     // have to use state because DaisyUI only sets the display property for some reason
     const [openAccordionSection, setOpenAccordionSection] = useState<
@@ -290,10 +286,10 @@ export default function Index() {
                                 uniqueId: 'about',
                                 header: ABOUT_LINK_TEXT,
                                 content: ABOUT_TEXT,
-                                onOpen: function () {
+                                onOpen: () => {
                                     setOpenAccordionSection(ABOUT_LINK_TEXT);
                                 },
-                                onClose: function () {
+                                onClose: () => {
                                     setOpenAccordionSection(null);
                                 },
                                 isOpen:
@@ -304,7 +300,7 @@ export default function Index() {
                                 header: INQUIRE_LINK_TEXT,
                                 content: (
                                     <Chat
-                                        onUserMessage={function (userMessage) {
+                                        onUserMessage={(userMessage) => {
                                             setMessages([
                                                 ...messages,
                                                 {
@@ -316,10 +312,10 @@ export default function Index() {
                                         messages={messages}
                                     />
                                 ),
-                                onOpen: function () {
+                                onOpen: () => {
                                     setOpenAccordionSection(INQUIRE_LINK_TEXT);
                                 },
-                                onClose: function () {
+                                onClose: () => {
                                     setOpenAccordionSection(null);
                                 },
                                 isOpen:
@@ -329,12 +325,12 @@ export default function Index() {
                                 uniqueId: 'experience',
                                 header: EXPERIENCE_LINK_TEXT,
                                 content: EXPERIENCE_TEXT,
-                                onOpen: function () {
+                                onOpen: () => {
                                     setOpenAccordionSection(
                                         EXPERIENCE_LINK_TEXT
                                     );
                                 },
-                                onClose: function () {
+                                onClose: () => {
                                     setOpenAccordionSection(null);
                                 },
                                 isOpen:
@@ -345,10 +341,10 @@ export default function Index() {
                                 uniqueId: 'skills',
                                 header: SKILLS_LINK_TEXT,
                                 content: SKILLS_TEXT,
-                                onOpen: function () {
+                                onOpen: () => {
                                     setOpenAccordionSection(SKILLS_LINK_TEXT);
                                 },
-                                onClose: function () {
+                                onClose: () => {
                                     setOpenAccordionSection(null);
                                 },
                                 isOpen:
@@ -360,4 +356,4 @@ export default function Index() {
             </section>
         </div>
     );
-}
+};

@@ -55,7 +55,7 @@ const handleBotRequest = (
                 abortDelay={ABORT_DELAY}
             />,
             {
-                onAllReady() {
+                onAllReady: () => {
                     shellRendered = true;
                     const body = new PassThrough();
                     const stream = createReadableStreamFromReadable(body);
@@ -71,10 +71,10 @@ const handleBotRequest = (
 
                     pipe(body);
                 },
-                onShellError(error: unknown) {
+                onShellError: (error: unknown) => {
                     reject(error);
                 },
-                onError(error: unknown) {
+                onError: (error: unknown) => {
                     responseStatusCode = 500;
                     // Log streaming rendering errors from inside the shell.  Don't log
                     // errors encountered during initial shell rendering since they'll
@@ -109,7 +109,7 @@ const handleBrowserRequest = (
                 abortDelay={ABORT_DELAY}
             />,
             {
-                onShellReady() {
+                onShellReady: () => {
                     shellRendered = true;
                     const body = new PassThrough();
                     const stream = createReadableStreamFromReadable(body);
@@ -125,10 +125,10 @@ const handleBrowserRequest = (
 
                     pipe(body);
                 },
-                onShellError(error: unknown) {
+                onShellError: (error: unknown) => {
                     reject(error);
                 },
-                onError(error: unknown) {
+                onError: (error: unknown) => {
                     responseStatusCode = 500;
                     // Log streaming rendering errors from inside the shell.  Don't log
                     // errors encountered during initial shell rendering since they'll
