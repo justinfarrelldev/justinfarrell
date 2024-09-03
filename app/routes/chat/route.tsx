@@ -6,6 +6,7 @@ import { Chat } from '../_index/chat';
 import { wrapWithPrompt } from '~/utils/prompts';
 import { HomeIcon } from './homeIcon';
 import { log } from '~/utils/logging';
+import { MAIN_PAGE_TITLE } from '~/constants/metadata';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -17,7 +18,7 @@ export type Message = {
 };
 
 export const meta: MetaFunction = () => [
-    { title: 'Justin Farrell' },
+    { title: MAIN_PAGE_TITLE },
     {
         name: 'description',
         content:

@@ -22,6 +22,7 @@ import { loadFull } from 'tsparticles'; // if you are going to use `loadFull`, i
 import { initParticlesEngine, Particles } from '@tsparticles/react';
 import { Container } from 'node_modules/@tsparticles/engine/types/export-types';
 import { DESKTOP_OPTIONS, MOBILE_OPTIONS } from './tsparticlesPresets';
+import { MAIN_PAGE_TITLE } from '~/constants/metadata';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -33,7 +34,7 @@ export type Message = {
 };
 
 export const meta: MetaFunction = () => [
-    { title: 'Justin Farrell' },
+    { title: MAIN_PAGE_TITLE },
     {
         name: 'description',
         content:
