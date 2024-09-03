@@ -49,6 +49,23 @@ test('GitHub link', async ({ page, context }) => {
 
     await newPage.waitForURL('https://github.com/justinfarrelldev');
 
-    // Expects page to be on your GitHub profile now
     expect(newPage.url()).toBe('https://github.com/justinfarrelldev');
+});
+
+test('LinkedIn link', async ({ page, context }) => {
+    await page.goto('/');
+
+    // Click the LinkedIn link.
+    const [newPage] = await Promise.all([
+        context.waitForEvent('page'), // Wait for the new tab to open
+        page.getByRole('link', { name: 'My LinkedIn Profile' }).click(),
+    ]);
+
+    await newPage.waitForURL(
+        'https://www.linkedin.com/in/justin-farrell-web-dev/'
+    );
+
+    expect(newPage.url()).toBe(
+        'https://www.linkedin.com/in/justin-farrell-web-dev/'
+    );
 });
