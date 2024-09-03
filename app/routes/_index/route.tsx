@@ -110,7 +110,7 @@ const particlesLoaded = async (container: Container | undefined) => {
 
 const MemoizedParticleComponent = memo(ParticleComponent);
 
-export default () => {
+const Index = () => {
     const location = useLocation();
     // have to use state because DaisyUI only sets the display property for some reason
     const [openAccordionSection, setOpenAccordionSection] = useState<
@@ -357,3 +357,5 @@ export default () => {
         </div>
     );
 };
+
+export default Index;
