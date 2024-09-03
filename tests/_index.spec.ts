@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { MAIN_PAGE_DESCRIPTION, MAIN_PAGE_TITLE } from '~/constants/metadata';
+import { MAIN_HEADING_TEXT } from '~/routes/_index/constants';
 
 test(`has title "${MAIN_PAGE_TITLE}"`, async ({ page }) => {
     await page.goto('/');
@@ -18,14 +19,10 @@ test(`has description "${MAIN_PAGE_DESCRIPTION}"`, async ({ page }) => {
     );
 });
 
-// test('get started link', async ({ page }) => {
-//     await page.goto('https://playwright.dev/');
+test(`has main heading text of "${MAIN_HEADING_TEXT}"`, async ({ page }) => {
+    await page.goto('/');
 
-//     // Click the get started link.
-//     await page.getByRole('link', { name: 'Get started' }).click();
-
-//     // Expects page to have a heading with the name of Installation.
-//     await expect(
-//         page.getByRole('heading', { name: 'Installation' })
-//     ).toBeVisible();
-// });
+    await expect(
+        page.getByRole('heading', { name: MAIN_HEADING_TEXT })
+    ).toBeVisible();
+});
