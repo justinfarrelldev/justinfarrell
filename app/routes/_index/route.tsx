@@ -125,7 +125,7 @@ export default function Index() {
     const [aspectRatio, setAspectRatio] = useState<number>(0);
 
     useEffect(
-        function () {
+        () => {
             if (data)
                 setMessages([
                     ...messages,
@@ -141,10 +141,10 @@ export default function Index() {
     const [init, setInit] = useState(false);
 
     // this should be run only once per application lifetime
-    useEffect(function () {
-        initParticlesEngine(async function (engine) {
+    useEffect(() => {
+        initParticlesEngine(async (engine) => {
             await loadFull(engine);
-        }).then(function () {
+        }).then(() => {
             setInit(true);
         });
     }, []);

@@ -21,7 +21,7 @@ export const Accordion: FC<Props> = function ({
 }: Props) {
     return (
         <div>
-            {sections.map(function (section, index) {
+            {sections.map((section, index) => {
                 return (
                     <motion.div
                         key={section.uniqueId}

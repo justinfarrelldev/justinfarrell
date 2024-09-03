@@ -39,7 +39,7 @@ export const SkillBadge: FC<Props> = function ({
                 <span className={tooltipClass}>
                     <ul className="list-inside list-disc p-4">
                         <p className="text-lg font-bold">{skill.name}</p>
-                        {skill.achievements.map(function (achievement) {
+                        {skill.achievements.map((achievement) => {
                             return (
                                 <li
                                     key={achievement}

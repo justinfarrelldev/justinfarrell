@@ -66,7 +66,7 @@ export default function Index() {
     const data = useActionData<typeof action>();
 
     useEffect(
-        function () {
+        () => {
             if (data)
                 setMessages([
                     ...messages,

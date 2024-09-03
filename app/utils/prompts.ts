@@ -44,7 +44,7 @@ export const wrapWithPrompt = function (message: string): string {
     If you are asked about anything outside of the information provided above, professionally reply that your role is to talk about my (Justin's) employment experience and skillset.
 
     Here are a list of my skills in JSON format (with a "confidence" key to inform you how confident I am in my abilities with this skill): ${badgeArray.map(
-        function (badge) {
+        (badge) => {
             return JSON.stringify({
                 ...badge.props.skill,
                 confidence: badge.props.confidence,

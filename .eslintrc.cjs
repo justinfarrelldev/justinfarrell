@@ -77,8 +77,8 @@ module.exports = {
                 'plugin:import/typescript',
             ],
             rules: {
-                'es/no-arrow-functions': 'error',
                 '@typescript-eslint/no-explicit-any': 'off',
+                'prefer-arrow-callback': 'error',
             },
         },
 

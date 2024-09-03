@@ -511,7 +511,7 @@ export const badgeArray: React.JSX.Element[] = [
         }}
         confidence="confident"
     />,
-].sort(function (a, b) {
+].sort((a, b) => {
     const confidenceOrder = {
         expert: 0,
         'very-confident': 1,
@@ -551,7 +551,7 @@ export const SkillBadges: FC = function () {
                 }}
             />
             {badgeArray
-                .filter(function (badge) {
+                .filter((badge) => {
                     if (searchText === '' || searchText === undefined)
                         return true;
 
@@ -576,7 +576,7 @@ export const SkillBadges: FC = function () {
 
                     return false;
                 })
-                .map(function (badge, index) {
+                .map((badge, index) => {
                     return (
                         <motion.span
                             key={`${badge.key}-span`}

@@ -33,7 +33,7 @@ export function Chat({ onUserMessage, messages }: Props) {
                 .
             </p>
 
-            {messages.map(function (message, index) {
+            {messages.map((message, index) => {
                 if (message.role === 'llm') {
                     return (
                         <motion.div
