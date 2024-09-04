@@ -69,3 +69,13 @@ test('LinkedIn link', async ({ page, context }) => {
         'https://www.linkedin.com/in/justin-farrell-web-dev/'
     );
 });
+
+test('Email link', async ({ page, context }) => {
+    await page.goto('/');
+
+    // Since email link will need to launch email client, it is outside the scope of Playwright
+
+    const mailLink = page.getByRole('link', { name: 'Email Me' });
+
+    await expect(mailLink).toHaveAttribute('href', /^mailto:/);
+});
