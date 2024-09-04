@@ -70,7 +70,7 @@ test('LinkedIn link', async ({ page, context }) => {
     );
 });
 
-test('Email link', async ({ page, context }) => {
+test('Email link', async ({ page }) => {
     await page.goto('/');
 
     // Since email link will need to launch email client, it is outside the scope of Playwright
