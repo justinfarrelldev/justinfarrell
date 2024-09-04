@@ -8,12 +8,12 @@ import {
 import { json, type LinksFunction } from '@remix-run/node';
 import stylesheet from '~/tailwind.css?url';
 
-export const links: LinksFunction = function () {
-    return [{ rel: 'stylesheet', href: stylesheet }];
-};
+export const links: LinksFunction = () => [
+    { rel: 'stylesheet', href: stylesheet },
+];
 
-export function loader() {
-    return json(
+export const loader = () =>
+    json(
         {},
         {
             headers: {
@@ -23,31 +23,28 @@ export function loader() {
             },
         }
     );
-}
 
-export function Layout({ children }: { children: React.ReactNode }) {
-    return (
-        <html lang="en" data-theme="forest" className="scroll-smooth">
-            <head>
-                <meta charSet="utf-8" />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <Meta />
-                <Links />
-            </head>
-            <body>
-                <div className="m-[10%]">
-                    {children}
-                    <ScrollRestoration />
-                    <Scripts />
-                </div>
-            </body>
-        </html>
-    );
-}
+export const Layout = ({ children }: { children: React.ReactNode }) => (
+    <html lang="en" data-theme="forest" className="scroll-smooth">
+        <head>
+            <meta charSet="utf-8" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <Meta />
+            <Links />
+        </head>
+        <body>
+            <div className="m-[10%]">
+                {children}
+                <ScrollRestoration />
+                <Scripts />
+            </div>
+        </body>
+    </html>
+);
 
-export default function App() {
-    return <Outlet />;
-}
+const App = () => <Outlet />;
+
+export default App;

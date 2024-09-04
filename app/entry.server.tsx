@@ -15,7 +15,7 @@ import { log } from './utils/logging';
 
 const ABORT_DELAY = 5_000;
 
-export default function handleRequest(
+export const handleRequest = (
     request: Request,
     responseStatusCode: number,
     responseHeaders: Headers,
@@ -24,7 +24,7 @@ export default function handleRequest(
     // free to delete this parameter in your app if you're not using it!
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     loadContext: AppLoadContext
-) {
+) => {
     return isbot(request.headers.get('user-agent') || '')
         ? handleBotRequest(
               request,
@@ -38,15 +38,15 @@ export default function handleRequest(
               responseHeaders,
               remixContext
           );
-}
+};
 
-function handleBotRequest(
+const handleBotRequest = (
     request: Request,
     responseStatusCode: number,
     responseHeaders: Headers,
     remixContext: EntryContext
-) {
-    return new Promise(function (resolve, reject) {
+) => {
+    return new Promise((resolve, reject) => {
         let shellRendered = false;
         const { pipe, abort } = renderToPipeableStream(
             <RemixServer
@@ -55,7 +55,7 @@ function handleBotRequest(
                 abortDelay={ABORT_DELAY}
             />,
             {
-                onAllReady() {
+                onAllReady: () => {
                     shellRendered = true;
                     const body = new PassThrough();
                     const stream = createReadableStreamFromReadable(body);
@@ -71,10 +71,10 @@ function handleBotRequest(
 
                     pipe(body);
                 },
-                onShellError(error: unknown) {
+                onShellError: (error: unknown) => {
                     reject(error);
                 },
-                onError(error: unknown) {
+                onError: (error: unknown) => {
                     responseStatusCode = 500;
                     // Log streaming rendering errors from inside the shell.  Don't log
                     // errors encountered during initial shell rendering since they'll
@@ -92,15 +92,15 @@ function handleBotRequest(
 
         setTimeout(abort, ABORT_DELAY);
     });
-}
+};
 
-function handleBrowserRequest(
+const handleBrowserRequest = (
     request: Request,
     responseStatusCode: number,
     responseHeaders: Headers,
     remixContext: EntryContext
-) {
-    return new Promise(function (resolve, reject) {
+) => {
+    return new Promise((resolve, reject) => {
         let shellRendered = false;
         const { pipe, abort } = renderToPipeableStream(
             <RemixServer
@@ -109,7 +109,7 @@ function handleBrowserRequest(
                 abortDelay={ABORT_DELAY}
             />,
             {
-                onShellReady() {
+                onShellReady: () => {
                     shellRendered = true;
                     const body = new PassThrough();
                     const stream = createReadableStreamFromReadable(body);
@@ -125,10 +125,10 @@ function handleBrowserRequest(
 
                     pipe(body);
                 },
-                onShellError(error: unknown) {
+                onShellError: (error: unknown) => {
                     reject(error);
                 },
-                onError(error: unknown) {
+                onError: (error: unknown) => {
                     responseStatusCode = 500;
                     // Log streaming rendering errors from inside the shell.  Don't log
                     // errors encountered during initial shell rendering since they'll
@@ -146,4 +146,6 @@ function handleBrowserRequest(
 
         setTimeout(abort, ABORT_DELAY);
     });
-}
+};
+
+export default handleRequest;

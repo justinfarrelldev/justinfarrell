@@ -28,64 +28,65 @@ const RemixStub = createRemixStub([
     },
 ]);
 
-describe('_index route', function () {
-    beforeAll(function () {
-        vi.mock('openai', function () {
+describe('_index route', () => {
+    beforeAll(() => {
+        vi.mock('openai', () => {
             return {
+                // eslint-disable-next-line prefer-arrow-functions/prefer-arrow-functions
                 default: function () {},
             };
         });
     });
-    afterAll(function () {
+    afterAll(() => {
         vi.resetAllMocks();
     });
-    afterEach(function () {
+    afterEach(() => {
         cleanup();
     });
-    it(`should have the text ${MAIN_HEADING_TEXT} displayed prominently`, function () {
+    it(`should have the text ${MAIN_HEADING_TEXT} displayed prominently`, () => {
         render(<RemixStub />);
 
         expect(screen.queryByText(MAIN_HEADING_TEXT)).toBeInTheDocument();
     });
-    it(`should have the text ${MAIN_SUBHEADING_TEXT} displayed prominently`, function () {
+    it(`should have the text ${MAIN_SUBHEADING_TEXT} displayed prominently`, () => {
         render(<RemixStub />);
 
         expect(screen.queryByText(MAIN_SUBHEADING_TEXT)).toBeInTheDocument();
     });
-    it(`should contain the text "${ABOUT_LINK_TEXT}" twice - one for the navigation and one for the element`, function () {
+    it(`should contain the text "${ABOUT_LINK_TEXT}" twice - one for the navigation and one for the element`, () => {
         render(<RemixStub />);
 
         expect(
             screen.queryAllByText(ABOUT_LINK_TEXT, { exact: true })
         ).toHaveLength(2);
     });
-    it(`should contain the text "${INQUIRE_LINK_TEXT}" twice - one for the navigation and one for the element`, function () {
+    it(`should contain the text "${INQUIRE_LINK_TEXT}" twice - one for the navigation and one for the element`, () => {
         render(<RemixStub />);
 
         expect(
             screen.queryAllByText(INQUIRE_LINK_TEXT, { exact: true })
         ).toHaveLength(2);
     });
-    it(`should contain the text "${EXPERIENCE_LINK_TEXT}" twice - one for the navigation and one for the element`, function () {
+    it(`should contain the text "${EXPERIENCE_LINK_TEXT}" twice - one for the navigation and one for the element`, () => {
         render(<RemixStub />);
 
         expect(
             screen.queryAllByText(EXPERIENCE_LINK_TEXT, { exact: true })
         ).toHaveLength(2);
     });
-    it(`should contain the text "${SKILLS_LINK_TEXT}" twice - one for the navigation and one for the element`, function () {
+    it(`should contain the text "${SKILLS_LINK_TEXT}" twice - one for the navigation and one for the element`, () => {
         render(<RemixStub />);
 
         expect(
             screen.queryAllByText(SKILLS_LINK_TEXT, { exact: true })
         ).toHaveLength(2);
     });
-    it(`should be able to locate the test ID for the "About" section paragraphs since it should be open initially`, function () {
+    it(`should be able to locate the test ID for the "About" section paragraphs since it should be open initially`, () => {
         render(<RemixStub />);
 
         expect(screen.queryByTestId(ABOUT_TEST_ID)).toBeInTheDocument();
     });
-    it(`should NOT be able to locate the test ID for the "Experience" section since it should NOT be open initially`, function () {
+    it(`should NOT be able to locate the test ID for the "Experience" section since it should NOT be open initially`, () => {
         render(<RemixStub />);
 
         expect(

@@ -6,7 +6,7 @@ on:
             - main
 jobs:
     test:
-        name: Test App
+        name: Integration Test App
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
             - name: Install dependencies
               run: npm install
             - name: Run tests
-              run: npm run test
+              run: npm run integration
     deploy:
         name: Deploy App to Production
         needs: test

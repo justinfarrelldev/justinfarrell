@@ -28,7 +28,7 @@ Now you'll need to pick a host to deploy it to.
 
 ### Hosting
 
-If you are going to fork this code, I highly recommend hosting it on Fly.io. I originally hosted this project on Vercel, but eventually chose to go with Fly.io due to issues with Vercel functions and long-running requests with the LLM. 
+If you are going to fork this code, I highly recommend hosting it on Fly.io. I originally hosted this project on Vercel, but eventually chose to go with Fly.io due to issues with Vercel functions and long-running requests with the LLM.
 
 ### DIY
 

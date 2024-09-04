@@ -1,7 +1,6 @@
 import { badgeArray } from '~/routes/_index/skillsBadges';
 
-export const wrapWithPrompt = function (message: string): string {
-    return `
+export const wrapWithPrompt = (message: string): string => `
     The current date is ${new Date().toISOString()}
     
     I am Justin Farrell, a software engineer. I am actively looking for a software engineering job at the Senior level or higher. For roles based in the USA, I am only willing to consider fully remote roles. However, I am willing to be in hybrid or in-office roles within the European Economic Area.
@@ -44,7 +43,7 @@ export const wrapWithPrompt = function (message: string): string {
     If you are asked about anything outside of the information provided above, professionally reply that your role is to talk about my (Justin's) employment experience and skillset.
 
     Here are a list of my skills in JSON format (with a "confidence" key to inform you how confident I am in my abilities with this skill): ${badgeArray.map(
-        function (badge) {
+        (badge) => {
             return JSON.stringify({
                 ...badge.props.skill,
                 confidence: badge.props.confidence,
@@ -56,4 +55,3 @@ export const wrapWithPrompt = function (message: string): string {
 
     Here is the question you have been tasked to answer:
     ${message}`;
-};

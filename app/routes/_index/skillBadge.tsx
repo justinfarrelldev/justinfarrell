@@ -10,10 +10,10 @@ type Props = {
     confidence: 'expert' | 'very-confident' | 'confident' | 'not-confident';
 };
 
-export const SkillBadge: FC<Props> = function ({
+export const SkillBadge: FC<Props> = ({
     skill,
     confidence,
-}: Props): React.ReactElement {
+}: Props): React.ReactElement => {
     // This might be a little sloppy, but it gives the intended effect and I'm too tired this morning to really worry!
     // I am aware there are better ways and that DRY is being criminally violated here...
     let badgeClass: string;
@@ -39,7 +39,7 @@ export const SkillBadge: FC<Props> = function ({
                 <span className={tooltipClass}>
                     <ul className="list-inside list-disc p-4">
                         <p className="text-lg font-bold">{skill.name}</p>
-                        {skill.achievements.map(function (achievement) {
+                        {skill.achievements.map((achievement) => {
                             return (
                                 <li
                                     key={achievement}
