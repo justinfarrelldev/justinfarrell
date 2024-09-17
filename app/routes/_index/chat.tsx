@@ -17,7 +17,20 @@ export const Chat = ({ onUserMessage, messages }: Props) => {
         <>
             <p className="text-sm">
                 This feature lets you chat with an AI to learn more about my
-                professional background. Please note that AIs{' '}
+                professional background. <br />
+                <br />
+                It leverages the OpenAI API to generate customized responses
+                tailored to the questions you ask and you can verify that{' '}
+                <a
+                    href="https://github.com/justinfarrelldev/justinfarrell"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    here (as this site is open-source).
+                </a>
+                <br />
+                <br />
+                Please note that AIs{' '}
                 <strong>
                     may occasionally generate inaccurate information
                 </strong>
