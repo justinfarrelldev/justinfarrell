@@ -550,6 +550,16 @@ export const SkillBadges: FC = () => {
                     setSearchText(event.target.value);
                 }}
             />
+            {screen && screen.width / screen.height < 1 ? (
+                <p className="text-sm font-semibold italic">
+                    Click on any of the skills to see my achievements with them
+                </p>
+            ) : (
+                <p className="text-sm font-semibold italic">
+                    Hover over any of the skills to see my achievements with
+                    them
+                </p>
+            )}
             {badgeArray
                 .filter((badge) => {
                     if (searchText === '' || searchText === undefined)
