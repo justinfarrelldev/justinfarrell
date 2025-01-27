@@ -51,7 +51,7 @@ describe('_index route', () => {
     it(`should have the text ${MAIN_SUBHEADING_TEXT} displayed prominently`, () => {
         render(<RemixStub />);
 
-        expect(screen.queryByText(MAIN_SUBHEADING_TEXT)).toBeInTheDocument();
+        expect(screen.queryAllByText(MAIN_SUBHEADING_TEXT)).toHaveLength(2);
     });
     it(`should contain the text "${ABOUT_LINK_TEXT}" twice - one for the navigation and one for the element`, () => {
         render(<RemixStub />);
