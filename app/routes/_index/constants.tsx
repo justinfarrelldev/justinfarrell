@@ -1,7 +1,7 @@
 import { SkillBadges } from './skillsBadges';
 
 export const MAIN_HEADING_TEXT = 'Justin Farrell';
-export const MAIN_SUBHEADING_TEXT = 'Full-Stack Engineer';
+export const MAIN_SUBHEADING_TEXT = 'Lead Software Engineer';
 // About
 export const ABOUT_LINK_TEXT = 'About Me';
 export const INQUIRE_LINK_TEXT = 'Ask An AI About Me';
@@ -25,25 +25,21 @@ export const ABOUT_TEXT = (
             engineering.
         </p>
         <p className="pt-6 text-xl">
-            In my most recent role, I was a Software Engineer at Lightcast on
-            the Phantom Team (engineering the{' '}
-            <a
-                href="https://www.asklightcast.io"
-                className="text-primary"
-                target="_blank"
-                rel="noreferrer"
-            >
-                new AI project, Ask Lightcast
-            </a>
-            ), where I explored and created new possibilities with AI.
+            I am currently employed as a <strong>Lead Software Engineer</strong>{' '}
+            at Intellibus, where I consult with many diverse teams to improve
+            their developer experiences using a special mix of AI and efficiency
+            enhancements. During this role, I regularly communicate with other
+            leads (as well as Scrum Masters, SDETs and SWEs) to identify common
+            pain points and resolve them as efficiently as possible. I feel very
+            fortunate to be able to work to improve something I am so passionate
+            about - <strong>the developer experience</strong>!
         </p>
         <p className="pt-6 text-xl">
-            However, I am now searching for <strong>new opportunities!</strong>{' '}
-            I am laser-focused on creating reliable software and am a massive
-            proponent of almost all kinds of software testing. I am searching
-            for an organization with a similar passion for quality - if you
-            believe your company has similar values, feel free to reach out to
-            me at{' '}
+            Despite being a Lead Software Engineer (and being extremely happy in
+            my role), I am still open to <strong>contract opportunities</strong>
+            ! I am laser-focused on creating reliable software and am a massive
+            proponent of almost all kinds of software testing - if you believe
+            your company has similar values, feel free to reach out to me at{' '}
             <a
                 href="mailto:justinfarrellwebdev@gmail.com"
                 className="text-primary"

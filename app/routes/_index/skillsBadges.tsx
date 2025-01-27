@@ -511,6 +511,48 @@ export const badgeArray: React.JSX.Element[] = [
         }}
         confidence="confident"
     />,
+    <SkillBadge
+        key="QuantConnect"
+        skill={{
+            name: 'QuantConnect',
+            achievements: [
+                'Using QuantConnect frequently for algorithmic trading and backtesting',
+                'Have gotten the course certificate for the Udemy course "Python for Finance and Algorithmic Trading with QuantConnect" as seen on my LinkedIn profile',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Java"
+        skill={{
+            name: 'Java',
+            achievements: [
+                'Have consulted with various teams working in Java projects',
+                'Used JavaFX for graphical apps in the past',
+            ],
+        }}
+        confidence="confident"
+    />,
+    <SkillBadge
+        key="Spring Boot"
+        skill={{
+            name: 'Spring Boot',
+            achievements: [
+                'Have consulted with a few teams using Spring Boot and done some basic projects in the past with Java and Spring Boot',
+            ],
+        }}
+        confidence="not-confident"
+    />,
+    <SkillBadge
+        key="Angular"
+        skill={{
+            name: 'Angular',
+            achievements: [
+                'Have consulted with a few teams using Angular and done some basic projects in the past using Angular 2 and RxJS',
+            ],
+        }}
+        confidence="not-confident"
+    />,
 ].sort((a, b) => {
     const confidenceOrder = {
         expert: 0,
