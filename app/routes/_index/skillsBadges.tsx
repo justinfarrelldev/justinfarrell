@@ -543,6 +543,16 @@ export const badgeArray: React.JSX.Element[] = [
         }}
         confidence="not-confident"
     />,
+    <SkillBadge
+        key="Angular"
+        skill={{
+            name: 'Angular',
+            achievements: [
+                'Have consulted with a few teams using Angular and done some basic projects in the past using Angular 2 and RxJS',
+            ],
+        }}
+        confidence="not-confident"
+    />,
 ].sort((a, b) => {
     const confidenceOrder = {
         expert: 0,
