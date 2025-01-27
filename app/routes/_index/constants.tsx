@@ -1,7 +1,7 @@
 import { SkillBadges } from './skillsBadges';
 
 export const MAIN_HEADING_TEXT = 'Justin Farrell';
-export const MAIN_SUBHEADING_TEXT = 'Full-Stack Engineer';
+export const MAIN_SUBHEADING_TEXT = 'Lead Software Engineer';
 // About
 export const ABOUT_LINK_TEXT = 'About Me';
 export const INQUIRE_LINK_TEXT = 'Ask An AI About Me';
