@@ -13,7 +13,7 @@ if (!process.env.VITEST && !process.env.CI)
         })
     );
 
-export const log = function (level: LogType, message: string, ...meta: any[]) {
+export const log = (level: LogType, message: string, ...meta: any[]) => {
     switch (level) {
         case 'error':
             console.error(chalk.red(message), ...meta);

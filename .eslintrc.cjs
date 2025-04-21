@@ -33,7 +33,7 @@ module.exports = {
         // React
         {
             files: ['**/*.{js,jsx,ts,tsx}'],
-            plugins: ['react', 'jsx-a11y'],
+            plugins: ['react', 'jsx-a11y', 'prefer-arrow-functions'],
             extends: [
                 'plugin:react/recommended',
                 'plugin:react/jsx-runtime',
@@ -58,7 +58,12 @@ module.exports = {
         // Typescript
         {
             files: ['**/*.{ts,tsx}'],
-            plugins: ['@typescript-eslint', 'import', 'es'],
+            plugins: [
+                '@typescript-eslint',
+                'import',
+                'es',
+                'prefer-arrow-functions',
+            ],
             parser: '@typescript-eslint/parser',
             settings: {
                 'import/internal-regex': '^~/',
@@ -77,14 +82,24 @@ module.exports = {
                 'plugin:import/typescript',
             ],
             rules: {
-                'es/no-arrow-functions': 'error',
                 '@typescript-eslint/no-explicit-any': 'off',
+                'prefer-arrow-callback': 'error',
+                'prefer-arrow-functions/prefer-arrow-functions': [
+                    'warn',
+                    {
+                        allowNamedFunctions: false,
+                        classPropertiesAllowed: false,
+                        disallowPrototype: false,
+                        returnStyle: 'unchanged',
+                        singleReturnOnly: false,
+                    },
+                ],
             },
         },
 
         // Node
         {
-            files: ['.eslintrc.cjs'],
+            files: ['.eslintrc.cjs', 'prefer-arrow-functions'],
             env: {
                 node: true,
             },

@@ -11,13 +11,26 @@ type Props = {
     messages: Message[];
 };
 
-export function Chat({ onUserMessage, messages }: Props) {
+export const Chat = ({ onUserMessage, messages }: Props) => {
     const [inputValue, setInputValue] = useState<string>('');
     return (
         <>
             <p className="text-sm">
                 This feature lets you chat with an AI to learn more about my
-                professional background. Please note that AIs{' '}
+                professional background. <br />
+                <br />
+                It leverages the OpenAI API to generate customized responses
+                tailored to the questions you ask and you can verify that{' '}
+                <a
+                    href="https://github.com/justinfarrelldev/justinfarrell"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    here (as this site is open-source).
+                </a>
+                <br />
+                <br />
+                Please note that AIs{' '}
                 <strong>
                     may occasionally generate inaccurate information
                 </strong>
@@ -33,7 +46,7 @@ export function Chat({ onUserMessage, messages }: Props) {
                 .
             </p>
 
-            {messages.map(function (message, index) {
+            {messages.map((message, index) => {
                 if (message.role === 'llm') {
                     return (
                         <motion.div
@@ -76,7 +89,7 @@ export function Chat({ onUserMessage, messages }: Props) {
 
             <Form
                 method="POST"
-                onSubmit={function (event) {
+                onSubmit={(event) => {
                     const formData = new FormData(event.currentTarget); // Access the form data
 
                     if (formData.get('userInput')) {
@@ -90,7 +103,7 @@ export function Chat({ onUserMessage, messages }: Props) {
                     type="text"
                     placeholder="Ask About Me"
                     className="input input-bordered input-secondary my-4 w-full"
-                    onChange={function (event) {
+                    onChange={(event) => {
                         setInputValue(event.target.value);
                     }}
                     value={inputValue}
@@ -98,4 +111,4 @@ export function Chat({ onUserMessage, messages }: Props) {
             </Form>
         </>
     );
-}
+};

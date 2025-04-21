@@ -6,6 +6,7 @@ import { Chat } from '../_index/chat';
 import { wrapWithPrompt } from '~/utils/prompts';
 import { HomeIcon } from './homeIcon';
 import { log } from '~/utils/logging';
+import { MAIN_PAGE_TITLE } from '~/constants/metadata';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -16,20 +17,18 @@ export type Message = {
     message: string;
 };
 
-export const meta: MetaFunction = function () {
-    return [
-        { title: 'Justin Farrell' },
-        {
-            name: 'description',
-            content:
-                'Senior Software Engineer specializing in React, TypeScript, and AI integration.',
-        },
-    ];
-};
+export const meta: MetaFunction = () => [
+    { title: MAIN_PAGE_TITLE },
+    {
+        name: 'description',
+        content:
+            'Senior Software Engineer specializing in React, TypeScript, and AI integration.',
+    },
+];
 
-export async function action({
+export const action = async ({
     request,
-}: ActionFunctionArgs): Promise<Message> {
+}: ActionFunctionArgs): Promise<Message> => {
     const body = await request.formData();
     const userInput = body.get('userInput');
     if (!userInput) {
@@ -59,14 +58,14 @@ export async function action({
     );
 
     return { role: 'llm', message: completion.choices[0].message.content! };
-}
+};
 
-export default function Index() {
+const Index = () => {
     const [messages, setMessages] = useState<Message[]>([]);
     const data = useActionData<typeof action>();
 
     useEffect(
-        function () {
+        () => {
             if (data)
                 setMessages([
                     ...messages,
@@ -83,7 +82,7 @@ export default function Index() {
                 <HomeIcon />
             </a>
             <Chat
-                onUserMessage={function (userMessage) {
+                onUserMessage={(userMessage) => {
                     setMessages([
                         ...messages,
                         {
@@ -96,4 +95,6 @@ export default function Index() {
             />
         </div>
     );
-}
+};
+
+export default Index;

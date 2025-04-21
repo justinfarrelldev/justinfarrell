@@ -22,6 +22,7 @@ import { loadFull } from 'tsparticles'; // if you are going to use `loadFull`, i
 import { initParticlesEngine, Particles } from '@tsparticles/react';
 import { Container } from 'node_modules/@tsparticles/engine/types/export-types';
 import { DESKTOP_OPTIONS, MOBILE_OPTIONS } from './tsparticlesPresets';
+import { MAIN_PAGE_DESCRIPTION, MAIN_PAGE_TITLE } from '~/constants/metadata';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -32,20 +33,17 @@ export type Message = {
     message: string;
 };
 
-export const meta: MetaFunction = function () {
-    return [
-        { title: 'Justin Farrell' },
-        {
-            name: 'description',
-            content:
-                'Senior Software Engineer specializing in React, TypeScript, and AI integration.',
-        },
-    ];
-};
+export const meta: MetaFunction = () => [
+    { title: MAIN_PAGE_TITLE },
+    {
+        name: 'description',
+        content: MAIN_PAGE_DESCRIPTION,
+    },
+];
 
-export async function action({
+export const action = async ({
     request,
-}: ActionFunctionArgs): Promise<Message> {
+}: ActionFunctionArgs): Promise<Message> => {
     const body = await request.formData();
     const userInput = body.get('userInput');
     if (!userInput) {
@@ -67,9 +65,9 @@ export async function action({
     );
 
     return { role: 'llm', message: completion.choices[0].message.content! };
-}
+};
 
-function determineInitialSection(hash: string): string {
+const determineInitialSection = (hash: string): string => {
     const noHash = hash.replaceAll('#', '');
 
     switch (noHash) {
@@ -89,32 +87,30 @@ function determineInitialSection(hash: string): string {
             return ABOUT_LINK_TEXT;
         }
     }
-}
+};
 
-const ParticleComponent = function ({
+const ParticleComponent = ({
     particlesLoaded,
     aspectRatio,
 }: {
     particlesLoaded: (container: Container | undefined) => any;
     aspectRatio: number;
-}) {
-    return (
-        <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            style={{ zIndex: 10 }}
-            options={aspectRatio < 1 ? MOBILE_OPTIONS : DESKTOP_OPTIONS}
-        />
-    );
-};
+}) => (
+    <Particles
+        id="tsparticles"
+        particlesLoaded={particlesLoaded}
+        style={{ zIndex: 10 }}
+        options={aspectRatio < 1 ? MOBILE_OPTIONS : DESKTOP_OPTIONS}
+    />
+);
 
-const particlesLoaded = async function (container: Container | undefined) {
+const particlesLoaded = async (container: Container | undefined) => {
     console.log(container);
 };
 
 const MemoizedParticleComponent = memo(ParticleComponent);
 
-export default function Index() {
+const Index = () => {
     const location = useLocation();
     // have to use state because DaisyUI only sets the display property for some reason
     const [openAccordionSection, setOpenAccordionSection] = useState<
@@ -125,7 +121,7 @@ export default function Index() {
     const [aspectRatio, setAspectRatio] = useState<number>(0);
 
     useEffect(
-        function () {
+        () => {
             if (data)
                 setMessages([
                     ...messages,
@@ -141,10 +137,10 @@ export default function Index() {
     const [init, setInit] = useState(false);
 
     // this should be run only once per application lifetime
-    useEffect(function () {
-        initParticlesEngine(async function (engine) {
+    useEffect(() => {
+        initParticlesEngine(async (engine) => {
             await loadFull(engine);
-        }).then(function () {
+        }).then(() => {
             setInit(true);
         });
     }, []);
@@ -172,14 +168,14 @@ export default function Index() {
                     >
                         {MAIN_HEADING_TEXT}
                     </motion.h1>
-                    <motion.p
+                    <motion.h2
                         className="pt-5 text-2xl"
                         initial={{ opacity: 0, x: -25 }}
                         animate={{ opacity: 100, x: 0 }}
                         transition={{ duration: 0.5, delay: 0 }}
                     >
                         {MAIN_SUBHEADING_TEXT}
-                    </motion.p>
+                    </motion.h2>
                     <motion.span
                         className="flex space-x-4 pt-4"
                         initial={{ opacity: 0, x: -25 }}
@@ -290,10 +286,10 @@ export default function Index() {
                                 uniqueId: 'about',
                                 header: ABOUT_LINK_TEXT,
                                 content: ABOUT_TEXT,
-                                onOpen: function () {
+                                onOpen: () => {
                                     setOpenAccordionSection(ABOUT_LINK_TEXT);
                                 },
-                                onClose: function () {
+                                onClose: () => {
                                     setOpenAccordionSection(null);
                                 },
                                 isOpen:
@@ -304,7 +300,7 @@ export default function Index() {
                                 header: INQUIRE_LINK_TEXT,
                                 content: (
                                     <Chat
-                                        onUserMessage={function (userMessage) {
+                                        onUserMessage={(userMessage) => {
                                             setMessages([
                                                 ...messages,
                                                 {
@@ -316,10 +312,10 @@ export default function Index() {
                                         messages={messages}
                                     />
                                 ),
-                                onOpen: function () {
+                                onOpen: () => {
                                     setOpenAccordionSection(INQUIRE_LINK_TEXT);
                                 },
-                                onClose: function () {
+                                onClose: () => {
                                     setOpenAccordionSection(null);
                                 },
                                 isOpen:
@@ -329,12 +325,12 @@ export default function Index() {
                                 uniqueId: 'experience',
                                 header: EXPERIENCE_LINK_TEXT,
                                 content: EXPERIENCE_TEXT,
-                                onOpen: function () {
+                                onOpen: () => {
                                     setOpenAccordionSection(
                                         EXPERIENCE_LINK_TEXT
                                     );
                                 },
-                                onClose: function () {
+                                onClose: () => {
                                     setOpenAccordionSection(null);
                                 },
                                 isOpen:
@@ -345,10 +341,10 @@ export default function Index() {
                                 uniqueId: 'skills',
                                 header: SKILLS_LINK_TEXT,
                                 content: SKILLS_TEXT,
-                                onOpen: function () {
+                                onOpen: () => {
                                     setOpenAccordionSection(SKILLS_LINK_TEXT);
                                 },
-                                onClose: function () {
+                                onClose: () => {
                                     setOpenAccordionSection(null);
                                 },
                                 isOpen:
@@ -360,4 +356,6 @@ export default function Index() {
             </section>
         </div>
     );
-}
+};
+
+export default Index;
