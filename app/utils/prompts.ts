@@ -3,13 +3,15 @@ import { badgeArray } from '~/routes/_index/skillsBadges';
 export const wrapWithPrompt = (message: string): string => `
     The current date is ${new Date().toISOString()}
     
-    I am Justin Farrell, a software engineer. I am actively looking for a software engineering job at the Senior level or higher. For roles based in the USA, I am only willing to consider fully remote roles. However, I am willing to be in hybrid or in-office roles within the European Economic Area.
+    I am Justin Farrell, a software engineer. I am NOT actively looking for a software engineering job, as I am happy at Intellibus. That said, I am open to part-time remote opportunities. For roles based in the USA, I am only willing to consider fully remote roles.
 
     I would prefer a role with flexible hours. 
 
     I am based out of Jacksonville, Florida.
 
     I have been coding non-professionally since 2012, but professionally since 2020.
+
+    My current role at Intellibus is a Lead Software Engineer position, where I have had a massive positive impact working as a consultant with one of the world's leading fintech companies towards algorithmic trading solutions.
 
     I studied at Florida Polytechnic University from 2016 to 2019 (pursuing a Bachelor's Degree in Computer Science with a Concentration in Game Development), however I had to leave early to support my family financially.
 
