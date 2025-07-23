@@ -7,7 +7,7 @@ import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
 type Props = {
-    onUserMessage: (messageContent: string) => any;
+    onUserMessage: (messageContent: string) => void;
     messages: Message[];
 };
 

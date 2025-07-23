@@ -5,9 +5,9 @@ type Section = {
     uniqueId: string;
     header: string;
     content: JSX.Element;
-    onOpen: () => any;
+    onOpen: () => void;
     isOpen: boolean;
-    onClose: () => any;
+    onClose: () => void;
 };
 
 type Props = {

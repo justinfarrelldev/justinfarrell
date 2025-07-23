@@ -497,7 +497,7 @@ const checkNumberOfCompletedTodosInLocalStorage = async (
     return await page.waitForFunction((e) => {
         return (
             JSON.parse(localStorage['react-todos']).filter(
-                (todo: any) => todo.completed
+                (todo: { completed: boolean }) => todo.completed
             ).length === e
         );
     }, expected);
@@ -509,7 +509,7 @@ const checkTodosInLocalStorage = async (
 ): Promise<unknown> => {
     return await page.waitForFunction((t) => {
         return JSON.parse(localStorage['react-todos'])
-            .map((todo: any) => todo.title)
+            .map((todo: { title: string }) => todo.title)
             .includes(t);
     }, title);
 };

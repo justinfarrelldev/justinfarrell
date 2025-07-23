@@ -1,4 +1,6 @@
-export const DESKTOP_OPTIONS: any = {
+import { IParticlesProps } from '@tsparticles/react';
+
+export const DESKTOP_OPTIONS: NonNullable<IParticlesProps['options']> = {
     background: {
         color: {
             value: '#000',
@@ -15,7 +17,7 @@ export const DESKTOP_OPTIONS: any = {
                 enable: true,
                 mode: 'repulse',
             },
-            resize: true as any,
+            resize: true,
         },
         modes: {
             push: {
@@ -69,7 +71,7 @@ export const DESKTOP_OPTIONS: any = {
     detectRetina: true,
 };
 
-export const MOBILE_OPTIONS: any = {
+export const MOBILE_OPTIONS: NonNullable<IParticlesProps['options']> = {
     background: {
         color: {
             value: '#000',

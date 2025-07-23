@@ -92,7 +92,7 @@ const ParticleComponent = ({
     particlesLoaded,
     aspectRatio,
 }: {
-    particlesLoaded: (container: any | undefined) => any;
+    particlesLoaded: (container: unknown) => Promise<void>;
     aspectRatio: number;
 }) => (
     <Particles
@@ -103,8 +103,10 @@ const ParticleComponent = ({
     />
 );
 
-const particlesLoaded = async (container: any | undefined) => {
+const particlesLoaded = async (container: unknown): Promise<void> => {
     console.log(container);
+
+    return Promise.resolve();
 };
 
 const MemoizedParticleComponent = memo(ParticleComponent);
