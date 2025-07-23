@@ -471,7 +471,7 @@ test.describe('Routing', () => {
     });
 });
 
-async function createDefaultTodos(page: Page) {
+const createDefaultTodos = async (page: Page): Promise<void> => {
     // create a new todo locator
     const newTodo = page.getByPlaceholder('What needs to be done?');
 
@@ -479,18 +479,21 @@ async function createDefaultTodos(page: Page) {
         await newTodo.fill(item);
         await newTodo.press('Enter');
     }
-}
+};
 
-async function checkNumberOfTodosInLocalStorage(page: Page, expected: number) {
+const checkNumberOfTodosInLocalStorage = async (
+    page: Page,
+    expected: number
+): Promise<unknown> => {
     return await page.waitForFunction((e) => {
         return JSON.parse(localStorage['react-todos']).length === e;
     }, expected);
-}
+};
 
-async function checkNumberOfCompletedTodosInLocalStorage(
+const checkNumberOfCompletedTodosInLocalStorage = async (
     page: Page,
     expected: number
-) {
+): Promise<unknown> => {
     return await page.waitForFunction((e) => {
         return (
             JSON.parse(localStorage['react-todos']).filter(
@@ -498,12 +501,15 @@ async function checkNumberOfCompletedTodosInLocalStorage(
             ).length === e
         );
     }, expected);
-}
+};
 
-async function checkTodosInLocalStorage(page: Page, title: string) {
+const checkTodosInLocalStorage = async (
+    page: Page,
+    title: string
+): Promise<unknown> => {
     return await page.waitForFunction((t) => {
         return JSON.parse(localStorage['react-todos'])
             .map((todo: any) => todo.title)
             .includes(t);
     }, title);
-}
+};
