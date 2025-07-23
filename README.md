@@ -36,5 +36,5 @@ If you're familiar with deploying Node applications, the built-in Remix app serv
 
 Make sure to deploy the output of `pnpm run build`
 
--   `build/server`
--   `build/client`
+- `build/server`
+- `build/client`

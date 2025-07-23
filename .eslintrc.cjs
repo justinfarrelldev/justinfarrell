@@ -82,7 +82,6 @@ module.exports = {
                 'plugin:import/typescript',
             ],
             rules: {
-                '@typescript-eslint/no-explicit-any': 'off',
                 'prefer-arrow-callback': 'error',
                 'prefer-arrow-functions/prefer-arrow-functions': [
                     'warn',

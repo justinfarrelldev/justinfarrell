@@ -1,4 +1,4 @@
-import { ActionFunctionArgs } from '@remix-run/node';
+import { ActionFunctionArgs } from 'react-router';
 import { log } from '~/utils/logging';
 
 export const action = ({ request }: ActionFunctionArgs) => {

@@ -6,9 +6,9 @@
 
 import { PassThrough } from 'node:stream';
 
-import type { AppLoadContext, EntryContext } from '@remix-run/node';
-import { createReadableStreamFromReadable } from '@remix-run/node';
-import { RemixServer } from '@remix-run/react';
+import type { AppLoadContext, EntryContext } from 'react-router';
+import { ServerRouter } from 'react-router';
+import { createReadableStreamFromReadable } from '@react-router/node';
 import { isbot } from 'isbot';
 import { renderToPipeableStream } from 'react-dom/server';
 import { log } from './utils/logging';
@@ -49,11 +49,7 @@ const handleBotRequest = (
     return new Promise((resolve, reject) => {
         let shellRendered = false;
         const { pipe, abort } = renderToPipeableStream(
-            <RemixServer
-                context={remixContext}
-                url={request.url}
-                abortDelay={ABORT_DELAY}
-            />,
+            <ServerRouter context={remixContext} url={request.url} />,
             {
                 onAllReady: () => {
                     shellRendered = true;
@@ -103,11 +99,7 @@ const handleBrowserRequest = (
     return new Promise((resolve, reject) => {
         let shellRendered = false;
         const { pipe, abort } = renderToPipeableStream(
-            <RemixServer
-                context={remixContext}
-                url={request.url}
-                abortDelay={ABORT_DELAY}
-            />,
+            <ServerRouter context={remixContext} url={request.url} />,
             {
                 onShellReady: () => {
                     shellRendered = true;

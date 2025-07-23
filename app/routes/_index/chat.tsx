@@ -1,4 +1,4 @@
-import { Form } from '@remix-run/react';
+import { Form } from 'react-router';
 import { Message } from './route';
 import { useState } from 'react';
 import { motion } from 'framer-motion';

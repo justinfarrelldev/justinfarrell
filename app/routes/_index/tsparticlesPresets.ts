@@ -1,6 +1,4 @@
-import { ISourceOptions } from '@tsparticles/engine';
-
-export const DESKTOP_OPTIONS: ISourceOptions = {
+export const DESKTOP_OPTIONS: any = {
     background: {
         color: {
             value: '#000',
@@ -71,7 +69,7 @@ export const DESKTOP_OPTIONS: ISourceOptions = {
     detectRetina: true,
 };
 
-export const MOBILE_OPTIONS: ISourceOptions = {
+export const MOBILE_OPTIONS: any = {
     background: {
         color: {
             value: '#000',
