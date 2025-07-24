@@ -17,6 +17,7 @@ export const DESKTOP_OPTIONS: NonNullable<IParticlesProps['options']> = {
                 enable: true,
                 mode: 'repulse',
             },
+            // @ts-expect-error This is incorrect in the API definition for the tsparticles module
             resize: true,
         },
         modes: {
