@@ -1,6 +1,6 @@
-import { ISourceOptions } from '@tsparticles/engine';
+import { IParticlesProps } from '@tsparticles/react';
 
-export const DESKTOP_OPTIONS: ISourceOptions = {
+export const DESKTOP_OPTIONS: NonNullable<IParticlesProps['options']> = {
     background: {
         color: {
             value: '#000',
@@ -17,7 +17,8 @@ export const DESKTOP_OPTIONS: ISourceOptions = {
                 enable: true,
                 mode: 'repulse',
             },
-            resize: true as any,
+            // @ts-expect-error This is incorrect in the API definition for the tsparticles module
+            resize: true,
         },
         modes: {
             push: {
@@ -71,7 +72,7 @@ export const DESKTOP_OPTIONS: ISourceOptions = {
     detectRetina: true,
 };
 
-export const MOBILE_OPTIONS: ISourceOptions = {
+export const MOBILE_OPTIONS: NonNullable<IParticlesProps['options']> = {
     background: {
         color: {
             value: '#000',

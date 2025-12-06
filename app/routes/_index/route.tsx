@@ -1,4 +1,4 @@
-import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
+import type { ActionFunctionArgs, MetaFunction } from 'react-router';
 import {
     ABOUT_LINK_TEXT,
     ABOUT_TEXT,
@@ -11,7 +11,7 @@ import {
     SKILLS_TEXT,
 } from './constants';
 import { memo, useEffect, useState } from 'react';
-import { useActionData, useLocation } from '@remix-run/react';
+import { useActionData, useLocation } from 'react-router';
 import OpenAI from 'openai';
 import { Chat } from './chat';
 import { wrapWithPrompt } from '~/utils/prompts';
@@ -20,7 +20,6 @@ import { motion } from 'framer-motion';
 import { log } from '~/utils/logging';
 import { loadFull } from 'tsparticles'; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { initParticlesEngine, Particles } from '@tsparticles/react';
-import { Container } from 'node_modules/@tsparticles/engine/types/export-types';
 import { DESKTOP_OPTIONS, MOBILE_OPTIONS } from './tsparticlesPresets';
 import { MAIN_PAGE_DESCRIPTION, MAIN_PAGE_TITLE } from '~/constants/metadata';
 
@@ -55,7 +54,7 @@ export const action = async ({
         messages: [
             { role: 'system', content: wrapWithPrompt(userInput.toString()) },
         ],
-        model: 'gpt-4o',
+        model: 'gpt-5.1',
         temperature: 0.2,
     });
 
@@ -93,7 +92,7 @@ const ParticleComponent = ({
     particlesLoaded,
     aspectRatio,
 }: {
-    particlesLoaded: (container: Container | undefined) => any;
+    particlesLoaded: (container: unknown) => Promise<void>;
     aspectRatio: number;
 }) => (
     <Particles
@@ -104,8 +103,10 @@ const ParticleComponent = ({
     />
 );
 
-const particlesLoaded = async (container: Container | undefined) => {
+const particlesLoaded = async (container: unknown): Promise<void> => {
     console.log(container);
+
+    return Promise.resolve();
 };
 
 const MemoizedParticleComponent = memo(ParticleComponent);

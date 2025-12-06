@@ -1,4 +1,4 @@
-import { Form } from '@remix-run/react';
+import { Form } from 'react-router';
 import { Message } from './route';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -7,7 +7,7 @@ import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
 type Props = {
-    onUserMessage: (messageContent: string) => any;
+    onUserMessage: (messageContent: string) => void;
     messages: Message[];
 };
 

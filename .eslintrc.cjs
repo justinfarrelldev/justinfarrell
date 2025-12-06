@@ -19,6 +19,11 @@ module.exports = {
         commonjs: true,
         es6: true,
     },
+    settings: {
+        react: {
+            version: 'detect',
+        },
+    },
     ignorePatterns: ['!**/.server', '!**/.client'],
 
     // Base config
@@ -82,7 +87,6 @@ module.exports = {
                 'plugin:import/typescript',
             ],
             rules: {
-                '@typescript-eslint/no-explicit-any': 'off',
                 'prefer-arrow-callback': 'error',
                 'prefer-arrow-functions/prefer-arrow-functions': [
                     'warn',

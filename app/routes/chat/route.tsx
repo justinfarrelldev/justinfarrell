@@ -1,6 +1,6 @@
-import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
+import type { ActionFunctionArgs, MetaFunction } from 'react-router';
 import { useEffect, useState } from 'react';
-import { useActionData } from '@remix-run/react';
+import { useActionData } from 'react-router';
 import OpenAI from 'openai';
 import { Chat } from '../_index/chat';
 import { wrapWithPrompt } from '~/utils/prompts';
@@ -47,7 +47,7 @@ export const action = async ({
         messages: [
             { role: 'system', content: wrapWithPrompt(userInput.toString()) },
         ],
-        model: 'gpt-4o',
+        model: 'gpt-5.1',
         temperature: 0.2,
     });
 

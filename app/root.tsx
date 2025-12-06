@@ -1,11 +1,5 @@
-import {
-    Links,
-    Meta,
-    Outlet,
-    Scripts,
-    ScrollRestoration,
-} from '@remix-run/react';
-import { json, type LinksFunction } from '@remix-run/node';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import { type LinksFunction, data } from 'react-router';
 import stylesheet from '~/tailwind.css?url';
 
 export const links: LinksFunction = () => [
@@ -13,7 +7,7 @@ export const links: LinksFunction = () => [
 ];
 
 export const loader = () =>
-    json(
+    data(
         {},
         {
             headers: {

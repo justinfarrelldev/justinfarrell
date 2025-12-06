@@ -19,9 +19,9 @@ import {
     MAIN_SUBHEADING_TEXT,
     SKILLS_LINK_TEXT,
 } from './constants';
-import { createRemixStub } from '@remix-run/testing';
+import { createRoutesStub } from 'react-router';
 
-const RemixStub = createRemixStub([
+const RemixStub = createRoutesStub([
     {
         path: '/',
         Component: Index,
