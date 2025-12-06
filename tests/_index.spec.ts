@@ -38,36 +38,30 @@ test(`has subheading text of "${MAIN_SUBHEADING_TEXT}"`, async ({ page }) => {
     ).toBeVisible();
 });
 
-test('GitHub link', async ({ page, context }) => {
+test('GitHub link', async ({ page }) => {
     await page.goto('/');
 
-    // Click the GitHub link.
-    const [newPage] = await Promise.all([
-        context.waitForEvent('page'), // Wait for the new tab to open
-        page.getByRole('link', { name: 'My GitHub Profile' }).click(),
-    ]);
+    const githubLink = page.getByRole('link', { name: 'My GitHub Profile' });
 
-    await newPage.waitForURL('https://github.com/justinfarrelldev');
-
-    expect(newPage.url()).toBe('https://github.com/justinfarrelldev');
+    await expect(githubLink).toHaveAttribute(
+        'href',
+        'https://github.com/justinfarrelldev'
+    );
+    await expect(githubLink).toHaveAttribute('target', '_blank');
 });
 
-test('LinkedIn link', async ({ page, context }) => {
+test('LinkedIn link', async ({ page }) => {
     await page.goto('/');
 
-    // Click the LinkedIn link.
-    const [newPage] = await Promise.all([
-        context.waitForEvent('page'), // Wait for the new tab to open
-        page.getByRole('link', { name: 'My LinkedIn Profile' }).click(),
-    ]);
+    const linkedInLink = page.getByRole('link', {
+        name: 'My LinkedIn Profile',
+    });
 
-    await newPage.waitForURL(
+    await expect(linkedInLink).toHaveAttribute(
+        'href',
         'https://www.linkedin.com/in/justin-farrell-web-dev/'
     );
-
-    expect(newPage.url()).toBe(
-        'https://www.linkedin.com/in/justin-farrell-web-dev/'
-    );
+    await expect(linkedInLink).toHaveAttribute('target', '_blank');
 });
 
 test('Email link', async ({ page }) => {
