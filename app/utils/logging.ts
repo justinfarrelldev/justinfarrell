@@ -4,11 +4,11 @@ import chalk from 'chalk';
 
 type LogType = 'log' | 'info' | 'warn' | 'error';
 
-if (!process.env.VITEST && !process.env.CI)
+if (!import.meta.env.VITEST && !import.meta.env.CI)
     winston.add(
         new Loggly({
-            token: process.env.LOGGLY_TOKEN!,
-            subdomain: process.env.LOGGLY_SUBDOMAIN!,
+            token: import.meta.env.LOGGLY_TOKEN!,
+            subdomain: import.meta.env.LOGGLY_SUBDOMAIN!,
             tags: ['justinfarrell'],
         })
     );
