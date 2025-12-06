@@ -47,7 +47,7 @@ export const action = async ({
         messages: [
             { role: 'system', content: wrapWithPrompt(userInput.toString()) },
         ],
-        model: 'gpt-4.1',
+        model: 'gpt-5.1',
         temperature: 0.2,
     });
 
