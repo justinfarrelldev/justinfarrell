@@ -23,9 +23,19 @@ import { initParticlesEngine, Particles } from '@tsparticles/react';
 import { DESKTOP_OPTIONS, MOBILE_OPTIONS } from './tsparticlesPresets';
 import { MAIN_PAGE_DESCRIPTION, MAIN_PAGE_TITLE } from '~/constants/metadata';
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+let openaiClient: OpenAI | null = null;
+
+const getOpenAI = () => {
+    if (!process.env.OPENAI_API_KEY) {
+        throw new Error('OPENAI_API_KEY environment variable is not set');
+    }
+    if (!openaiClient) {
+        openaiClient = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY,
+        });
+    }
+    return openaiClient;
+};
 
 export type Message = {
     role: 'user' | 'llm';
@@ -50,7 +60,7 @@ export const action = async ({
     }
 
     const initialTimestamp = new Date().getTime();
-    const completion = await openai.chat.completions.create({
+    const completion = await getOpenAI().chat.completions.create({
         messages: [
             { role: 'system', content: wrapWithPrompt(userInput.toString()) },
         ],

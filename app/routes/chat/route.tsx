@@ -8,9 +8,19 @@ import { HomeIcon } from './homeIcon';
 import { log } from '~/utils/logging';
 import { MAIN_PAGE_TITLE } from '~/constants/metadata';
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+let openaiClient: OpenAI | null = null;
+
+const getOpenAI = () => {
+    if (!process.env.OPENAI_API_KEY) {
+        throw new Error('OPENAI_API_KEY environment variable is not set');
+    }
+    if (!openaiClient) {
+        openaiClient = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY,
+        });
+    }
+    return openaiClient;
+};
 
 export type Message = {
     role: 'user' | 'llm';
@@ -43,7 +53,7 @@ export const action = async ({
         userInput.toString()
     );
 
-    const completion = await openai.chat.completions.create({
+    const completion = await getOpenAI().chat.completions.create({
         messages: [
             { role: 'system', content: wrapWithPrompt(userInput.toString()) },
         ],
