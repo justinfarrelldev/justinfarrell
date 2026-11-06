@@ -1,0 +1,37 @@
+diff --git a/dist/index.js b/dist/index.js
+index c327c95b996e355e9f641d53707154bb58afbef9..d9ebae835817f635c8dc71c3b22eb4f2e546836d 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -11,7 +11,7 @@
+ import fs from "node:fs";
+ import path from "node:path";
+ import { getAppDirectory } from "@react-router/dev/routes";
+-import { makeRe } from "minimatch";
++import { Minimatch } from "minimatch";
+ //#region manifest.ts
+ function routeManifestToRouteConfig(routeManifest, rootId = "root") {
+ 	let routeConfigById = {};
+@@ -85,7 +85,7 @@ var PrefixLookupTrie = class {
+ 	}
+ };
+ function flatRoutes$1(appDirectory, ignoredFilePatterns = [], prefix = "routes") {
+-	let ignoredFileRegex = Array.from(new Set(["**/.*", ...ignoredFilePatterns])).map((re) => makeRe(re)).filter((re) => !!re);
++	let ignoredFileRegex = Array.from(new Set(["**/.*", ...ignoredFilePatterns])).map((re) => new Minimatch(re));
+ 	let routesDir = path.join(appDirectory, prefix);
+ 	if (!findFile(appDirectory, "root", routeModuleExts)) throw new Error(`Could not find a root route module in the app directory: ${appDirectory}`);
+ 	if (!fs.existsSync(routesDir)) throw new Error(`Could not find the routes directory: ${routesDir}. Did you forget to create it?`);
+@@ -217,12 +217,12 @@ function flatRoutesUniversal(appDirectory, routes, prefix = "routes") {
+ }
+ function findRouteModuleForFile(appDirectory, filepath, ignoredFileRegex) {
+ 	let relativePath = normalizeSlashes(path.relative(appDirectory, filepath));
+-	if (ignoredFileRegex.some((regex) => regex.test(relativePath))) return null;
++	if (ignoredFileRegex.some((regex) => regex.match(relativePath))) return null;
+ 	return filepath;
+ }
+ function findRouteModuleForFolder(appDirectory, filepath, ignoredFileRegex) {
+ 	let relativePath = path.relative(appDirectory, filepath);
+-	if (ignoredFileRegex.some((regex) => regex.test(relativePath))) return null;
++	if (ignoredFileRegex.some((regex) => regex.match(relativePath))) return null;
+ 	let routeRouteModule = findFile(filepath, "route", routeModuleExts);
+ 	let routeIndexModule = findFile(filepath, "index", routeModuleExts);
+ 	if (routeRouteModule && routeIndexModule) {
