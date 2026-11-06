@@ -20,6 +20,7 @@ import {
     SKILLS_LINK_TEXT,
 } from './constants';
 import { createRoutesStub } from 'react-router';
+import { MotionGlobalConfig } from 'framer-motion';
 
 const RemixStub = createRoutesStub([
     {
@@ -28,16 +29,22 @@ const RemixStub = createRoutesStub([
     },
 ]);
 
+vi.mock('openai', () => {
+    return {
+        // eslint-disable-next-line prefer-arrow-functions/prefer-arrow-functions
+        default: function () {},
+    };
+});
+
 describe('_index route', () => {
+    const originalSkipAnimations = MotionGlobalConfig.skipAnimations;
+
     beforeAll(() => {
-        vi.mock('openai', () => {
-            return {
-                // eslint-disable-next-line prefer-arrow-functions/prefer-arrow-functions
-                default: function () {},
-            };
-        });
+        // These assertions cover content, not browser animation playback.
+        MotionGlobalConfig.skipAnimations = true;
     });
     afterAll(() => {
+        MotionGlobalConfig.skipAnimations = originalSkipAnimations;
         vi.resetAllMocks();
     });
     afterEach(() => {
