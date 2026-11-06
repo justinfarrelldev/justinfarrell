@@ -13,7 +13,7 @@ WORKDIR /app
 ENV NODE_ENV="production"
 
 # Install pnpm
-RUN npm install -g pnpm
+RUN npm install -g pnpm@10.30.0
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -24,6 +24,7 @@ RUN apt-get update -qq && \
 
 # Install node modules
 COPY --link pnpm-lock.yaml package.json ./
+COPY --link patches ./patches
 RUN pnpm install --frozen-lockfile
 
 # Copy application code
